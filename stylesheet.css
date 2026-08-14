@@ -37,24 +37,54 @@ section, footer.site {
 
 /* NAV */
 .navbar {
-    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 24px 40px;
     margin: 0;
+    transition: padding .3s ease, box-shadow .3s ease;
 }
-.navLogoClau img { height: 28px; display: block; }
+.navbar.scrolled {
+    padding: 10px 40px;
+    box-shadow: 0 1px 0 var(--line);
+}
+.navLogoClau .avatar {
+    height: 110px; width: 92px; object-fit: cover;
+    border-radius: 14px; display: block;
+    transition: height .3s ease, width .3s ease, border-radius .3s ease;
+}
+.navbar.scrolled .navLogoClau .avatar {
+    height: 44px; width: 44px; border-radius: 10px;
+}
+.navActions { display: flex; align-items: center; gap: 28px; }
 .navbar ul { list-style: none; display: flex; gap: 8px; margin: 0; padding: 0; }
 .navbar li { text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: .04em; }
-.navbar a { display: block; color: var(--ink); text-decoration: none; padding: 28px 14px; transition: color .15s; }
-.navbar a:hover { color: var(--accent); }
+.navbar ul a { display: block; color: var(--ink); text-decoration: none; padding: 10px 14px; transition: color .15s; }
+.navbar ul a:hover { color: var(--accent); }
+.nav-cta { margin: 0; padding: 14px 24px; font-size: 12px; }
 
 /* HERO */
-.hero { padding-top: 80px; padding-bottom: 32px; }
-.hero h1 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.15; margin-bottom: 28px; max-width: 16ch; }
-.hero h1 .hl { font-weight: 800; }
-.hero p { font-size: 16px; }
+.hero {
+    max-width: 1280px;
+    padding-top: 32px;
+    padding-bottom: 40px;
+}
+.hero h1 {
+    font-size: clamp(44px, 7.4vw, 108px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    margin-bottom: 40px;
+    max-width: none;
+    font-weight: 800;
+    color: var(--ink);
+}
+.hero h1 .muted { color: #A9A6A2; font-weight: 800; }
+.hero h1 .icon-img { height: 0.9em; width: auto; vertical-align: middle; display: inline-block; }
+.hero p { font-size: 17px; max-width: 68ch; }
 .hero p strong { color: var(--ink); }
 
 .btn-pill {

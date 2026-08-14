@@ -16,21 +16,22 @@
     <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" id="siteNav">
         <div class="navLogoClau">
-            <a href="#" class="logo"><img src="logo.png" alt="Logo"></a>
+            <a href="#"><img src="avatar.png" alt="Claudia Domingo Ruiz" class="avatar"></a>
         </div>
         <div class="navActions">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About me</a></li>
-                <li><a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#">CV</a></li>
+                <li><a href="#">Creative space</a></li>
             </ul>
+            <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta">Contact me</a>
         </div>
     </nav>
 
     <section class="hero">
-        <h1>I'm <span class="hl">Claudia Sunday</span> a product designer and much more. I'm from <span class="hl">Barcelona</span>.</h1>
+        <h1><span class="muted">I'm</span> <strong>Claudia Sunday</strong> <img src="persona.svg" alt="" class="icon-img"> <span class="muted">a</span> <strong>product designer</strong> <span class="muted">and much more</span> <img src="LOGO.svg" alt="" class="icon-img"> . <strong>I'm from</strong> <span class="muted">Barcelona</span> <img src="barcelona.svg" alt="" class="icon-img"></h1>
 
         <p><strong>My latest experience at Dogfy Diet highlights my versatility:</strong> I've designed both customer-facing products (the mobile App and client area) and internal business tools (the sales team CRM). My approach combines data-driven decisions via A/B testing with technical rigor — maintaining robust Design Systems and collaborating closely with IT and Marketing to ensure flawless product implementation.</p>
 
@@ -108,6 +109,20 @@
         <a href="#">Add me on LinkedIn</a>
         <a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
     </footer>
-
+    <script>
+        (function () {
+            var nav = document.getElementById('siteNav');
+            var THRESHOLD = 60;
+            function onScroll() {
+                if (window.scrollY > THRESHOLD) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
 </body>
 </html>
