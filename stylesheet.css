@@ -174,3 +174,73 @@ footer.site a:hover { color: var(--ink); }
 @media (max-width: 720px) {
     .projectsGrid, .ceramicsGrid { grid-template-columns: 1fr; }
 }
+
+/* CREATIVE SPACE — marquee bar */
+.marqueeBar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--line);
+    max-width: none;
+    overflow: hidden;
+}
+.marqueeLabel {
+    display: flex; align-items: center; gap: 8px;
+    flex: none;
+    font-size: 22px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: -0.01em; color: var(--ink);
+}
+.marqueeLabel .marqueeIcon { height: 22px; width: auto; }
+.marquee { overflow: hidden; flex: 1; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee-scroll 22s linear infinite;
+}
+.marquee-track span {
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: #A9A6A2;
+}
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+}
+
+/* CREATIVE SPACE — split panel */
+.splitPanel {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 0;
+    max-width: none;
+    padding: 0;
+    height: 70vh;
+    min-height: 420px;
+}
+.splitLeft, .splitRight {
+    overflow: hidden;
+    position: relative;
+}
+.splitLeft img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.splitRight {
+    background: #3C3831;
+    display: flex; align-items: center; justify-content: center;
+}
+.splitLogo { width: 60%; max-width: 320px; display: block; }
+
+.ceramicsCopy { padding-top: 56px; }
+.ceramicsCopy h2 { font-size: clamp(26px, 3.4vw, 34px); text-transform: uppercase; margin-bottom: 18px; }
+.ceramicsCopy p { max-width: 68ch; }
+
+@media (max-width: 720px) {
+    .splitPanel { grid-template-columns: 1fr; height: auto; }
+    .splitLeft, .splitRight { height: 320px; }
+}

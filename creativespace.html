@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Sunday Ceramics — Creative Space | Claudia Domingo Ruiz</title>
+    <meta name="description" content="A personal ceramics project by Claudia Domingo Ruiz: blending research, people and clay — an extension of her UX/UI creative process.">
+</head>
+<body>
+    <nav class="navbar" id="siteNav">
+        <div class="navLogoClau">
+            <a href="index.html"><img src="avatar.png" alt="Claudia Domingo Ruiz" class="avatar"></a>
+        </div>
+        <div class="navActions">
+            <ul>
+                <li><a href="index.html#projects">Work</a></li>
+                <li><a href="#">CV</a></li>
+                <li><a href="creativespace.html">Creative space</a></li>
+            </ul>
+            <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta">Contact me</a>
+        </div>
+    </nav>
+
+    <section class="marqueeBar">
+        <span class="marqueeLabel"><img src="ceramics-logo.png" alt="" class="marqueeIcon">Clay.</span>
+        <div class="marquee">
+            <div class="marquee-track">
+                <span>Welcome to my ceramics project. &nbsp; Blending research, people &amp; clay. &nbsp; </span>
+                <span>Welcome to my ceramics project. &nbsp; Blending research, people &amp; clay. &nbsp; </span>
+                <span>Welcome to my ceramics project. &nbsp; Blending research, people &amp; clay. &nbsp; </span>
+                <span>Welcome to my ceramics project. &nbsp; Blending research, people &amp; clay. &nbsp; </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="splitPanel">
+        <div class="splitLeft">
+            <img src="ceramics-vases.jpg" alt="Handmade ceramic vases with handwritten customer research notes">
+        </div>
+        <div class="splitRight">
+            <img src="ceramics-logo.png" alt="Sunday Ceramics logo" class="splitLogo">
+        </div>
+    </section>
+
+    <section class="ceramicsCopy">
+        <h2>From pixels to pottery</h2>
+        <p>As a UX/UI designer by trade, I'm passionate about blending form, function, and beauty. This ceramics project is an extension of my creative process — a hands-on exploration of materiality, design, and human connection. It reflects my love for research, my curiosity about tactile experiences, and my drive to craft meaningful, expressive work.</p>
+    </section>
+
+    <footer class="site">
+        <span>2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain</span>
+        <a href="#">Add me on LinkedIn</a>
+        <a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
+    </footer>
+
+    <script>
+        (function () {
+            var nav = document.getElementById('siteNav');
+            var THRESHOLD = 60;
+            function onScroll() {
+                if (window.scrollY > THRESHOLD) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
+</body>
+</html>
