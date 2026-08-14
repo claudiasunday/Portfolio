@@ -17,34 +17,76 @@
 </head>
 <body>
     <nav class="navbar" id="siteNav">
-        <div class="navLogoClau">
-            <a href="#"><img src="avatar.png" alt="Claudia Domingo Ruiz" class="avatar"></a>
-        </div>
-        <div class="navActions">
-            <ul>
-                <li><a href="#projects">Work</a></li>
-                <li><a href="#">CV</a></li>
-                <li><a href="creativespace.html">Creative space</a></li>
-            </ul>
-            <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta">Contact me</a>
+        <div class="navInner">
+            <div class="navLogoClau">
+                <a href="#"><img src="avatar.png" alt="Claudia Domingo Ruiz" class="avatar"></a>
+            </div>
+            <div class="navActions">
+                <ul>
+                    <li><a href="#projects">Work</a></li>
+                    <li><a href="#">CV</a></li>
+                    <li><a href="#ceramicsSection">OOO</a></li>
+                </ul>
+                <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta">Contact me</a>
+            </div>
         </div>
     </nav>
 
     <section class="hero">
-        <h1><span class="muted">I'm</span> <strong>Claudia Sunday</strong> <img src="persona.svg" alt="" class="icon-img"> <span class="muted">a</span> <strong>product designer</strong> <span class="muted">and much more</span> <img src="LOGO.svg" alt="" class="icon-img"> . <strong>I'm from</strong> <span class="muted">Barcelona</span> <img src="barcelona.svg" alt="" class="icon-img"></h1>
+        <h1><span class="muted">I'm</span> <strong>Claudia Sunday</strong> <img src="persona.svg" alt="" class="icon-img"> <span class="muted">a</span> <strong>product designer</strong> <span class="muted">and</span> <strong>much more</strong> <img src="LOGO.svg" alt="" class="icon-img"> <span class="muted">Located in</span> <strong>BCN</strong> <img src="barcelona.svg" alt="" class="icon-img"></h1>
 
-        <p><strong>My latest experience at Dogfy Diet highlights my versatility:</strong> I've designed both customer-facing products (the mobile App and client area) and internal business tools (the sales team CRM). My approach combines data-driven decisions via A/B testing with technical rigor — maintaining robust Design Systems and collaborating closely with IT and Marketing to ensure flawless product implementation.</p>
+        <p class="heroTagline">I design digital products where user needs, business goals and technology meet. <span class="dotsep">UX/UI · Product Design · Design Systems · Research</span></p>
 
-        <p>I have a strong aptitude for early-stage product design, where I thoughtfully apply customer research to craft impactful MVPs.</p>
-
-        <p>I've also collaborated with front-end teams, particularly in developing Design Systems, bridging user needs with developer efficiency. My ultimate goal is to design products that simplify life for users and developers. With a curious and proactive mindset, I thrive on turning challenges into actionable, user-centered solutions.</p>
-
-        <a href="#projects" class="btn-pill">Go to UX/UI projects</a>
+        <div class="heroCtas">
+            <a href="#projects" class="btn-pill">View my work</a>
+            <a href="#" class="btn-outline">View CV</a>
+        </div>
     </section>
 
-    <section class="describe">
-        <h2>How would you describe yourself?</h2>
-        <p>Some might start with their profession, where they're from, or what they're passionate about. For me, it's about sharing the key parts of my story — my work, my interests, the challenges I've faced, and the small details that make me unique. Together, these pieces paint a clearer picture of who I am and what drives me. Because of this, I'd like to share a personal project I've been working on myself.</p>
+    <section class="bioCols">
+        <div class="bioCol">
+            <p><strong>My latest experience at Dogfy Diet highlights my versatility:</strong> I've designed both customer-facing products (the mobile App and client area) and internal business tools (the sales team CRM). My approach combines data-driven decisions via A/B testing with technical rigor — maintaining robust Design Systems and collaborating closely with IT and Marketing to ensure flawless product implementation.</p>
+        </div>
+        <div class="bioCol">
+            <p>I have a strong aptitude for early-stage product design, where I thoughtfully apply customer research to craft impactful MVPs. I've also collaborated with front-end teams, particularly in developing Design Systems, bridging user needs with developer efficiency — always turning challenges into actionable, user-centered solutions.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="projectsHead">
+            <h2>Selected UX/UI projects</h2>
+            <a href="#" class="viewAll">View all &rsaquo;</a>
+        </div>
+
+        <a class="featuredCase" href="case-study-pausados.html">
+            <img src="dogfy-cancel-hero.jpg" alt="Dogfy Diet subscription cancellation flow redesign">
+            <div class="featuredCaseText">
+                <h3>Dogfy Diet: Rediseñar la cancelación como una conversación de retención</h3>
+                <p>Convertí el flujo de pausas y bajas de Dogfy Diet en un recorrido que escucha el porqué de cada cliente — y protege sus momentos más sensibles.</p>
+                <div class="tags">#Retention #ConversationalUX #ChurnReduction #ProductDesign</div>
+            </div>
+        </a>
+
+        <div class="projectsGrid">
+            <a class="projectCard" href="#">
+                <img src="Card1.png" alt="3Group SaaS project">
+                <h3>3Group SaaS</h3>
+                <p>Electric distribution company. Creation of a B2B eCommerce for different partners, using a shared database and shared products.</p>
+                <div class="tags">#eCommerce #B2B #Wholesale &amp; Retail trade #Design System #Front-end</div>
+            </a>
+            <a class="projectCard" href="#">
+                <img src="Card2.png" alt="Chorescore project">
+                <h3>Chorescore</h3>
+                <p>Avoid the awkward talk with your flatmates! Set cleaning habits with your flatmates and make sure everyone is in charge of their own chores.</p>
+                <div class="tags">#Research #Insights #Gamification #Branding #Flatmates</div>
+            </a>
+            <a class="projectCard" href="#">
+                <img src="Card3.png" alt="Glashh project">
+                <h3>Glashh</h3>
+                <p>Experience chess with a twist! Glashh lets you play and bet money or tokens simultaneously, adding thrill to every move.</p>
+                <div class="tags">#Research #Feature Analysis #Branding #Chess&amp;Bet #Iterations</div>
+            </a>
+        </div>
     </section>
 
     <section class="ceramics" id="ceramicsSection">
@@ -59,33 +101,6 @@
                     <p>As a UX/UI designer by trade, I'm passionate about blending form, function, and beauty. This ceramics project is an extension of my creative process — a hands-on exploration of materiality, design, and human connection. It reflects my love for research, my curiosity about tactile experiences, and my drive to craft meaningful, expressive work.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <div class="projectsHead">
-            <h2>Selected UX/UI projects</h2>
-            <a href="#" class="viewAll">View all &rsaquo;</a>
-        </div>
-        <div class="projectsGrid">
-            <a class="projectCard" href="#">
-                <img src="Card1.png" alt="3Group SaaS project">
-                <h3>3Group SaaS</h3>
-                <p>Electric distribution company. Creation of a B2B eCommerce for different partners, using a shared database and shared products.</p>
-                <div class="tags">#eCommerce #B2B #Wholesale &amp; Retail trade #Design System #Front-end</div>
-            </a>
-            <a class="projectCard" href="case-study-pausados.html">
-                <img src="Card2.png" alt="Chorescore project">
-                <h3>Chorescore</h3>
-                <p>Avoid the awkward talk with your flatmates! Set cleaning habits with your flatmates and make sure everyone is in charge of their own chores.</p>
-                <div class="tags">#Research #Insights #Gamification #Branding #Flatmates</div>
-            </a>
-            <a class="projectCard" href="#">
-                <img src="Card3.png" alt="Glashh project">
-                <h3>Glashh</h3>
-                <p>Experience chess with a twist! Glashh lets you play and bet money or tokens simultaneously, adding thrill to every move.</p>
-                <div class="tags">#Research #Feature Analysis #Branding #Chess&amp;Bet #Iterations</div>
-            </a>
         </div>
     </section>
 
@@ -104,7 +119,7 @@
     </section>
 
     <section class="contact">
-        <h2>Contact me</h2>
+        <h2>Looking for a Product Designer? Say hi.</h2>
         <a class="contactEmail" href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
         <a class="contactPhone" href="tel:+34652580403">+34 652 580 403</a>
     </section>
