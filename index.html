@@ -47,14 +47,19 @@
         <p>Some might start with their profession, where they're from, or what they're passionate about. For me, it's about sharing the key parts of my story — my work, my interests, the challenges I've faced, and the small details that make me unique. Together, these pieces paint a clearer picture of who I am and what drives me. Because of this, I'd like to share a personal project I've been working on myself.</p>
     </section>
 
-    <section class="ceramics">
-        <h2>Ceramics project</h2>
-        <p class="sub">Blending research, people &amp; clay.</p>
-        <div class="ceramicsGrid">
-            <img src="ceramics-vases.jpg" alt="Handmade ceramic vases with handwritten customer research notes">
-            <img src="ceramics-logo.png" alt="Sunday Ceramics logo">
+    <section class="ceramics" id="ceramicsSection">
+        <h2>What I'm doing when I'm out of office <span class="emoji">🌴</span></h2>
+        <p class="sub">Hey, if you are still here, maybe you still have interest to get to know a little bit more about me, here's something personal I like to share.</p>
+        <div class="ceramicsGrid" id="ceramicsGrid">
+            <img src="ceramics-vases.jpg" alt="Handmade ceramic vases with handwritten customer research notes" class="cgLeft">
+            <div class="cgRightCol">
+                <img src="ceramics-logo.png" alt="Sunday Ceramics logo" class="cgRight" id="cgRight">
+                <div class="cgText" id="cgText">
+                    <h3 class="pixelsTitle">From pixels to pottery</h3>
+                    <p>As a UX/UI designer by trade, I'm passionate about blending form, function, and beauty. This ceramics project is an extension of my creative process — a hands-on exploration of materiality, design, and human connection. It reflects my love for research, my curiosity about tactile experiences, and my drive to craft meaningful, expressive work.</p>
+                </div>
+            </div>
         </div>
-        <p>As a UX/UI designer by trade, I'm passionate about blending form, function, and beauty. This ceramics project is an extension of my creative process — a hands-on exploration of materiality, design, and human connection. It reflects my love for research, my curiosity about tactile experiences, and my drive to craft meaningful, expressive work.</p>
     </section>
 
     <section id="projects" class="projects">
@@ -122,6 +127,24 @@
             }
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
+
+            var cgRight = document.getElementById('cgRight');
+            var cgText = document.getElementById('cgText');
+            var section = document.getElementById('ceramicsSection');
+            if (cgRight && cgText && section && 'IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            cgRight.classList.add('shrink');
+                            cgText.classList.add('visible');
+                        } else {
+                            cgRight.classList.remove('shrink');
+                            cgText.classList.remove('visible');
+                        }
+                    });
+                }, { threshold: 0.4 });
+                observer.observe(section);
+            }
         })();
     </script>
 </body>
