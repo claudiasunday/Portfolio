@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study · Rediseño del Flujo de Pausados — Dogfy Diet</title>
+<style>
+  :root{
+    --bg:#FAF7F2; --surface:#FFFFFF; --ink:#1C1B1A; --ink-soft:#57534E;
+    --muted:#8A847C; --line:#E9E3DA; --line-strong:#D9D1C5;
+    --teal:#0F9E8C; --teal-deep:#0B7468; --teal-tint:#E6F4F1;
+    --coral:#E07856; --coral-tint:#FBEBE3; --amber:#E1A03F; --amber-tint:#FBF1DE;
+    --shadow:0 1px 2px rgba(28,27,26,.04),0 8px 24px rgba(28,27,26,.06);
+    --radius:16px;
+    --maxw:860px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:18px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  p{margin:0 0 1.1em}
+  a{color:var(--teal-deep)}
+
+  /* Header */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,247,242,.85); backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .site .wrap{display:flex; align-items:center; justify-content:space-between; height:60px}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:650; font-size:15px; letter-spacing:.2px}
+  .brand .dot{width:22px;height:22px;border-radius:7px;background:var(--teal);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:800}
+  .brand .sep{color:var(--muted); font-weight:500}
+  .brand .kicker{color:var(--muted); font-weight:500}
+  .langtoggle{display:inline-flex; background:var(--surface); border:1px solid var(--line-strong); border-radius:999px; padding:3px}
+  .lang-btn{border:0; background:transparent; font:inherit; font-size:13px; font-weight:650; color:var(--muted); padding:5px 12px; border-radius:999px; cursor:pointer; transition:.15s}
+  .lang-btn.active{background:var(--ink); color:#fff}
+
+  /* Hero */
+  .hero{padding:72px 0 40px}
+  .eyebrow{display:inline-block; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--teal-deep); background:var(--teal-tint); padding:6px 12px; border-radius:999px; margin-bottom:22px}
+  h1{font-size:clamp(32px,5.4vw,50px); line-height:1.08; letter-spacing:-.02em; margin:0 0 18px; font-weight:800}
+  .lede{font-size:clamp(19px,2.4vw,22px); color:var(--ink-soft); max-width:44ch; margin:0 0 30px}
+  .meta{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:8px}
+  .meta div{background:var(--surface); padding:14px 16px}
+  .meta dt{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:3px}
+  .meta dd{margin:0; font-size:15px; font-weight:600}
+
+  /* Sections */
+  section{padding:34px 0}
+  section.tint{background:linear-gradient(180deg,transparent,rgba(15,158,140,.04) 12%,rgba(15,158,140,.04) 88%,transparent)}
+  h2{font-size:clamp(24px,3.2vw,30px); letter-spacing:-.01em; margin:0 0 6px; font-weight:750}
+  h2 + .sub{color:var(--muted); font-size:16px; margin:0 0 22px}
+  h3{font-size:19px; margin:26px 0 8px; font-weight:700}
+  .tldr{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:12px; padding:22px 24px; box-shadow:var(--shadow)}
+  .tldr strong{color:var(--teal-deep)}
+
+  /* Problem list */
+  .probs{list-style:none; padding:0; margin:18px 0 0; display:grid; gap:12px}
+  .probs li{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start}
+  .probs .n{flex:none; width:26px; height:26px; border-radius:8px; background:var(--coral-tint); color:var(--coral); font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center}
+  .probs b{font-weight:700}
+
+  .question{margin-top:18px; font-size:20px; font-weight:650; color:var(--ink); border-top:1px dashed var(--line-strong); padding-top:18px}
+  .question em{color:var(--teal-deep); font-style:normal}
+
+  /* Reframe callout */
+  .reframe{background:var(--ink); color:#fff; border-radius:var(--radius); padding:30px 30px; box-shadow:var(--shadow)}
+  .reframe .label{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#9FE7DC; margin-bottom:10px}
+  .reframe .big{font-size:clamp(22px,3.4vw,30px); line-height:1.25; font-weight:750; margin:0}
+  .reframe .big span{color:#4FD6C2}
+
+  /* Phase flow */
+  .flow{margin-top:22px; position:relative}
+  .phase{position:relative; padding:0 0 22px 58px}
+  .phase:before{content:""; position:absolute; left:18px; top:6px; bottom:-6px; width:2px; background:var(--line-strong)}
+  .phase:last-child:before{display:none}
+  .phase .node{position:absolute; left:0; top:0; width:38px; height:38px; border-radius:50%; background:var(--teal); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 4px var(--bg)}
+  .phase.soft .node{background:var(--muted)}
+  .phase.final .node{background:var(--coral)}
+  .phase h4{margin:2px 0 4px; font-size:18px; font-weight:700}
+  .phase p{margin:0; color:var(--ink-soft); font-size:16px}
+  .tag{display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px; border-radius:999px; margin:8px 6px 0 0}
+  .tag.out{background:var(--amber-tint); color:#9a6a12}
+  .tag.none{background:var(--coral-tint); color:var(--coral)}
+  .tag.ok{background:var(--teal-tint); color:var(--teal-deep)}
+
+  /* Retention table */
+  .rmap{width:100%; border-collapse:separate; border-spacing:0; margin-top:20px; background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow)}
+  .rmap th,.rmap td{text-align:left; padding:14px 18px; font-size:15.5px; border-bottom:1px solid var(--line); vertical-align:top}
+  .rmap thead th{background:#F3EEE6; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft)}
+  .rmap tr:last-child td{border-bottom:0}
+  .rmap td.friction{color:var(--ink-soft); width:46%}
+  .rmap td.answer{font-weight:650}
+  .rmap .arrow{color:var(--teal)}
+  .rmap-note{margin-top:14px; font-size:15px; color:var(--ink-soft)}
+  .rmap-note b{color:var(--ink)}
+
+  /* Decision cards */
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:22px}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px; box-shadow:var(--shadow)}
+  .card .ic{width:38px; height:38px; border-radius:10px; background:var(--teal-tint); display:flex; align-items:center; justify-content:center; margin-bottom:12px}
+  .card .ic svg{width:20px; height:20px; stroke:var(--teal-deep); fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round}
+  .card.hero-card{grid-column:1/-1; border-color:var(--teal); background:linear-gradient(180deg,var(--teal-tint),var(--surface))}
+  .card.hero-card .ic{background:#fff}
+  .card h4{margin:0 0 6px; font-size:17px; font-weight:750}
+  .card p{margin:0; font-size:15px; color:var(--ink-soft)}
+
+  /* Two-col scope */
+  .scope{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px}
+  .scope .box{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 20px}
+  .scope .box h4{margin:0 0 6px; font-size:16px}
+  .scope .box .st{font-size:11.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#9a6a12; background:var(--amber-tint); padding:3px 9px; border-radius:999px; display:inline-block; margin-bottom:10px}
+  .scope .box p{margin:0; font-size:15px; color:var(--ink-soft)}
+
+  /* Events / metrics */
+  .events{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0}
+  .ev{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:13px; background:var(--surface); border:1px solid var(--line-strong); color:var(--ink-soft); padding:6px 11px; border-radius:8px}
+  .qs{display:grid; gap:10px; margin-top:18px}
+  .qs .q{display:flex; gap:12px; align-items:flex-start; font-size:16px}
+  .qs .q .b{flex:none; color:var(--teal); font-weight:800}
+  .honest{margin-top:18px; background:var(--amber-tint); border:1px solid #EAD9B0; border-radius:12px; padding:14px 18px; font-size:15px; color:#7a5a12}
+
+  /* Learnings */
+  .learn{list-style:none; padding:0; margin:18px 0 0; display:grid; gap:12px}
+  .learn li{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px; font-size:16px}
+  .learn li b{color:var(--teal-deep)}
+
+  /* Footer */
+  footer.site{border-top:1px solid var(--line); margin-top:20px; padding:30px 0 60px; color:var(--muted); font-size:14px}
+  footer.site .wrap{display:flex; flex-wrap:wrap; gap:6px 16px; justify-content:space-between}
+
+  [data-lang]{animation:fade .25s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(4px)}to{opacity:1; transform:none}}
+
+  @media(max-width:640px){
+    body{font-size:17px}
+    .brand .kicker,.brand .sep{display:none}
+    .scope{grid-template-columns:1fr}
+    section{padding:28px 0}
+    .rmap thead{display:none}
+    .rmap td{display:block; border:0; padding:6px 18px}
+    .rmap td.friction{width:auto; padding-top:14px}
+    .rmap td.answer{padding-bottom:14px; border-bottom:1px solid var(--line)}
+    .rmap tr:last-child td.answer{border-bottom:0}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <span class="dot">D</span> Dogfy Diet
+      <span class="sep">·</span><span class="kicker">Case study</span>
+    </div>
+    <div class="langtoggle" role="group" aria-label="Language">
+      <button class="lang-btn active" data-set="es" aria-pressed="true" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" data-set="en" aria-pressed="false" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ ESPAÑOL ============================ -->
+<main data-lang="es">
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Case study · UX / Product Design</span>
+      <h1>Rediseñar la cancelación como una conversación de retención</h1>
+      <p class="lede">Convertí el flujo de pausas y bajas de Dogfy Diet en un recorrido que escucha el <em>porqué</em> de cada cliente — y protege sus momentos más sensibles.</p>
+      <dl class="meta">
+        <div><dt>Mi rol</dt><dd>Product Designer · líder de UX del flujo</dd></div>
+        <div><dt>Empresa</dt><dd>Dogfy Diet</dd></div>
+        <div><dt>Plataformas</dt><dd>Área Cliente (web) + App iOS/Android</dd></div>
+        <div><dt>Año</dt><dd>2025–2026</dd></div>
+        <div><dt>Equipo</dt><dd>Producto, Nutrición, ATC, Dev</dd></div>
+        <div><dt>Entregable</dt><dd>Flujo + especificación para dev y QA</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="tldr">
+        <p>Dogfy Diet es comida fresca para perros por suscripción (ES, FR, IT, DE). En una suscripción, el momento en que alguien va a pausar o cancelar es <strong>el más caro del ciclo de vida</strong>. Rediseñé ese flujo de punta a punta para dejar de tratar todas las bajas igual: ahora el recorrido detecta el <strong>motivo real</strong> de cada persona y ofrece la solución concreta a su fricción, mientras trata con cuidado los casos sensibles — fallecimiento de la mascota, periodo de prueba, cobro inminente. El resultado es un flujo de 5 fases, instrumentado de extremo a extremo, que hereda su lógica del backend compartido para no duplicar reglas entre web y app.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>El reto</h2>
+      <p class="sub">Un embudo de salida plano que trataba todas las bajas por igual.</p>
+      <p>El flujo anterior tenía tres problemas de fondo:</p>
+      <ul class="probs">
+        <li><span class="n">1</span><span><b>Trataba a todos igual.</b> No distinguía a quien se va por precio, por un fallo de servicio o porque su perro ha fallecido. Sin motivo, no hay retención relevante posible.</span></li>
+        <li><span class="n">2</span><span><b>Generaba contactos evitables a ATC.</b> La gente escribía a soporte para hacer algo que el propio flujo debería resolver — cambiar una fecha, ajustar la ración.</span></li>
+        <li><span class="n">3</span><span><b>No cuidaba los escenarios sensibles.</b> El peor de todos: insistir en retener a alguien cuyo perro acaba de morir.</span></li>
+      </ul>
+      <p class="question">Mi pregunta de diseño: <em>¿cómo reduzco bajas sin manipular — ofreciendo ayuda de verdad y respetando a la persona incluso en su peor momento?</em></p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <h2>Mi rol y proceso</h2>
+      <p class="sub">Gap-first, then document: primero encuentro los huecos, luego documento decisiones con su estado.</p>
+      <p>Lideré el diseño UX del flujo end-to-end: discovery, mapa del recorrido, definición de estados y edge cases, arquitectura de la información y la especificación vinculante para desarrollo y QA. Colaboré con <b>Nutrición y ATC</b> para las vías de retención por contacto, con <b>Negocio</b> para la elegibilidad de descuentos y con <b>Dev</b> para el contrato de datos y el tracking. Antes de dibujar una sola pantalla mapeé el flujo real y busqué activamente los huecos: ¿qué pasa con un trialer que aún no ha recibido su caja? ¿y si el cobro cae en mitad del flujo? ¿y con varios perros? Cada hueco se convirtió en una decisión explícita.</p>
+
+      <h3>El giro que lo cambió todo</h3>
+      <div class="reframe">
+        <div class="label">El insight</div>
+        <p class="big">El salto no fue una pantalla más bonita. Fue reformular el problema: <span>el motivo es el producto.</span> Si no sé por qué se va la persona, no puedo ayudarla — solo suplicar.</p>
+      </div>
+      <p style="margin-top:20px">Así que el flujo primero <b>pregunta bien</b> (macro motivo → submotivo) y a partir de ahí se ramifica. La retención deja de ser un descuento genérico y pasa a ser la respuesta exacta a una fricción concreta.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>La solución: un recorrido de 5 fases</h2>
+      <p class="sub">De «¿seguro que quieres cancelar?» a un flujo que se ramifica según quién eres y por qué te vas.</p>
+      <div class="flow">
+        <div class="phase soft"><div class="node">0</div><h4>Validaciones + splash</h4><p>Bloqueo a trialers (no pueden pausar hasta 72 h tras recibir la WelcomeBox). Splash con salida suave: «Seguir siendo parte de Dogfy» o continuar.</p></div>
+        <div class="phase soft"><div class="node">1</div><h4>Selección de perro</h4><p>Solo con más de un perro activo.</p><span class="tag out">Fuera de v1</span></div>
+        <div class="phase"><div class="node">2</div><h4>Macro motivo</h4><p>Comida y nutrición · servicio · precio o almacenamiento · «mi perro ha fallecido».</p><span class="tag none">Fallecimiento → salta a la fase final</span></div>
+        <div class="phase"><div class="node">3</div><h4>Submotivo</h4><p>Afina el motivo y decide el camino: retención relevante o pausa directa.</p></div>
+        <div class="phase"><div class="node">4</div><h4>Retención (happy / unhappy path)</h4><p>La solución mapeada al motivo. Si se rechaza todo, pausa confirmada.</p><span class="tag ok">El corazón del rediseño</span></div>
+        <div class="phase final"><div class="node">5</div><h4>Confirmación y estados finales</h4><p>Pausa + NPS · camino de fallecimiento con pésame · alerta de cobro próximo con «pausar ahora».</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>La retención, mapeada a la fricción</h2>
+      <p class="sub">Cada motivo desemboca en la ayuda que de verdad resuelve ese problema.</p>
+      <table class="rmap">
+        <thead><tr><th>La fricción del cliente</th><th>Mi respuesta de diseño</th></tr></thead>
+        <tbody>
+          <tr><td class="friction">La ración no encaja</td><td class="answer"><span class="arrow">→</span> Ajuste de ración (reutiliza el flujo existente)</td></tr>
+          <tr><td class="friction">Duda nutricional</td><td class="answer"><span class="arrow">→</span> Contacto con Nutrición (ticket)</td></tr>
+          <tr><td class="friction">Problema de servicio</td><td class="answer"><span class="arrow">→</span> Contacto con ATC (ticket)</td></tr>
+          <tr><td class="friction">Precio</td><td class="answer"><span class="arrow">→</span> Descuento, solo si es elegible (flags de backend)</td></tr>
+          <tr><td class="friction">Timing / almacenamiento</td><td class="answer"><span class="arrow">→</span> Cambiar la fecha de entrega</td></tr>
+        </tbody>
+      </table>
+      <p class="rmap-note"><b>La retención se ofrece, nunca se fuerza.</b> Si la persona rechaza todo, se confirma la pausa sin fricción añadida.</p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <h2>Las decisiones que marcan la diferencia</h2>
+      <p class="sub">Un flujo de cancelación bien hecho no se nota en el diagrama: se nota en los casos límite.</p>
+      <div class="cards">
+        <div class="card hero-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 4 14.5 4 8.9 4 6.2 6 4 8.6 4 10.2 4 11.5 4.9 12 6.2 12.5 4.9 13.8 4 15.4 4 18 4 20 6.2 20 8.9 20 14.5 12 21 12 21Z"/></svg></div>
+          <h4>El fallecimiento salta toda retención</h4>
+          <p>La decisión más importante y la menos técnica. En cuanto la persona indica que su perro ha fallecido: pausa automática, mensaje de pésame, cero insistencia comercial. Es la diferencia entre una marca que escucha y una que no.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
+          <h4>La elegibilidad de descuento vive en backend</h4>
+          <p>No en la UI. Los mismos flags deciden en web y en app → coherencia total y sin abrir la puerta a abusos.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+          <h4>Alerta de cobro próximo</h4>
+          <p>Si el cargo es inminente durante el flujo, aviso + «pausar ahora». Evita el cargo no deseado — y con él, chargebacks y reseñas negativas.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.4-3 8.2-7 10-4-1.8-7-5.6-7-10V6l7-3Z"/></svg></div>
+          <h4>El trialer no pausa hasta las 72 h</h4>
+          <p>Protege la caja de prueba: da tiempo a probar el producto y desvía a ATC lo que llega antes de tiempo.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7Z"/></svg></div>
+          <h4>Cero resets, cero parpadeo</h4>
+          <p>El flujo conserva siempre el estado y el back nativo funciona en todas las pantallas. En un recorrido largo y emocional, la estabilidad es parte del respeto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Qué dejé fuera de la v1 (y por qué)</h2>
+      <p class="sub">La disciplina de alcance es parte del trabajo, no una nota al pie.</p>
+      <div class="scope">
+        <div class="box">
+          <span class="st">Fuera de v1</span>
+          <h4>Multi-perro</h4>
+          <p>Añade complejidad combinatoria (¿pausas un perro y mantienes otro?) que no debía retrasar el grueso del valor. Documentado para una fase posterior.</p>
+        </div>
+        <div class="box">
+          <span class="st">Por diseño</span>
+          <h4>Cancelación directa</h4>
+          <p>Toda baja pasa por Pausados. No hay atajo que se salte la conversación de retención.</p>
+        </div>
+      </div>
+      <p style="margin-top:16px">Documenté cada exclusión con su estado, de modo que «no está en v1» nunca se leyera como «no está pensado».</p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <h2>Cómo sabré si funciona</h2>
+      <p class="sub">Diseñé el flujo instrumentado desde el primer día.</p>
+      <p>Con estos eventos puedo reconstruir el embudo de retención completo y ver qué caminos salvan clientes:</p>
+      <div class="events">
+        <span class="ev">pause_flow_opened</span>
+        <span class="ev">pause_macro_reason_selected</span>
+        <span class="ev">pause_subreason_selected</span>
+        <span class="ev">retention_option_shown</span>
+        <span class="ev">retention_option_accepted</span>
+        <span class="ev">retention_option_rejected</span>
+        <span class="ev">pause_confirmed</span>
+        <span class="ev">pause_temporal_activated</span>
+        <span class="ev">pause_feedback_submitted</span>
+      </div>
+      <div class="qs">
+        <div class="q"><span class="b">?</span><span>¿Qué % de quienes abren el flujo se retienen?</span></div>
+        <div class="q"><span class="b">?</span><span>¿Qué retención convierte mejor según el motivo?</span></div>
+        <div class="q"><span class="b">?</span><span>¿En qué punto se cae la gente?</span></div>
+      </div>
+      <div class="honest"><b>Nota honesta:</b> la versión de Área Cliente está definida y es vinculante para desarrollo; la de app está en portada, pendiente de bajar a detalle. Las métricas reales llegarán con la salida a producción.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Aprendizajes</h2>
+      <ul class="learn">
+        <li><b>El motivo es el producto.</b> Preguntar bien por qué se va la persona movió más la aguja que rediseñar la pantalla. Sirve para cualquier flujo de decisión.</li>
+        <li><b>Los edge cases humanos definen la marca.</b> El trato del fallecimiento cuesta poco desarrollar y dice muchísimo. Merece la pena buscarlos en cada proyecto.</li>
+        <li><b>La lógica sensible pertenece al backend compartido.</b> Poner la elegibilidad en flags de servidor mantuvo web y app coherentes y protegió la política comercial.</li>
+        <li><b>Si volviera a empezar,</b> llevaría el caso multi-perro a discovery antes: condiciona toda la Fase 1 y prefiero decidir su alcance con datos, no al final.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ ENGLISH ============================ -->
+<main data-lang="en" hidden>
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Case study · UX / Product Design</span>
+      <h1>Redesigning cancellation as a retention conversation</h1>
+      <p class="lede">I turned Dogfy Diet's pause &amp; cancellation flow into a journey that listens to <em>why</em> each customer is leaving — and protects their most sensitive moments.</p>
+      <dl class="meta">
+        <div><dt>My role</dt><dd>Product Designer · UX lead on the flow</dd></div>
+        <div><dt>Company</dt><dd>Dogfy Diet</dd></div>
+        <div><dt>Platforms</dt><dd>Customer Area (web) + iOS/Android app</dd></div>
+        <div><dt>Year</dt><dd>2025–2026</dd></div>
+        <div><dt>Team</dt><dd>Product, Nutrition, Support, Dev</dd></div>
+        <div><dt>Deliverable</dt><dd>Flow + spec for dev &amp; QA</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="tldr">
+        <p>Dogfy Diet is a fresh dog-food subscription (Spain, France, Italy, Germany). In a subscription business, the moment someone goes to pause or cancel is <strong>the most expensive point in the lifecycle</strong>. I redesigned that flow end to end so it stops treating every departure the same: the journey now detects each person's <strong>real reason</strong> and offers the specific fix for their friction, while carefully handling sensitive cases — a pet passing away, the trial period, an imminent charge. The result is a 5-phase flow, instrumented end to end, that inherits its logic from the shared backend so rules aren't duplicated across web and app.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>The challenge</h2>
+      <p class="sub">A flat exit funnel that treated every departure the same.</p>
+      <p>The previous flow had three underlying problems:</p>
+      <ul class="probs">
+        <li><span class="n">1</span><span><b>It treated everyone the same.</b> It didn't tell apart someone leaving over price, over a service failure, or because their dog had died. No reason means no relevant retention is possible.</span></li>
+        <li><span class="n">2</span><span><b>It drove avoidable Support contacts.</b> People messaged Support to do things the flow itself should resolve — change a date, adjust the portion.</span></li>
+        <li><span class="n">3</span><span><b>It didn't handle sensitive scenarios.</b> The worst of all: pushing to retain someone whose dog has just passed away.</span></li>
+      </ul>
+      <p class="question">My design question: <em>how do I reduce churn without manipulating — offering real help and respecting the person even at their worst moment?</em></p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <h2>My role &amp; process</h2>
+      <p class="sub">Gap-first, then document: find the holes first, then document decisions with their status.</p>
+      <p>I led the end-to-end UX design of the flow: discovery, journey mapping, defining states and edge cases, information architecture, and the binding spec for development and QA. I worked with <b>Nutrition and Support</b> on the contact-based retention paths, with <b>Business</b> on discount eligibility, and with <b>Dev</b> on the data contract and tracking. Before drawing a single screen I mapped the real flow and actively hunted for gaps: what about a trial customer who hasn't received their box yet? What if the charge lands mid-flow? What about multiple dogs? Every gap became an explicit decision.</p>
+
+      <h3>The reframe that changed everything</h3>
+      <div class="reframe">
+        <div class="label">The insight</div>
+        <p class="big">The leap wasn't a prettier screen. It was reframing the problem: <span>the reason is the product.</span> If I don't know why the person is leaving, I can't help them — I can only beg.</p>
+      </div>
+      <p style="margin-top:20px">So the flow <b>asks well first</b> (macro reason → sub-reason) and branches from there. Retention stops being a generic discount and becomes the exact answer to a specific friction.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>The solution: a 5-phase journey</h2>
+      <p class="sub">From "are you sure you want to cancel?" to a flow that branches on who you are and why you're leaving.</p>
+      <div class="flow">
+        <div class="phase soft"><div class="node">0</div><h4>Pre-checks + splash</h4><p>Trial customers are blocked (they can't pause until 72 h after receiving the WelcomeBox). A splash offers a soft exit: "Stay part of Dogfy" or continue.</p></div>
+        <div class="phase soft"><div class="node">1</div><h4>Dog selection</h4><p>Only when more than one dog is active.</p><span class="tag out">Out of v1</span></div>
+        <div class="phase"><div class="node">2</div><h4>Macro reason</h4><p>Food &amp; nutrition · service · price or storage · "my dog has passed away".</p><span class="tag none">Bereavement → jumps to the final phase</span></div>
+        <div class="phase"><div class="node">3</div><h4>Sub-reason</h4><p>Refines the reason and decides the path: relevant retention or a direct pause.</p></div>
+        <div class="phase"><div class="node">4</div><h4>Retention (happy / unhappy path)</h4><p>The solution mapped to the reason. If everything is declined, the pause is confirmed.</p><span class="tag ok">The heart of the redesign</span></div>
+        <div class="phase final"><div class="node">5</div><h4>Confirmation &amp; end states</h4><p>Pause + NPS · bereavement path with condolences · imminent-charge alert with "pause now".</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Retention, mapped to friction</h2>
+      <p class="sub">Every reason leads to the help that actually solves that problem.</p>
+      <table class="rmap">
+        <thead><tr><th>The customer's friction</th><th>My design response</th></tr></thead>
+        <tbody>
+          <tr><td class="friction">The portion doesn't fit</td><td class="answer"><span class="arrow">→</span> Portion adjustment (reuses the existing flow)</td></tr>
+          <tr><td class="friction">Nutrition doubt</td><td class="answer"><span class="arrow">→</span> Contact Nutrition (ticket)</td></tr>
+          <tr><td class="friction">Service problem</td><td class="answer"><span class="arrow">→</span> Contact Support (ticket)</td></tr>
+          <tr><td class="friction">Price</td><td class="answer"><span class="arrow">→</span> Discount, only if eligible (backend flags)</td></tr>
+          <tr><td class="friction">Timing / storage</td><td class="answer"><span class="arrow">→</span> Change the delivery date</td></tr>
+        </tbody>
+      </table>
+      <p class="rmap-note"><b>Retention is offered, never forced.</b> If the person declines everything, the pause is confirmed with no added friction.</p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <h2>The decisions that make the difference</h2>
+      <p class="sub">A cancellation flow done right doesn't show in the diagram — it shows in the edge cases.</p>
+      <div class="cards">
+        <div class="card hero-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 4 14.5 4 8.9 4 6.2 6 4 8.6 4 10.2 4 11.5 4.9 12 6.2 12.5 4.9 13.8 4 15.4 4 18 4 20 6.2 20 8.9 20 14.5 12 21 12 21Z"/></svg></div>
+          <h4>Bereavement skips all retention</h4>
+          <p>The most important decision, and the least technical. The moment the person says their dog has passed away: automatic pause, condolences, zero commercial pressure. It's the difference between a brand that listens and one that doesn't.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
+          <h4>Discount eligibility lives in the backend</h4>
+          <p>Not in the UI. The same flags decide on web and app → full consistency and no room for abuse.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+          <h4>Imminent-charge alert</h4>
+          <p>If the charge is imminent during the flow: a warning + "pause now". It avoids the unwanted charge — and the chargebacks and bad reviews that follow it.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.4-3 8.2-7 10-4-1.8-7-5.6-7-10V6l7-3Z"/></svg></div>
+          <h4>Trial customers can't pause for 72 h</h4>
+          <p>It protects the trial box: it gives time to actually try the product and routes early cases to Support.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7Z"/></svg></div>
+          <h4>No resets, no flicker</h4>
+          <p>The flow always preserves state and native back works on every screen. In a long, emotional journey, stability is part of the respect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>What I left out of v1 (and why)</h2>
+      <p class="sub">Scope discipline is part of the work, not a footnote.</p>
+      <div class="scope">
+        <div class="box">
+          <span class="st">Out of v1</span>
+          <h4>Multi-dog</h4>
+          <p>It adds combinatorial complexity (do you pause one dog and keep another?) that shouldn't delay the bulk of the value. Documented for a later phase.</p>
+        </div>
+        <div class="box">
+          <span class="st">By design</span>
+          <h4>Direct cancellation</h4>
+          <p>Every departure goes through the pause flow. There's no shortcut that skips the retention conversation.</p>
+        </div>
+      </div>
+      <p style="margin-top:16px">I documented every exclusion with its status, so "not in v1" would never read as "not thought through".</p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <h2>How I'll know it works</h2>
+      <p class="sub">I designed the flow instrumented from day one.</p>
+      <p>With these events I can reconstruct the full retention funnel and see which paths save customers:</p>
+      <div class="events">
+        <span class="ev">pause_flow_opened</span>
+        <span class="ev">pause_macro_reason_selected</span>
+        <span class="ev">pause_subreason_selected</span>
+        <span class="ev">retention_option_shown</span>
+        <span class="ev">retention_option_accepted</span>
+        <span class="ev">retention_option_rejected</span>
+        <span class="ev">pause_confirmed</span>
+        <span class="ev">pause_temporal_activated</span>
+        <span class="ev">pause_feedback_submitted</span>
+      </div>
+      <div class="qs">
+        <div class="q"><span class="b">?</span><span>What % of people who open the flow are retained?</span></div>
+        <div class="q"><span class="b">?</span><span>Which retention converts best by reason?</span></div>
+        <div class="q"><span class="b">?</span><span>Where do people drop off?</span></div>
+      </div>
+      <div class="honest"><b>An honest note:</b> the Customer Area version is defined and binding for development; the app version is at cover-page stage, pending detailed specs. Real metrics will come with the production launch.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Learnings</h2>
+      <ul class="learn">
+        <li><b>The reason is the product.</b> Asking well why someone leaves moved the needle more than redesigning the screen. It applies to any decision flow.</li>
+        <li><b>Human edge cases define the brand.</b> Handling bereavement costs little to build and says a great deal. Worth hunting for in every project.</li>
+        <li><b>Sensitive logic belongs in the shared backend.</b> Putting eligibility in server-side flags kept web and app consistent and protected the commercial policy.</li>
+        <li><b>If I started over,</b> I'd bring the multi-dog case into discovery earlier: it shapes all of Phase 1, and I'd rather scope it with data than at the end.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span data-lang="es">Dogfy Diet · Producto Digital · 2025–2026 · Case study personal</span>
+    <span data-lang="en" hidden>Dogfy Diet · Digital Product · 2025–2026 · Personal case study</span>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.querySelectorAll('[data-lang]').forEach(function(el){
+      el.hidden = el.getAttribute('data-lang') !== lang;
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      var on = b.getAttribute('data-set') === lang;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.documentElement.lang = lang;
+    window.scrollTo({top:0, behavior:'auto'});
+  }
+</script>
+</body>
+</html>
