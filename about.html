@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>About me | Claudia Domingo Ruiz</title>
+    <meta name="description" content="About Claudia Domingo Ruiz — Product Designer (UX/UI), her background, CV and work methodologies.">
+</head>
+<body>
+    <nav class="navbar" id="siteNav">
+        <div class="navInner">
+            <div class="navLogoClau">
+                <a href="index.html"><img src="avatar.png" alt="Claudia Domingo Ruiz" class="avatar"></a>
+            </div>
+            <div class="navActions">
+                <ul>
+                    <li class="hasDropdown">
+                        <a href="index.html#projects">Work</a>
+                        <ul class="dropdown">
+                            <li><a href="dogfy.html">Dogfy Diet</a></li>
+                            <li><a href="chorescore.html">Chorescore</a></li>
+                            <li><a href="9grup.html">9Grup</a></li>
+                            <li><a href="glashh.html">Glashh</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About me</a></li>
+                    <li><a href="index.html#ceramicsSection">OOO</a></li>
+                </ul>
+                <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta">Contact me</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="ceramics" style="border-top:none;">
+        <h2>My work</h2>
+        <div class="bioCols" style="border-top:none; padding-top:24px;">
+            <div class="bioCol">
+                <p>I am a multi-disciplinary designer with a background in UX engineering, where I've contributed to creating robust design systems. Passionate about transforming ideas into unforgettable digital experiences, I specialize in blending creativity with functionality.</p>
+            </div>
+            <div class="bioCol">
+                <p>My journey began in marketing, but my love for boundless creativity drew me toward exploring the expansive world of design and development. Over the past two years, I've gained hands-on experience in delivering impactful digital solutions.</p>
+                <p>My mission is to craft digital experiences that captivate, inspire, and achieve meaningful results. When designing websites, I focus on creating unique layouts and engaging interactions, ensuring each element works harmoniously to deliver an exceptional user experience that leaves a lasting impression.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ceramics" id="cvSection">
+        <h2>Curriculum vitae</h2>
+        <p class="sub">Download or view my full CV below.</p>
+        <div class="cvPlaceholder">
+            <p>Your CV image from Figma couldn't be downloaded automatically — export it from Figma (node 86:10798) and send it over, and I'll drop it in right here with the same soft shadow as your reference.</p>
+            <a href="mailto:sundayclaudia@gmail.com" class="btn-outline" style="margin-top:12px; display:inline-block;">Request my CV by email</a>
+        </div>
+    </section>
+
+    <section class="ceramics" style="border-bottom:1px solid var(--line);">
+        <h2>Work experience methodologies</h2>
+        <div class="methodRow">
+            <div class="methodIntro">
+                <p>Working in several organizations made me experience different methodologies, from alternative-average-conservative methods.</p>
+            </div>
+            <div class="methodList">
+                <div class="methodItem">
+                    <span class="methodLabel">Shape up Methodology</span>
+                    <p>Shape Up emerged as a more adaptable methodology for little agencies. The primary goal is mutual learning among team members, focusing on building the right things through rapid experimentation and learning rather than relying on big, upfront planning. Instead of having a scope and sprint times to develop a project, like Agile methodology, Shape Up offered a flexible way to launch MVPs.</p>
+                </div>
+                <div class="methodItem">
+                    <span class="methodLabel">Agile - Scrum Methodology</span>
+                    <p>Agile methodology is quite common in Digital Projects management. It involves constant collaboration and working in iterations, and it's ideal for projects with rapidly changing requirements, using short sprints.</p>
+                </div>
+                <div class="methodItem">
+                    <span class="methodLabel">Conservative methodologies</span>
+                    <p>I began my career in small agencies specializing in startups, but I was eager to experience the perspective from the other side. Joining large companies gave me the chance to improve my skills and demonstrate the true value of UX/UI, contributing to their understanding and appreciation of user-centered design principles. This shift offered unique opportunities and challenges that shaped my professional growth and approach to design.</p>
+                    <p>Working in a large, more traditional company has its pros and cons. On the positive side, it provides the chance to educate and advocate for UX/UI principles, make a meaningful impact by introducing user-centered practices, leverage extensive resources, and gain exposure to complex systems and diverse teams. However, there are also challenges, such as resistance to change and innovation, slower decision-making processes, hierarchical structures that may limit creative input, and an initial lack of understanding or support for UX/UI practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Looking for a Product Designer? Say hi.</h2>
+        <a class="contactEmail" href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
+        <a class="contactPhone" href="tel:+34652580403">+34 652 580 403</a>
+    </section>
+
+    <footer class="site">
+        <span>2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain</span>
+        <a href="#">Add me on LinkedIn</a>
+        <a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
+    </footer>
+
+    <script>
+        (function () {
+            var nav = document.getElementById('siteNav');
+            function onScroll() {
+                if (window.scrollY > 60) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
+</body>
+</html>

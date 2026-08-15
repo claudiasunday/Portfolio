@@ -75,7 +75,7 @@ section, footer.site {
 
 .hasDropdown { position: relative; }
 .dropdown {
-    display: none;
+    display: block;
     position: absolute;
     top: 100%;
     left: 0;
@@ -86,9 +86,19 @@ section, footer.site {
     min-width: 170px;
     box-shadow: 0 10px 26px rgba(17,17,17,.1);
     z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s;
+    pointer-events: none;
 }
 .hasDropdown:hover .dropdown,
-.hasDropdown:focus-within .dropdown { display: block; }
+.hasDropdown:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
 .dropdown li { text-transform: none; }
 .dropdown a {
     padding: 9px 12px;
@@ -396,4 +406,30 @@ footer.site a:hover { color: var(--ink); }
     color: #A9A6A2;
     font-weight: 400;
     margin-bottom: 18px;
+}
+
+/* ABOUT ME */
+.cvPlaceholder {
+    border: 1.5px dashed var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 20px;
+}
+.cvPlaceholder p { max-width: 60ch; margin: 0; }
+
+.methodRow { display: grid; grid-template-columns: 1fr 2.2fr; gap: 32px; margin-top: 24px; }
+.methodIntro p { max-width: 32ch; }
+.methodList { display: flex; flex-direction: column; gap: 32px; }
+.methodLabel {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+.methodItem p { max-width: 70ch; }
+@media (max-width: 720px) {
+    .methodRow { grid-template-columns: 1fr; }
 }
