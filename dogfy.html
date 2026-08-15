@@ -35,20 +35,141 @@
     <section class="hero" style="padding-bottom:0;">
         <p class="heroTagline" style="margin-top:0;">Dogfy Diet</p>
         <h1 style="font-size:clamp(30px,4.4vw,54px);">Rediseñar la cancelación como una conversación de retención</h1>
-        <p style="font-size:17px; max-width:65ch; margin-top:16px;">Convertí el flujo de pausas y bajas de Dogfy Diet en un recorrido que escucha el porqué de cada cliente — y protege sus momentos más sensibles.</p>
-        <div class="tags" style="margin-top:12px;">#Retention #ConversationalUX #ChurnReduction #ProductDesign</div>
     </section>
 
-    <section style="padding-top:0;">
-        <img src="dogfy-cancel-hero.jpg" alt="Dogfy Diet — flujo de cancelación de suscripción" style="width:100%; border-radius:20px; display:block;">
+    <section class="caseMeta">
+        <div><span>My role</span><p>Product Designer, UX/UI Design, Front-end Dev</p></div>
+        <div><span>Tools used</span><p>Figma</p></div>
+        <div><span>Sector</span><p>Wholesale and retail trade</p></div>
+        <div><span>Year</span><p>2024</p></div>
     </section>
 
-    <section class="bioCols" style="border-top:1px solid var(--line);">
+    <section class="bioCols" style="border-top:1px solid var(--line); grid-template-columns:1fr;">
         <div class="bioCol">
-            <p><strong>El reto:</strong> las bajas se gestionaban como un simple formulario de cancelación, sin espacio para entender por qué el cliente se iba — perdiendo la oportunidad de retenerlo o de acompañarlo en casos sensibles, como la pérdida de una mascota.</p>
+            <h3 class="pixelsTitle">About the business</h3>
+            <p style="max-width:80ch;">Dogfy Diet es comida fresca para perros por suscripción (ES, FR, IT, DE). En una suscripción, el momento en que alguien va a pausar o cancelar es el más caro del ciclo de vida. Rediseñé ese flujo de punta a punta para dejar de tratar todas las bajas igual: ahora el recorrido detecta el motivo real de cada persona y ofrece la solución concreta a su fricción, mientras trata con cuidado los casos sensibles — fallecimiento de la mascota, periodo de prueba, cobro inminente. El resultado es un flujo de 5 fases, instrumentado de extremo a extremo, que hereda su lógica del backend compartido para no duplicar reglas entre web y app.</p>
         </div>
-        <div class="bioCol">
-            <p><strong>El enfoque:</strong> rediseñé el flujo como una conversación — preguntando primero el motivo, ofreciendo alternativas relevantes (pausar, ajustar la dieta, cambiar la ración) según la respuesta, y detectando los casos delicados para tratarlos con el cuidado que merecen.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2>Antes</h2>
+        <img src="dogfy-antes.png" alt="Flujo de cancelación antes del rediseño" style="width:100%; border-radius:18px; display:block; margin-top:16px;">
+    </section>
+
+    <section class="ceramics" style="border-top:none;">
+        <h2>Después</h2>
+        <img src="dogfy-despues.png" alt="Flujo de cancelación después del rediseño" style="width:100%; border-radius:18px; display:block; margin-top:16px;">
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2>El reto</h2>
+        <ol class="challengeList">
+            <li><strong>Trataba a todos igual.</strong> No distinguía a quien se va por precio, por un fallo de servicio o porque su perro ha fallecido. Sin motivo, no hay retención relevante posible.</li>
+            <li><strong>Generaba contactos evitables a ATC.</strong> La gente escribía a soporte para hacer algo que el propio flujo debería resolver — cambiar una fecha, ajustar la ración.</li>
+            <li><strong>No cuidaba los escenarios sensibles.</strong> El peor de todos: insistir en retener a alguien cuyo perro acaba de morir.</li>
+        </ol>
+        <p class="designQuestion">Mi pregunta de diseño: ¿cómo reduzco bajas sin manipular, ofreciendo ayuda de verdad y respetando a la persona incluso en su peor momento?</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2>Mi rol y proceso</h2>
+        <p style="max-width:80ch; margin-top:16px;">Lideré el diseño UX del flujo end to end: discovery, mapa del recorrido, definición de estados y edge cases, arquitectura de la información y la especificación vinculante para desarrollo y QA. Colaboré con Nutrición y ATC para las vías de retención por contacto, con Negocio para la elegibilidad de descuentos y con Dev para el contrato de datos y el tracking.</p>
+        <p style="max-width:80ch;">Antes de dibujar una sola pantalla mapeé el flujo real y busqué activamente los huecos: ¿qué pasa con un trialer que aún no ha recibido su caja? ¿y si el cobro cae en mitad del flujo? ¿y con varios perros? Cada hueco se convirtió en una decisión explícita.</p>
+
+        <div class="insightBox">
+            <span class="insightLabel">El giro que lo cambió todo</span>
+            <p>El salto no fue una pantalla más bonita. Fue reformular el problema: <strong>el motivo es el producto.</strong> Si no sé por qué se va la persona, no puedo ayudarla — solo suplicar.</p>
+            <p>Así que el flujo primero pregunta bien (macro motivo → submotivo) y a partir de ahí se ramifica. La retención deja de ser un descuento genérico y pasa a ser la respuesta exacta a una fricción concreta.</p>
+        </div>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2>Feature ideation process</h2>
+        <p class="sub">La solución: un recorrido de 5 fases. De «¿seguro que quieres cancelar?» a un flujo que se ramifica según quién eres y por qué te vas.</p>
+
+        <div class="phaseList">
+            <div class="phaseItem">
+                <span class="phaseNum">0</span>
+                <div><strong>Validaciones + splash</strong><p>Bloqueo a trialers (no pueden pausar hasta 72h tras recibir la WelcomeBox). Splash con salida suave: «Seguir siendo parte de Dogfy» o continuar.</p></div>
+            </div>
+            <div class="phaseItem">
+                <span class="phaseNum">1</span>
+                <div><strong>Selección de perro</strong><p>Solo con más de un perro activo. <em>Fuera de V1.</em></p></div>
+            </div>
+            <div class="phaseItem">
+                <span class="phaseNum">2</span>
+                <div><strong>Macro motivo</strong><p>Comida y nutrición, servicio, precio o almacenamiento, «mi perro ha fallecido». <em>Fallecimiento → salta a la fase final.</em></p></div>
+            </div>
+            <div class="phaseItem">
+                <span class="phaseNum">3</span>
+                <div><strong>Submotivo</strong><p>Afina el motivo y decide el camino: retención relevante o pausa directa.</p></div>
+            </div>
+            <div class="phaseItem highlight">
+                <span class="phaseNum">4</span>
+                <div><strong>Retención (happy / unhappy path)</strong><p>La solución mapeada al motivo. Si se rechaza todo, pausa confirmada. <em>El corazón del rediseño.</em></p></div>
+            </div>
+            <div class="phaseItem">
+                <span class="phaseNum">5</span>
+                <div><strong>Confirmación y estados finales</strong><p>Pausa + NPS; camino de fallecimiento con pésame; alerta de cobro próximo con «pausar ahora».</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2>La retención, mapeada a la fricción</h2>
+        <p class="sub">Cada motivo desemboca en la ayuda que de verdad resuelve ese problema.</p>
+        <div class="frictionTable">
+            <div class="frictionRow"><span>La ración no encaja</span><span>Ajuste de ración (reutiliza el flujo existente)</span></div>
+            <div class="frictionRow"><span>Duda nutricional</span><span>Contacto con Nutrición (ticket)</span></div>
+            <div class="frictionRow"><span>Problema de servicio</span><span>Contacto con ATC (ticket)</span></div>
+            <div class="frictionRow"><span>Precio</span><span>Descuento, solo si es elegible (flags de backend)</span></div>
+            <div class="frictionRow"><span>Timing / almacenamiento</span><span>Cambiar la fecha de entrega</span></div>
+        </div>
+        <p class="designQuestion">La retención se ofrece, nunca se fuerza. Si la persona rechaza todo, se confirma la pausa sin fricción añadida.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2>Lo que gana el usuario</h2>
+        <div class="resultsGrid">
+            <div class="resultCard">
+                <h3>Todo en un solo lugar</h3>
+                <p>Tu plan, los datos de tu peludo, tus pedidos… accede a todo desde un solo lugar. Rápido, claro y en un clic.</p>
+            </div>
+            <div class="resultCard">
+                <h3>Controla tus pedidos al instante</h3>
+                <p>Modifica fechas y direcciones, añade snacks o revisa tu historial. Gestiona todos tus pedidos en segundos.</p>
+            </div>
+            <div class="resultCard">
+                <h3>Su perfil, a tu medida</h3>
+                <p>Actualiza su información, ajusta raciones y modifica sus menús como más le apetezcan — las necesidades de tu peludo, a un clic.</p>
+            </div>
+            <div class="resultCard pending">
+                <h3>Próximamente</h3>
+                <p>Esta cuarta tarjeta seguía como "lorem ipsum" en tu documento — dime el contenido real y lo completo aquí.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <div class="projectsHead" style="margin-bottom:20px;">
+            <h2 style="font-size:16px; text-transform:uppercase;">More projects</h2>
+        </div>
+        <div class="projectsGrid">
+            <a class="projectCard" href="9grup.html">
+                <img src="Card1.png" alt="3Group SaaS project">
+                <h3>3Group SaaS</h3>
+                <p>Electric distribution company. Creation of a B2B eCommerce for different partners.</p>
+            </a>
+            <a class="projectCard" href="chorescore.html">
+                <img src="Card2.png" alt="Chorescore project">
+                <h3>Chorescore</h3>
+                <p>Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.</p>
+            </a>
+            <a class="projectCard" href="glashh.html">
+                <img src="Card3.png" alt="Glashh project">
+                <h3>Glashh</h3>
+                <p>Experience chess with a twist — bet money or tokens while you play.</p>
+            </a>
         </div>
     </section>
 
@@ -60,7 +181,7 @@
 
     <footer class="site">
         <span>2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain</span>
-        <a href="#">Add me on LinkedIn</a>
+        <a href="https://www.linkedin.com/in/claudiadom/" target="_blank" rel="noopener">Add me on LinkedIn</a>
         <a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
     </footer>
 
