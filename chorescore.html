@@ -16,18 +16,21 @@
             <div class="navActions">
                 <ul>
                     <li class="hasDropdown">
-                        <a href="index.html#projects">Work</a>
+                        <a href="index.html#projects" data-i18n="navWork">Work</a>
                         <ul class="dropdown">
                             <li><a href="dogfy.html">Dogfy Diet</a></li>
                             <li><a href="chorescore.html">Chorescore</a></li>
-                            <li><a href="9grup.html">9Grup</a></li>
-                            <li><a href="glashh.html">Glashh</a></li>
                         </ul>
                     </li>
-                    <li><a href="about.html">About me</a></li>
-                    <li><a href="index.html#ceramicsSection">OOO</a></li>
+                    <li><a href="about.html" data-i18n="navAbout">About me</a></li>
+                    <li><a href="creativespace.html" data-i18n="navOOO">OOO</a></li>
                 </ul>
-                <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta">Contact me</a>
+                <div class="langToggle" role="group" aria-label="Language">
+                    <button type="button" data-setlang="en">EN</button>
+                    <button type="button" data-setlang="es">ES</button>
+                    <button type="button" data-setlang="ca">CA</button>
+                </div>
+                <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta" data-i18n="navContact">Contact me</a>
             </div>
         </div>
     </nav>
@@ -168,17 +171,18 @@
     </section>
 
     <section class="contact">
-        <h2>Looking for a Product Designer? Say hi.</h2>
+        <h2 data-i18n="contactHeading">Looking for a Product Designer? Say hi.</h2>
         <a class="contactEmail" href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
         <a class="contactPhone" href="tel:+34652580403">+34 652 580 403</a>
     </section>
 
     <footer class="site">
-        <span>2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain</span>
-        <a href="https://www.linkedin.com/in/claudiadom/" target="_blank" rel="noopener">Add me on LinkedIn</a>
+        <span data-i18n="footerLocation">2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain</span>
+        <a href="https://www.linkedin.com/in/claudiadom/" target="_blank" rel="noopener" data-i18n="footerLinkedin">Add me on LinkedIn</a>
         <a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
     </footer>
 
+    <script src="i18n.js"></script>
     <script>
         (function () {
             var nav = document.getElementById('siteNav');
@@ -187,6 +191,7 @@
             }
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
+            I18N_APPLY({});
         })();
     </script>
 </body>

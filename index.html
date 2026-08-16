@@ -24,53 +24,61 @@
             <div class="navActions">
                 <ul>
                     <li class="hasDropdown">
-                        <a href="#projects">Work</a>
+                        <a href="#projects" data-i18n="navWork">Work</a>
                         <ul class="dropdown">
                             <li><a href="dogfy.html">Dogfy Diet</a></li>
                             <li><a href="chorescore.html">Chorescore</a></li>
-                            <li><a href="9grup.html">9Grup</a></li>
-                            <li><a href="glashh.html">Glashh</a></li>
                         </ul>
                     </li>
-                    <li><a href="about.html">About me</a></li>
-                    <li><a href="#ceramicsSection">OOO</a></li>
+                    <li><a href="about.html" data-i18n="navAbout">About me</a></li>
+                    <li><a href="creativespace.html" data-i18n="navOOO">OOO</a></li>
                 </ul>
-                <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta">Contact me</a>
+                <div class="langToggle" role="group" aria-label="Language">
+                    <button type="button" data-setlang="en">EN</button>
+                    <button type="button" data-setlang="es">ES</button>
+                    <button type="button" data-setlang="ca">CA</button>
+                </div>
+                <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta" data-i18n="navContact">Contact me</a>
             </div>
         </div>
     </nav>
 
     <section class="hero">
-        <h1><span class="muted">I'm</span> <strong>Claudia Sunday</strong> <img src="persona.svg" alt="" class="icon-img"> <span class="muted">a</span> <strong>product designer</strong> <span class="muted">and</span> <strong>much more</strong> <img src="LOGO.svg" alt="" class="icon-img"> <span class="muted">Located in</span> <strong>BCN</strong> <img src="barcelona.svg" alt="" class="icon-img"></h1>
+        <h1>
+            <span class="muted" data-i18n="heroIm">I'm</span> <strong>Claudia Sunday</strong> <img src="persona.svg" alt="" class="icon-img">
+            <span class="muted" data-i18n="heroA">a</span> <strong data-i18n="heroProductDesigner">product designer</strong>
+            <span class="muted" data-i18n="heroAnd">and</span> <strong data-i18n="heroMuchMore">much more</strong> <img src="LOGO.svg" alt="" class="icon-img">
+            <span class="muted" data-i18n="heroLocatedIn">Located in</span> <strong>BCN</strong> <img src="barcelona.svg" alt="" class="icon-img">
+        </h1>
 
-        <p class="heroTagline">I design digital products where user needs, business goals and technology meet. <span class="dotsep">UX/UI · Product Design · Design Systems · Research</span></p>
+        <p class="heroTagline"><span data-i18n="heroTagline">I design digital products where user needs, business goals and technology meet.</span> <span class="dotsep">UX/UI · Product Design · Design Systems · Research</span></p>
 
         <div class="heroCtas">
-            <a href="#projects" class="btn-pill">View my work</a>
-            <a href="about.html" class="btn-outline">View CV</a>
+            <a href="#projects" class="btn-pill" data-i18n="ctaWork">View my work</a>
+            <a href="about.html" class="btn-outline" data-i18n="ctaCV">View CV</a>
         </div>
     </section>
 
     <section class="bioCols">
         <div class="bioCol">
-            <p><strong>My latest experience at Dogfy Diet highlights my versatility:</strong> I've designed both customer-facing products (the mobile App and client area) and internal business tools (the sales team CRM). My approach combines data-driven decisions via A/B testing with technical rigor — maintaining robust Design Systems and collaborating closely with IT and Marketing to ensure flawless product implementation.</p>
+            <p data-i18n="bio1"><strong>My latest experience at Dogfy Diet highlights my versatility:</strong> I've designed both customer-facing products (the mobile App and client area) and internal business tools (the sales team CRM). My approach combines data-driven decisions via A/B testing with technical rigor — maintaining robust Design Systems and collaborating closely with IT and Marketing to ensure flawless product implementation.</p>
         </div>
         <div class="bioCol">
-            <p>I have a strong aptitude for early-stage product design, where I thoughtfully apply customer research to craft impactful MVPs. I've also collaborated with front-end teams, particularly in developing Design Systems, bridging user needs with developer efficiency — always turning challenges into actionable, user-centered solutions.</p>
+            <p data-i18n="bio2">I have a strong aptitude for early-stage product design, where I thoughtfully apply customer research to craft impactful MVPs. I've also collaborated with front-end teams, particularly in developing Design Systems, bridging user needs with developer efficiency — always turning challenges into actionable, user-centered solutions.</p>
         </div>
     </section>
 
     <section id="projects" class="projects">
         <div class="projectsHead">
-            <h2>Selected UX/UI projects</h2>
-            <a href="#" class="viewAll">View all &rsaquo;</a>
+            <h2 data-i18n="projectsHeading">Selected UX/UI projects</h2>
+            <a href="#" class="viewAll" data-i18n="viewAll">View all &rsaquo;</a>
         </div>
 
         <a class="featuredCase" href="dogfy.html">
             <img src="dogfy-cancel-hero.jpg" alt="Dogfy Diet subscription cancellation flow redesign">
             <div class="featuredCaseText">
-                <h3>Dogfy Diet: Rediseñar la cancelación como una conversación de retención</h3>
-                <p>Convertí el flujo de pausas y bajas de Dogfy Diet en un recorrido que escucha el porqué de cada cliente — y protege sus momentos más sensibles.</p>
+                <h3 data-i18n="dogfyTitle">Dogfy Diet: Redesigning cancellation as a retention conversation</h3>
+                <p data-i18n="dogfyDesc">I turned Dogfy Diet's pause-and-cancel flow into a journey that listens to each customer's real reason — and protects their most sensitive moments.</p>
                 <div class="tags">#Retention #ConversationalUX #ChurnReduction #ProductDesign</div>
             </div>
         </a>
@@ -79,41 +87,41 @@
             <a class="projectCard" href="9grup.html">
                 <img src="Card1.png" alt="3Group SaaS project">
                 <h3>3Group SaaS</h3>
-                <p>Electric distribution company. Creation of a B2B eCommerce for different partners, using a shared database and shared products.</p>
+                <p data-i18n="p9grupDesc">Electric distribution company. Creation of a B2B eCommerce for different partners, using a shared database and shared products.</p>
                 <div class="tags">#eCommerce #B2B #Wholesale &amp; Retail trade #Design System #Front-end</div>
             </a>
             <a class="projectCard" href="chorescore.html">
                 <img src="Card2.png" alt="Chorescore project">
                 <h3>Chorescore</h3>
-                <p>Avoid the awkward talk with your flatmates! Set cleaning habits with your flatmates and make sure everyone is in charge of their own chores.</p>
+                <p data-i18n="pChorescoreDesc">Avoid the awkward talk with your flatmates! Set cleaning habits with your flatmates and make sure everyone is in charge of their own chores.</p>
                 <div class="tags">#Research #Insights #Gamification #Branding #Flatmates</div>
             </a>
             <a class="projectCard" href="glashh.html">
                 <img src="Card3.png" alt="Glashh project">
                 <h3>Glashh</h3>
-                <p>Experience chess with a twist! Glashh lets you play and bet money or tokens simultaneously, adding thrill to every move.</p>
+                <p data-i18n="pGlashhDesc">Experience chess with a twist! Glashh lets you play and bet money or tokens simultaneously, adding thrill to every move.</p>
                 <div class="tags">#Research #Feature Analysis #Branding #Chess&amp;Bet #Iterations</div>
             </a>
         </div>
     </section>
 
     <section class="ceramics" id="ceramicsSection">
-        <h2>What I'm doing when I'm out of office <span class="emoji">🌴</span></h2>
-        <p class="sub">Hey, if you are still here, maybe you still have interest to get to know a little bit more about me, here's something personal I like to share.</p>
+        <h2><span data-i18n="oooHeading">What I'm doing when I'm out of office</span> <span class="emoji">🌴</span></h2>
+        <p class="sub" data-i18n="oooSub">Hey, if you are still here, maybe you still have interest to get to know a little bit more about me, here's something personal I like to share.</p>
         <div class="ceramicsGrid" id="ceramicsGrid">
             <img src="ceramics-vases.jpg" alt="Handmade ceramic vases with handwritten customer research notes" class="cgLeft">
             <div class="cgRightCol">
                 <img src="ceramics-logo.png" alt="Sunday Ceramics logo" class="cgRight" id="cgRight">
                 <div class="cgText" id="cgText">
-                    <h3 class="pixelsTitle">From pixels to pottery</h3>
-                    <p>As a UX/UI designer by trade, I'm passionate about blending form, function, and beauty. This ceramics project is an extension of my creative process — a hands-on exploration of materiality, design, and human connection. It reflects my love for research, my curiosity about tactile experiences, and my drive to craft meaningful, expressive work.</p>
+                    <h3 class="pixelsTitle" data-i18n="pixelsTitle">From pixels to pottery</h3>
+                    <p data-i18n="pixelsDesc">As a UX/UI designer by trade, I'm passionate about blending form, function, and beauty. This ceramics project is an extension of my creative process — a hands-on exploration of materiality, design, and human connection. It reflects my love for research, my curiosity about tactile experiences, and my drive to craft meaningful, expressive work.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="tools">
-        <h3>Tools</h3>
+        <h3 data-i18n="toolsHeading">Tools</h3>
         <ul class="toolsList">
             <li>Figma</li>
             <li>HTML &amp; CSS</li>
@@ -123,20 +131,25 @@
             <li>Miro</li>
             <li>Notion</li>
             <li>Discord</li>
+            <li>Slack</li>
+            <li>Claude</li>
+            <li>ChatGPT</li>
         </ul>
     </section>
 
     <section class="contact">
-        <h2>Looking for a Product Designer? Say hi.</h2>
+        <h2 data-i18n="contactHeading">Looking for a Product Designer? Say hi.</h2>
         <a class="contactEmail" href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
         <a class="contactPhone" href="tel:+34652580403">+34 652 580 403</a>
     </section>
 
     <footer class="site">
-        <span>2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain</span>
-        <a href="https://www.linkedin.com/in/claudiadom/" target="_blank" rel="noopener">Add me on LinkedIn</a>
+        <span data-i18n="footerLocation">2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain</span>
+        <a href="https://www.linkedin.com/in/claudiadom/" target="_blank" rel="noopener" data-i18n="footerLinkedin">Add me on LinkedIn</a>
         <a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
     </footer>
+
+    <script src="i18n.js"></script>
     <script>
         (function () {
             var nav = document.getElementById('siteNav');
@@ -155,19 +168,84 @@
             var cgText = document.getElementById('cgText');
             var section = document.getElementById('ceramicsSection');
             if (cgRight && cgText && section && 'IntersectionObserver' in window) {
+                var cgTimer = null;
                 var observer = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
+                        clearTimeout(cgTimer);
                         if (entry.isIntersecting) {
-                            cgRight.classList.add('shrink');
-                            cgText.classList.add('visible');
+                            cgTimer = setTimeout(function () {
+                                cgRight.classList.add('shrink');
+                                cgText.classList.add('visible');
+                            }, 600);
                         } else {
                             cgRight.classList.remove('shrink');
                             cgText.classList.remove('visible');
                         }
                     });
-                }, { threshold: 0.4 });
+                }, { threshold: 0.65 });
                 observer.observe(section);
             }
+
+            var pageDict = {
+                en: {
+                    heroIm: "I'm", heroA: "a", heroAnd: "and", heroMuchMore: "much more",
+                    heroProductDesigner: "product designer", heroLocatedIn: "Located in",
+                    heroTagline: "I design digital products where user needs, business goals and technology meet.",
+                    ctaWork: "View my work", ctaCV: "View CV",
+                    bio1: "<strong>My latest experience at Dogfy Diet highlights my versatility:</strong> I've designed both customer-facing products (the mobile App and client area) and internal business tools (the sales team CRM). My approach combines data-driven decisions via A/B testing with technical rigor — maintaining robust Design Systems and collaborating closely with IT and Marketing to ensure flawless product implementation.",
+                    bio2: "I have a strong aptitude for early-stage product design, where I thoughtfully apply customer research to craft impactful MVPs. I've also collaborated with front-end teams, particularly in developing Design Systems, bridging user needs with developer efficiency — always turning challenges into actionable, user-centered solutions.",
+                    projectsHeading: "Selected UX/UI projects", viewAll: "View all &rsaquo;",
+                    dogfyTitle: "Dogfy Diet: Redesigning cancellation as a retention conversation",
+                    dogfyDesc: "I turned Dogfy Diet's pause-and-cancel flow into a journey that listens to each customer's real reason — and protects their most sensitive moments.",
+                    p9grupDesc: "Electric distribution company. Creation of a B2B eCommerce for different partners, using a shared database and shared products.",
+                    pChorescoreDesc: "Avoid the awkward talk with your flatmates! Set cleaning habits with your flatmates and make sure everyone is in charge of their own chores.",
+                    pGlashhDesc: "Experience chess with a twist! Glashh lets you play and bet money or tokens simultaneously, adding thrill to every move.",
+                    oooHeading: "What I'm doing when I'm out of office",
+                    oooSub: "Hey, if you are still here, maybe you still have interest to get to know a little bit more about me, here's something personal I like to share.",
+                    pixelsTitle: "From pixels to pottery",
+                    pixelsDesc: "As a UX/UI designer by trade, I'm passionate about blending form, function, and beauty. This ceramics project is an extension of my creative process — a hands-on exploration of materiality, design, and human connection. It reflects my love for research, my curiosity about tactile experiences, and my drive to craft meaningful, expressive work.",
+                    toolsHeading: "Tools"
+                },
+                es: {
+                    heroIm: "Soy", heroA: "una", heroAnd: "y", heroMuchMore: "mucho más",
+                    heroProductDesigner: "product designer", heroLocatedIn: "Ubicada en",
+                    heroTagline: "Diseño productos digitales donde se encuentran las necesidades del usuario, los objetivos de negocio y la tecnología.",
+                    ctaWork: "Ver mi trabajo", ctaCV: "Ver CV",
+                    bio1: "<strong>Mi última experiencia en Dogfy Diet muestra mi versatilidad:</strong> he diseñado tanto productos de cara al cliente (la App y el área de cliente) como herramientas internas de negocio (el CRM del equipo de ventas). Mi enfoque combina decisiones basadas en datos mediante A/B testing con rigor técnico — manteniendo Design Systems robustos y colaborando estrechamente con IT y Marketing para asegurar una implementación impecable.",
+                    bio2: "Tengo una gran aptitud para el diseño de producto en fases tempranas, donde aplico la investigación de usuarios de forma reflexiva para crear MVPs con impacto real. También he colaborado con equipos de front-end, especialmente desarrollando Design Systems, conectando las necesidades del usuario con la eficiencia del desarrollador — convirtiendo siempre los retos en soluciones centradas en las personas.",
+                    projectsHeading: "Proyectos UX/UI seleccionados", viewAll: "Ver todos &rsaquo;",
+                    dogfyTitle: "Dogfy Diet: rediseñar la cancelación como una conversación de retención",
+                    dogfyDesc: "Convertí el flujo de pausas y bajas de Dogfy Diet en un recorrido que escucha el porqué de cada cliente — y protege sus momentos más sensibles.",
+                    p9grupDesc: "Empresa de distribución eléctrica. Creación de un eCommerce B2B para distintos partners, usando una base de datos y productos compartidos.",
+                    pChorescoreDesc: "¡Evita la charla incómoda con tus compañeros de piso! Crea hábitos de limpieza y asegúrate de que cada uno se hace cargo de sus tareas.",
+                    pGlashhDesc: "Vive el ajedrez con un giro distinto. Glashh te permite jugar y apostar dinero o tokens a la vez, añadiendo emoción a cada movimiento.",
+                    oooHeading: "Qué hago cuando estoy fuera de la oficina",
+                    oooSub: "Oye, si sigues aquí, quizá te interese conocerme un poco mejor — aquí va algo personal que me gusta compartir.",
+                    pixelsTitle: "De los píxeles a la cerámica",
+                    pixelsDesc: "Como diseñadora UX/UI de profesión, me apasiona combinar forma, función y belleza. Este proyecto de cerámica es una extensión de mi proceso creativo — una exploración práctica de la materialidad, el diseño y la conexión humana. Refleja mi amor por la investigación, mi curiosidad por las experiencias táctiles y mis ganas de crear trabajo significativo y expresivo.",
+                    toolsHeading: "Herramientas"
+                },
+                ca: {
+                    heroIm: "Sóc", heroA: "una", heroAnd: "i", heroMuchMore: "molt més",
+                    heroProductDesigner: "product designer", heroLocatedIn: "Ubicada a",
+                    heroTagline: "Dissenyo productes digitals on es troben les necessitats de l'usuari, els objectius de negoci i la tecnologia.",
+                    ctaWork: "Veure la meva feina", ctaCV: "Veure CV",
+                    bio1: "<strong>La meva última experiència a Dogfy Diet mostra la meva versatilitat:</strong> he dissenyat tant productes de cara al client (l'App i l'àrea de client) com eines internes de negoci (el CRM de l'equip de vendes). El meu enfocament combina decisions basades en dades mitjançant A/B testing amb rigor tècnic — mantenint Design Systems robustos i col·laborant estretament amb IT i Marketing per assegurar una implementació impecable.",
+                    bio2: "Tinc una gran aptitud pel disseny de producte en fases inicials, on aplico la recerca d'usuaris de forma reflexiva per crear MVPs amb impacte real. També he col·laborat amb equips de front-end, especialment desenvolupant Design Systems, connectant les necessitats de l'usuari amb l'eficiència del desenvolupador — convertint sempre els reptes en solucions centrades en les persones.",
+                    projectsHeading: "Projectes UX/UI seleccionats", viewAll: "Veure tots &rsaquo;",
+                    dogfyTitle: "Dogfy Diet: redissenyar la cancel·lació com una conversa de retenció",
+                    dogfyDesc: "Vaig convertir el flux de pauses i baixes de Dogfy Diet en un recorregut que escolta el perquè de cada client — i protegeix els seus moments més sensibles.",
+                    p9grupDesc: "Empresa de distribució elèctrica. Creació d'un eCommerce B2B per a diferents partners, amb una base de dades i productes compartits.",
+                    pChorescoreDesc: "Evita la conversa incòmoda amb els teus companys de pis! Crea hàbits de neteja i assegura't que cadascú es fa càrrec de les seves tasques.",
+                    pGlashhDesc: "Viu els escacs amb un gir diferent. Glashh et permet jugar i apostar diners o tokens alhora, afegint emoció a cada moviment.",
+                    oooHeading: "Què faig quan estic fora de l'oficina",
+                    oooSub: "Ei, si encara ets aquí, potser t'interessa conèixer-me una mica millor — aquí va alguna cosa personal que m'agrada compartir.",
+                    pixelsTitle: "Dels píxels a la ceràmica",
+                    pixelsDesc: "Com a dissenyadora UX/UI d'ofici, m'apassiona combinar forma, funció i bellesa. Aquest projecte de ceràmica és una extensió del meu procés creatiu — una exploració pràctica de la materialitat, el disseny i la connexió humana. Reflecteix el meu amor per la recerca, la meva curiositat per les experiències tàctils i les meves ganes de crear treball significatiu i expressiu.",
+                    toolsHeading: "Eines"
+                }
+            };
+            I18N_APPLY(pageDict);
         })();
     </script>
 </body>

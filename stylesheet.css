@@ -72,6 +72,26 @@ section, footer.site {
 .navbar ul a { display: block; color: var(--ink); text-decoration: none; padding: 10px 14px; transition: color .15s; }
 .navbar ul a:hover { color: var(--accent); }
 .nav-cta { margin: 0; padding: 14px 24px; font-size: 12px; }
+.langToggle {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+}
+.langToggle button {
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    padding: 8px 11px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+}
+.langToggle button.active { background: var(--ink); color: #fff; }
+.langToggle button:not(.active):hover { background: #F5F4F1; }
 
 .hasDropdown { position: relative; }
 .dropdown {
