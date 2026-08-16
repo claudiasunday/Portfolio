@@ -13,7 +13,10 @@
             <div class="navLogoClau">
                 <a href="index.html"><img src="avatar.png" alt="Claudia Domingo Ruiz" class="avatar"></a>
             </div>
-            <div class="navActions">
+            <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="navActions" id="navActions">
                 <ul>
                     <li class="hasDropdown">
                         <a href="index.html#projects" data-i18n="navWork">Work</a>
@@ -191,6 +194,23 @@
             }
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
+
+            var hamburgerBtn = document.getElementById('hamburgerBtn');
+            var navActionsEl = document.getElementById('navActions');
+            if (hamburgerBtn && navActionsEl) {
+                hamburgerBtn.addEventListener('click', function () {
+                    var isOpen = navActionsEl.classList.toggle('open');
+                    hamburgerBtn.classList.toggle('open', isOpen);
+                    hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+                navActionsEl.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        navActionsEl.classList.remove('open');
+                        hamburgerBtn.classList.remove('open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
             I18N_APPLY({});
         })();
     </script>
