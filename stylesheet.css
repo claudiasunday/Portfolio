@@ -95,8 +95,6 @@ section, footer.site {
 
 .hasDropdown { position: relative; }
 .dropdown {
-    display: flex;
-    flex-direction: column;
     gap: 2px;
     position: absolute;
     top: 100%;
@@ -113,6 +111,13 @@ section, footer.site {
     transform: translateY(-6px);
     transition: opacity .18s ease, transform .18s ease, visibility .18s;
     pointer-events: none;
+}
+@media (min-width: 861px) {
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        min-width: max-content;
+    }
 }
 .hasDropdown:hover .dropdown,
 .hasDropdown:focus-within .dropdown {
@@ -258,7 +263,7 @@ section, footer.site {
 
 /* CONTACT */
 .contact { border-top: 1px solid var(--line); text-align: center; padding-top: 72px; padding-bottom: 72px; }
-.contact h2 { font-size: 16px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; margin-bottom: 18px; }
+.contact h2 { font-size: 16px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; }
 .contactEmail, .contactPhone {
     display: block; text-decoration: none; color: var(--ink);
     font-weight: 800; letter-spacing: -0.01em;
@@ -429,7 +434,6 @@ footer.site a:hover { color: var(--ink); }
     letter-spacing: .05em;
     color: #A9A6A2;
     font-weight: 400;
-    margin-bottom: 18px;
 }
 
 /* ABOUT ME */
@@ -661,34 +665,95 @@ footer.site a:hover { color: var(--ink); }
         padding: 6px 0 0 14px;
         min-width: 0;
     }
+    .dropdown a { color: #9f9f9f; }
     .langToggle { margin: 2px 0; }
     .nav-cta { width: 100%; text-align: center; }
 }
 
 /* CREATIVE SPACE — Seramics project page palette */
-.ooHero {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    align-items: stretch;
-    gap: 0;
-    background: #2E2A26;
-    border-radius: 0 0 28px 28px;
-    overflow: hidden;
+.ooHeroFull {
+    position: relative;
+    width: 100%;
     margin-bottom: 8px;
 }
-.ooHeroText { padding: 64px 48px; display: flex; flex-direction: column; justify-content: center; }
-.ooHeroText h1 {
+.ooHeroFullImg {
+    width: 100%;
+    height: 62vh;
+    min-height: 380px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.6);
+}
+.ooHeroFullText {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+}
+.ooHeroFullText h1 {
     font-size: clamp(30px, 3.6vw, 44px);
     text-transform: uppercase;
     color: #F2B9D2;
     letter-spacing: -0.01em;
     margin-bottom: 20px;
 }
-.ooHeroText p { color: #EDE7E2; font-size: 16px; max-width: 46ch; margin: 0; }
-.ooHeroImg { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; }
+.ooHeroFullText > p { color: #EDE7E2; font-size: 16px; max-width: 46ch; margin: 0; }
+.igWidget {
+    background: #F1EDE7;
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-top: 24px;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 16px 36px rgba(0,0,0,.28);
+}
+.igHandle { margin: 0; font-size: 22px; font-weight: 800; color: #1A1A1A; }
+.igFollow { margin: 6px 0 16px; font-size: 14px; color: #5A5A5A; }
+.igWidget .btn-pill { margin: 0; padding: 12px 22px; font-size: 13px; }
 @media (max-width: 720px) {
-    .ooHero { grid-template-columns: 1fr; }
-    .ooHeroText { padding: 40px 28px; }
+    .ooHeroFullText { padding: 0 24px; }
+}
+
+.ooHeroWrap { position: relative; margin-bottom: 60px; }
+
+.potReveal { padding-top: 48px; padding-bottom: 48px; }
+.potStack {
+    position: absolute;
+    left: 62%;
+    transform: translateX(-50%);
+    bottom: -70px;
+    width: 260px;
+    height: 260px;
+    z-index: 5;
+}
+.potImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.potOverlay {
+    opacity: 0;
+    transition: opacity 1.1s ease;
+}
+.potOverlay.visible { opacity: 1; }
+@media (max-width: 860px) {
+    .ooHeroWrap { margin-bottom: 0; }
+    .potStack {
+        position: static;
+        width: 200px;
+        height: 200px;
+        margin: 24px auto 0;
+        left: auto;
+        bottom: auto;
+        transform: none;
+    }
 }
 
 .ooQuote {

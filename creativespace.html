@@ -38,13 +38,24 @@
         </div>
     </nav>
 
-    <section class="ooHero">
-        <div class="ooHeroText">
-            <h1>Seramics project</h1>
-            <p>This project is about creating connections — between people, disciplines, and ideas — by blending the tactile beauty of ceramics with the innovative, human-centered approach of UX design.</p>
+    <div class="ooHeroWrap">
+        <div class="ooHeroFull">
+            <img src="portada_OOO.jpg" alt="Handmade ceramic bowl" class="ooHeroFullImg">
+            <div class="ooHeroFullText">
+                <h1>Seramics project</h1>
+                <p>This project is about creating connections — between people, disciplines, and ideas — by blending the tactile beauty of ceramics with the innovative, human-centered approach of UX design.</p>
+                <div class="igWidget">
+                    <p class="igHandle">@sun_____house</p>
+                    <p class="igFollow">Follow us on Instagram</p>
+                    <a href="https://www.instagram.com/sun_____house/" target="_blank" rel="noopener" class="btn-pill">Instagram &rarr;</a>
+                </div>
+            </div>
         </div>
-        <img src="ooo-hero-yarnbowl.jpg" alt="Handmade ceramic bowl holding a ball of pink yarn" class="ooHeroImg">
-    </section>
+        <div class="potStack" id="potReveal">
+            <img src="pot_sinhilo.png" alt="Ceramic bowl empty" class="potImg potBase">
+            <img src="pot_conhilo.png" alt="Ceramic bowl holding a ball of pink yarn" class="potImg potOverlay" id="potOverlay">
+        </div>
+    </div>
 
     <section class="ceramics" style="border-top:none;">
         <div class="ooQuote">
@@ -150,6 +161,27 @@
             }
 
             I18N_APPLY({});
+
+            var potOverlay = document.getElementById('potOverlay');
+            var potSection = document.getElementById('potReveal');
+            if (potOverlay && potSection) {
+                var potTriggered = false;
+                var potTimer = null;
+                function checkPotScroll() {
+                    if (potTriggered) return;
+                    if (window.scrollY < 30) return;
+                    var rect = potSection.getBoundingClientRect();
+                    var inView = rect.top < window.innerHeight * 0.75 && rect.bottom > 0;
+                    if (inView) {
+                        potTriggered = true;
+                        potTimer = setTimeout(function () {
+                            potOverlay.classList.add('visible');
+                        }, 400);
+                        window.removeEventListener('scroll', checkPotScroll);
+                    }
+                }
+                window.addEventListener('scroll', checkPotScroll, { passive: true });
+            }
         })();
     </script>
 </body>
