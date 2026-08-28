@@ -691,8 +691,7 @@ footer.site a:hover { color: var(--ink); }
     flex-direction: column;
     justify-content: center;
     padding: 0 40px;
-    max-width: var(--maxw);
-    margin: 0 auto;
+    max-width: 640px;
 }
 .ooHeroFullText h1 {
     font-size: clamp(30px, 3.6vw, 44px);
@@ -710,15 +709,6 @@ footer.site a:hover { color: var(--ink); }
     max-width: 380px;
     text-align: center;
     box-shadow: 0 16px 36px rgba(0,0,0,.28);
-}
-@media (min-width: 861px) {
-    .igWidget {
-        position: absolute;
-        left: 40px;
-        bottom: 40px;
-        margin: 0;
-        z-index: 4;
-    }
 }
 .igHandle { margin: 0; font-size: 22px; font-weight: 800; color: #1A1A1A; }
 .igFollow { margin: 6px 0 16px; font-size: 14px; color: #5A5A5A; }
