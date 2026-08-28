@@ -706,10 +706,19 @@ footer.site a:hover { color: var(--ink); }
     background: #F1EDE7;
     border-radius: 20px;
     padding: 28px 32px;
-    margin-top: 24px;
+    margin: 24px auto 0;
     max-width: 380px;
     text-align: center;
     box-shadow: 0 16px 36px rgba(0,0,0,.28);
+}
+@media (min-width: 861px) {
+    .igWidget {
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        margin: 0;
+        z-index: 4;
+    }
 }
 .igHandle { margin: 0; font-size: 22px; font-weight: 800; color: #1A1A1A; }
 .igFollow { margin: 6px 0 16px; font-size: 14px; color: #5A5A5A; }
@@ -746,13 +755,14 @@ footer.site a:hover { color: var(--ink); }
 @media (max-width: 860px) {
     .ooHeroWrap { margin-bottom: 0; }
     .potStack {
-        position: static;
+        position: relative;
         width: 200px;
         height: 200px;
-        margin: 24px auto 0;
+        margin: -110px auto 0;
         left: auto;
         bottom: auto;
         transform: none;
+        z-index: 3;
     }
 }
 
