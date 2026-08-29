@@ -43,8 +43,13 @@
         <div class="ooHeroFull">
             <img src="portada_OOO.jpg" alt="Handmade ceramic bowl" class="ooHeroFullImg">
             <div class="ooHeroFullText">
-                <h1>Seramics project</h1>
-                <p>This project is about creating connections — between people, disciplines, and ideas — by blending the tactile beauty of ceramics with the innovative, human-centered approach of UX design.</p>
+                <div class="ooHeroTitle">
+                    <h1>Seramics<br>Project</h1>
+                    <p class="ooHeroBy">By Claudia <span class="pink">Sun</span>day</p>
+                </div>
+                <div class="ooHeroCopy">
+                    <p>A space for clay, ideas and curiosity... and FRIENDS. An ongoing exploration of what happens when the tactile world of ceramics meets the way I think as a UX designer. Making, experimenting, connecting dots — and having fun along the way.</p>
+                </div>
             </div>
         </div>
         <div class="potStack" id="potReveal">
@@ -65,14 +70,47 @@
         <p style="margin-top:28px; font-size:17px; max-width:70ch;">Using the <strong style="color:var(--ink);">Design Thinking</strong> methodology, I will embark on a creative journey to explore how ceramics can embody the principles of user-centered design while fostering meaningful interactions.</p>
     </section>
 
+    <section class="ceramics" style="border-top:none;">
+        <h2 class="pixelsTitle" style="font-size:16px;">From the process</h2>
+        <p class="sub" style="margin-top:8px;">A few glimpses behind the scenes, straight from Instagram.</p>
+        <div class="igReelsGrid">
+            <button type="button" class="igReelCard" data-reel="1">
+                <span class="igReelThumb" style="background-image:url('reel-1.png');"><span class="igReelPlay">&#9658;</span></span>
+                <span class="igReelLabel">Reel 1</span>
+            </button>
+            <button type="button" class="igReelCard" data-reel="2">
+                <span class="igReelThumb" style="background-image:url('reel-2.png');"><span class="igReelPlay">&#9658;</span></span>
+                <span class="igReelLabel">Reel 2</span>
+            </button>
+            <button type="button" class="igReelCard" data-reel="3">
+                <span class="igReelThumb" style="background-image:url('reel-3.png');"><span class="igReelPlay">&#9658;</span></span>
+                <span class="igReelLabel">Reel 3</span>
+            </button>
+        </div>
+    </section>
+
+    <div class="igModalOverlay" id="igModalOverlay">
+        <div class="igModal">
+            <button type="button" class="igModalClose" id="igModalClose" aria-label="Close">&times;</button>
+            <h3 id="igModalTitle">Reel</h3>
+            <p id="igModalText">Placeholder text explaining the creative process behind this piece.</p>
+            <a id="igModalLink" href="#" target="_blank" rel="noopener" class="btn-pill">View on Instagram &rarr;</a>
+        </div>
+    </div>
+    </section>
+
     <section class="ceramics" style="border-top:1px solid var(--line);">
         <div class="ooStep">
             <span class="ooStepNum">1</span>
             <div class="ooStepBody">
                 <h2>Empathize</h2>
-                <p>I started by conducting research and observing my friends as users, through interviews, shadowing, and other methods. My objective is to uncover their needs, preferences, and emotional connections to both ceramics and digital experiences.</p>
-                <p><strong style="color:var(--ink);">Attitudinal questions</strong> explore how participants perceive themselves — like defining their personality in a few words, or choosing an onomatopoeia that represents them. <strong style="color:var(--ink);">Behavioral questions</strong> focus on their actions and experiences — what's the first thing they notice when they touch a ceramic object, how they usually interact with an object in their space. Recognizing that attitudinal questions may carry subjective bias, I carefully analyzed the responses and compared them with behavioral observations to build a balanced understanding.</p>
-                <img src="ooo-survey-results.jpg" alt="Survey results from the Empathize research phase" class="ooStepImg" style="margin-top:16px;">
+                <div class="ooStepTwoCol">
+                    <div class="ooStepText">
+                        <p>I started by conducting research and observing my friends as users, through interviews, shadowing, and other methods. My objective is to uncover their needs, preferences, and emotional connections to both ceramics and digital experiences.</p>
+                        <p><strong style="color:var(--ink);">Attitudinal questions</strong> explore how participants perceive themselves — like defining their personality in a few words, or choosing an onomatopoeia that represents them. <strong style="color:var(--ink);">Behavioral questions</strong> focus on their actions and experiences — what's the first thing they notice when they touch a ceramic object, how they usually interact with an object in their space. Recognizing that attitudinal questions may carry subjective bias, I carefully analyzed the responses and compared them with behavioral observations to build a balanced understanding.</p>
+                    </div>
+                    <img src="ooo-survey-results.jpg" alt="Survey results from the Empathize research phase" class="ooStepImg ooStepImgCol">
+                </div>
             </div>
         </div>
     </section>
@@ -162,6 +200,51 @@
             }
 
             I18N_APPLY({});
+
+            var reelData = {
+                "1": {
+                    title: "Reel 1",
+                    text: "Hay regalos que empiezan con una pregunta.\n\n¿Cuál es tu momento favorito del día?\n¿Qué color te representa?\n¿Cómo eres cuando nadie te está mirando?\n\nPara esta pieza hice varias preguntas, observé las respuestas e intenté conocer un poquito mejor a la persona que había detrás.\n\nLas mañanas tranquilas, el café y su cigarrito.\nEl verde.\nUna sonrisa casi siempre presente.\nEsa forma tan educada y tranquila de estar con los demás.\nY, sobre todo, esa capacidad de encontrar algo positivo incluso cuando las cosas no parecen ir tan bien.\n\nCon todo eso empecé a diseñar.",
+                    url: "https://www.instagram.com/reel/DDMopxWgt-9/"
+                },
+                "2": {
+                    title: "Reel 2",
+                    text: "Para la chica más espontánea y divertida que conozco.\n\nMi compañera de universidad, diseñadora gráfica, amante de los colores y de hacer las cosas a su manera. Atrevida, moderna y una auténtica caja de sorpresas.\n\nY sí, también tenía que aparecer su inseparable rollo de papel de váter 🧻 porque las alergias nunca descansan.\n\nUna pieza hecha a partir de pequeños detalles que, juntos, solo podían ser ella.",
+                    url: "https://www.instagram.com/reel/DIZFvcxM7TA/"
+                },
+                "3": {
+                    title: "Reel 3",
+                    text: "Muy terrenal, pero nada convencional.\n\nDejó atrás el mundo laboral para dedicarse al circo 🎪 y esta pieza está pensada para acompañarla en uno de sus momentos de calma: hacer ganchillo.\n\nLas formas nacen desde la función, pero también hablan un poco de su recorrido: de los cambios de dirección, las etapas y los caminos que va dejando atrás —y los nuevos que decide seguir.",
+                    url: "https://www.instagram.com/reel/DWZlwHkj_3-/"
+                }
+            };
+            var igOverlay = document.getElementById('igModalOverlay');
+            var igTitle = document.getElementById('igModalTitle');
+            var igText = document.getElementById('igModalText');
+            var igLink = document.getElementById('igModalLink');
+            var igClose = document.getElementById('igModalClose');
+
+            document.querySelectorAll('.igReelCard').forEach(function (card) {
+                card.addEventListener('click', function () {
+                    var data = reelData[card.getAttribute('data-reel')];
+                    if (!data || !igOverlay) return;
+                    igTitle.textContent = data.title;
+                    igText.textContent = data.text;
+                    igLink.href = data.url;
+                    igOverlay.classList.add('open');
+                });
+            });
+            if (igClose) {
+                igClose.addEventListener('click', function () { igOverlay.classList.remove('open'); });
+            }
+            if (igOverlay) {
+                igOverlay.addEventListener('click', function (e) {
+                    if (e.target === igOverlay) igOverlay.classList.remove('open');
+                });
+            }
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && igOverlay) igOverlay.classList.remove('open');
+            });
 
             var potOverlay = document.getElementById('potOverlay');
             var potSection = document.getElementById('potReveal');
