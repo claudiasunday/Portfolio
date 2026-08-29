@@ -4,7 +4,7 @@ window.I18N_SHARED = {
     en: {
         navWork: "Work",
         navAbout: "About me",
-        navOOO: "OOO",
+        navOOO: "Pottery",
         navContact: "Contact me",
         footerLocation: "2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain",
         footerLinkedin: "Add me on LinkedIn",
@@ -16,7 +16,7 @@ window.I18N_SHARED = {
     es: {
         navWork: "Trabajo",
         navAbout: "Sobre mí",
-        navOOO: "OOO",
+        navOOO: "Cerámica",
         navContact: "Contáctame",
         footerLocation: "2024 / 2025 · Leysin, Suiza y Barcelona, España",
         footerLinkedin: "Añádeme en LinkedIn",
@@ -28,7 +28,7 @@ window.I18N_SHARED = {
     ca: {
         navWork: "Feina",
         navAbout: "Sobre mi",
-        navOOO: "OOO",
+        navOOO: "Ceràmica",
         navContact: "Contacta'm",
         footerLocation: "2024 / 2025 · Leysin, Suïssa i Barcelona, Espanya",
         footerLinkedin: "Afegeix-me a LinkedIn",
