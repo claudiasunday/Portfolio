@@ -197,13 +197,13 @@
                             cgTimer = setTimeout(function () {
                                 cgRight.classList.add('shrink');
                                 cgText.classList.add('visible');
-                            }, 150);
+                            }, 450);
                         } else {
                             cgRight.classList.remove('shrink');
                             cgText.classList.remove('visible');
                         }
                     });
-                }, { threshold: 0.2 });
+                }, { threshold: 0.45 });
                 observer.observe(section);
             }
 
