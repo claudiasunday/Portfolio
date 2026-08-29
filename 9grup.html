@@ -45,16 +45,16 @@
     <section class="featuredCase" style="grid-template-columns:1fr; box-shadow:none; background:none; padding:0 40px; margin:0 auto; max-width:1040px;">
         <img src="Card1.png" alt="9Grup SaaS" style="height:360px;">
         <div class="featuredCaseText">
-            <p style="font-size:17px; max-width:70ch;">Electric distribution company. Creation of a B2B eCommerce for different partners, using a shared database and shared products.</p>
+            <p style="font-size:17px; max-width:70ch;" data-i18n="p9grupLong">Electric distribution company. Creation of a B2B eCommerce for different partners, using a shared database and shared products.</p>
             <div class="tags">#eCommerce #B2B #Wholesale &amp; Retail trade #Design System #Front-end</div>
         </div>
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
         <div class="confidentialBox">
-            <h3 class="pixelsTitle">Confidential project</h3>
-            <p>Este proyecto está bajo acuerdo de confidencialidad, así que no puedo compartir el detalle del proceso o las pantallas aquí. Si quieres conocer más sobre mi trabajo en 9Grup, escríbeme y lo hablamos.</p>
-            <a href="mailto:sundayclaudia@gmail.com?subject=9Grup%20-%20More%20information" class="btn-pill">Request more information</a>
+            <h3 class="pixelsTitle" data-i18n="confidentialTitle">Confidential project</h3>
+            <p data-i18n="confidentialText9grup">Este proyecto está bajo acuerdo de confidencialidad, así que no puedo compartir el detalle del proceso o las pantallas aquí. Si quieres conocer más sobre mi trabajo en 9Grup, escríbeme y lo hablamos.</p>
+            <a href="mailto:sundayclaudia@gmail.com?subject=9Grup%20-%20More%20information" class="btn-pill" data-i18n="confidentialBtn">Request more information</a>
         </div>
     </section>
 
@@ -66,17 +66,17 @@
             <a class="projectCard" href="dogfy.html">
                 <img src="dogfy-cancel-hero.jpg" alt="Dogfy Diet project">
                 <h3>Dogfy Diet</h3>
-                <p>Redesigning cancellation as a retention conversation.</p>
+                <p data-i18n="dogfyMiniDesc">Redesigning cancellation as a retention conversation.</p>
             </a>
             <a class="projectCard" href="chorescore.html">
                 <img src="Card2.png" alt="Chorescore project">
                 <h3>Chorescore</h3>
-                <p>Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.</p>
+                <p data-i18n="pChorescoreDesc">Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.</p>
             </a>
             <a class="projectCard" href="glashh.html">
                 <img src="Card3.png" alt="Glashh project">
                 <h3>Glashh</h3>
-                <p>Confidential — chess app with betting mechanics.</p>
+                <p data-i18n="pGlashhDesc">Confidential — chess app with betting mechanics.</p>
             </a>
         </div>
     </section>
@@ -118,7 +118,27 @@
                     });
                 });
             }
-            I18N_APPLY({});
+            var pageDict = {
+                es: {
+                    p9grupLong: "Empresa de distribución eléctrica. Creación de un eCommerce B2B para distintos partners, usando una base de datos y productos compartidos.",
+                    confidentialTitle: "Proyecto confidencial",
+                    confidentialText9grup: "Este proyecto está bajo acuerdo de confidencialidad, así que no puedo compartir el detalle del proceso o las pantallas aquí. Si quieres conocer más sobre mi trabajo en 9Grup, escríbeme y lo hablamos.",
+                    confidentialBtn: "Solicitar más información",
+                    dogfyMiniDesc: "Rediseñar la cancelación como una conversación de retención.",
+                    pChorescoreDesc: "¡Evita la charla incómoda con tus compañeros de piso! Crea hábitos de limpieza y comparte tareas.",
+                    pGlashhDesc: "Confidencial — app de ajedrez con mecánica de apuestas."
+                },
+                ca: {
+                    p9grupLong: "Empresa de distribució elèctrica. Creació d'un eCommerce B2B per a diferents partners, amb una base de dades i productes compartits.",
+                    confidentialTitle: "Projecte confidencial",
+                    confidentialText9grup: "Aquest projecte està sota acord de confidencialitat, així que no puc compartir el detall del procés o les pantalles aquí. Si vols conèixer més sobre la meva feina a 9Grup, escriu-me i en parlem.",
+                    confidentialBtn: "Sol·licitar més informació",
+                    dogfyMiniDesc: "Redissenyar la cancel·lació com una conversa de retenció.",
+                    pChorescoreDesc: "Evita la conversa incòmoda amb els teus companys de pis! Crea hàbits de neteja i comparteix tasques.",
+                    pGlashhDesc: "Confidencial — app d'escacs amb mecànica d'apostes."
+                }
+            };
+            I18N_APPLY(pageDict);
         })();
     </script>
 </body>

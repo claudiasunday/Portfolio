@@ -45,16 +45,16 @@
     <section class="featuredCase" style="grid-template-columns:1fr; box-shadow:none; background:none; padding:0 40px; margin:0 auto; max-width:1040px;">
         <img src="Card3.png" alt="Glashh" style="height:360px;">
         <div class="featuredCaseText">
-            <p style="font-size:17px; max-width:70ch;">Experience chess with a twist! Glashh lets you play and bet money or tokens simultaneously, adding thrill to every move.</p>
+            <p style="font-size:17px; max-width:70ch;" data-i18n="glashhLong">Experience chess with a twist! Glashh lets you play and bet money or tokens simultaneously, adding thrill to every move.</p>
             <div class="tags">#Research #Feature Analysis #Branding #Chess&amp;Bet #Iterations</div>
         </div>
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
         <div class="confidentialBox">
-            <h3 class="pixelsTitle">Confidential project</h3>
-            <p>Este proyecto está bajo acuerdo de confidencialidad, así que no puedo compartir el detalle del proceso o las pantallas aquí. Si quieres conocer más sobre mi trabajo en Glashh, escríbeme y lo hablamos.</p>
-            <a href="mailto:sundayclaudia@gmail.com?subject=Glashh%20-%20More%20information" class="btn-pill">Request more information</a>
+            <h3 class="pixelsTitle" data-i18n="confidentialTitle">Confidential project</h3>
+            <p data-i18n="confidentialTextGlashh">Este proyecto está bajo acuerdo de confidencialidad, así que no puedo compartir el detalle del proceso o las pantallas aquí. Si quieres conocer más sobre mi trabajo en Glashh, escríbeme y lo hablamos.</p>
+            <a href="mailto:sundayclaudia@gmail.com?subject=Glashh%20-%20More%20information" class="btn-pill" data-i18n="confidentialBtn">Request more information</a>
         </div>
     </section>
 
@@ -66,17 +66,17 @@
             <a class="projectCard" href="dogfy.html">
                 <img src="dogfy-cancel-hero.jpg" alt="Dogfy Diet project">
                 <h3>Dogfy Diet</h3>
-                <p>Redesigning cancellation as a retention conversation.</p>
+                <p data-i18n="dogfyMiniDesc">Redesigning cancellation as a retention conversation.</p>
             </a>
             <a class="projectCard" href="chorescore.html">
                 <img src="Card2.png" alt="Chorescore project">
                 <h3>Chorescore</h3>
-                <p>Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.</p>
+                <p data-i18n="pChorescoreDesc">Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.</p>
             </a>
             <a class="projectCard" href="9grup.html">
                 <img src="Card1.png" alt="9Grup SaaS project">
                 <h3>9Grup SaaS</h3>
-                <p>Confidential B2B eCommerce project for an electric distribution company.</p>
+                <p data-i18n="p9grupDesc">Confidential B2B eCommerce project for an electric distribution company.</p>
             </a>
         </div>
     </section>
@@ -118,7 +118,27 @@
                     });
                 });
             }
-            I18N_APPLY({});
+            var pageDict = {
+                es: {
+                    glashhLong: "¡Vive el ajedrez con un giro distinto! Glashh te permite jugar y apostar dinero o tokens al mismo tiempo, añadiendo emoción a cada movimiento.",
+                    confidentialTitle: "Proyecto confidencial",
+                    confidentialTextGlashh: "Este proyecto está bajo acuerdo de confidencialidad, así que no puedo compartir el detalle del proceso o las pantallas aquí. Si quieres conocer más sobre mi trabajo en Glashh, escríbeme y lo hablamos.",
+                    confidentialBtn: "Solicitar más información",
+                    dogfyMiniDesc: "Rediseñar la cancelación como una conversación de retención.",
+                    pChorescoreDesc: "¡Evita la charla incómoda con tus compañeros de piso! Crea hábitos de limpieza y comparte tareas.",
+                    p9grupDesc: "Proyecto confidencial de eCommerce B2B para una empresa de distribución eléctrica."
+                },
+                ca: {
+                    glashhLong: "Viu els escacs amb un gir diferent! Glashh et permet jugar i apostar diners o tokens alhora, afegint emoció a cada moviment.",
+                    confidentialTitle: "Projecte confidencial",
+                    confidentialTextGlashh: "Aquest projecte està sota acord de confidencialitat, així que no puc compartir el detall del procés o les pantalles aquí. Si vols conèixer més sobre la meva feina a Glashh, escriu-me i en parlem.",
+                    confidentialBtn: "Sol·licitar més informació",
+                    dogfyMiniDesc: "Redissenyar la cancel·lació com una conversa de retenció.",
+                    pChorescoreDesc: "Evita la conversa incòmoda amb els teus companys de pis! Crea hàbits de neteja i comparteix tasques.",
+                    p9grupDesc: "Projecte confidencial d'eCommerce B2B per a una empresa de distribució elèctrica."
+                }
+            };
+            I18N_APPLY(pageDict);
         })();
     </script>
 </body>

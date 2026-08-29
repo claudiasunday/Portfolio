@@ -797,9 +797,16 @@ footer.site a:hover { color: var(--ink); }
     gap: 32px;
     align-items: start;
 }
+.ooStepTwoColText {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
 .ooStepImgCol { width: 100%; margin-top: 0; }
 @media (max-width: 860px) {
     .ooStepTwoCol { grid-template-columns: 1fr; }
+    .ooStepTwoColText { grid-template-columns: 1fr; }
 }
 .ooStepImg { width: 100%; max-width: 520px; border-radius: 16px; display: block; border: 1px solid var(--line); }
 .ooStepGrid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
@@ -843,9 +850,12 @@ footer.site a:hover { color: var(--ink); }
     gap: 10px;
 }
 .igReelThumb {
-    aspect-ratio: 9 / 12;
+    aspect-ratio: 3 / 5;
     width: 100%;
-    background: linear-gradient(160deg, #2E2A26, #4a443d);
+    background-color: #2E2A26;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -856,7 +866,7 @@ footer.site a:hover { color: var(--ink); }
 .igReelPlay {
     width: 48px; height: 48px;
     border-radius: 50%;
-    background: rgba(255,255,255,.15);
+    background: rgba(0,0,0,.45);
     color: #fff;
     display: flex; align-items: center; justify-content: center;
     font-size: 16px;
@@ -884,10 +894,12 @@ footer.site a:hover { color: var(--ink); }
     padding: 32px;
     max-width: 420px;
     width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
     position: relative;
 }
 .igModal h3 { font-size: 20px; margin-bottom: 12px; }
-.igModal p { font-size: 15px; margin-bottom: 20px; }
+.igModal p { font-size: 15px; margin-bottom: 20px; white-space: pre-line; }
 .igModalClose {
     position: absolute;
     top: 16px; right: 16px;
