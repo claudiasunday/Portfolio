@@ -60,6 +60,12 @@ function I18N_APPLY(pageDict) {
                 el.innerHTML = dict[key];
             }
         });
+        document.querySelectorAll('[data-i18n-img]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n-img');
+            if (dict[key] != null) {
+                el.src = dict[key];
+            }
+        });
         document.querySelectorAll('.langToggle button').forEach(function (btn) {
             btn.classList.toggle('active', btn.getAttribute('data-setlang') === lang);
         });
