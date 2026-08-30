@@ -54,17 +54,12 @@ section, footer.site {
     padding: 24px 40px;
     transition: padding .3s ease;
 }
-.navbar.scrolled .navInner { padding: 10px 40px; }
 .navbar.scrolled {
     box-shadow: 0 1px 0 var(--line);
 }
 .navLogoClau .avatar {
-    height: 110px; width: 92px; object-fit: cover;
-    border-radius: 14px; display: block;
-    transition: height .3s ease, width .3s ease, border-radius .3s ease;
-}
-.navbar.scrolled .navLogoClau .avatar {
-    height: 44px; width: 44px; border-radius: 10px;
+    height: 44px; width: 44px; object-fit: cover;
+    border-radius: 10px; display: block;
 }
 .navActions { display: flex; align-items: center; gap: 28px; }
 .navbar ul { list-style: none; display: flex; flex-direction: row; gap: 8px; margin: 0; padding: 0; }
@@ -670,6 +665,8 @@ footer.site a:hover { color: var(--ink); }
     .nav-cta { width: 100%; text-align: center; }
 }
 
+.ooHeroWrap { position: relative; margin-bottom: 60px; }
+
 /* CREATIVE SPACE — Seramics project page palette */
 .ooHeroFull {
     position: relative;
@@ -733,8 +730,6 @@ footer.site a:hover { color: var(--ink); }
 @media (max-width: 720px) {
     .ooHeroFullText { padding: 0 24px; }
 }
-
-.ooHeroWrap { position: relative; margin-bottom: 60px; }
 
 .potReveal { padding-top: 48px; padding-bottom: 48px; }
 .potStack {
