@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <title>Dogfy Diet — Case study | Claudia Domingo Ruiz</title>
+    <meta name="description" content="Redesigning cancellation as a retention conversation — Dogfy Diet case study by Claudia Domingo Ruiz.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMJE6FHS1Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZMJE6FHS1Z');
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="siteNav">
+        <div class="navInner">
+            <div class="navLogoClau">
+                <a href="index.html"><img src="avatar.png" alt="Claudia Domingo Ruiz" class="avatar"></a>
+            </div>
+            <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="navActions" id="navActions">
+                <ul>
+                    <li class="hasDropdown">
+                        <a href="index.html#projects" data-i18n="navWork">Work</a>
+                        <ul class="dropdown">
+                            <li><a href="chorescore.html">Chorescore</a></li>
+                            <li><a href="dogfy.html">Dogfy Diet</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html" data-i18n="navAbout">About me</a></li>
+                    <li><a href="creativespace.html" data-i18n="navOOO">Pottery</a></li>
+                </ul>
+                <div class="langToggle" role="group" aria-label="Language">
+                    <button type="button" data-setlang="en">EN</button>
+                    <button type="button" data-setlang="es">ES</button>
+                    <button type="button" data-setlang="ca">CA</button>
+                </div>
+                <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta" data-i18n="navContact">Contact me</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="padding-bottom:0; display:flex; align-items:center; gap:40px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:260px;">
+            <p class="heroTagline" style="margin-top:0;">Dogfy Diet</p>
+            <h1 style="font-size:clamp(30px,4.4vw,54px);" data-i18n="heroTitle">Redesigning cancellation as a retention conversation</h1>
+            <p style="font-size:17px; max-width:65ch; margin-top:16px;" data-i18n="heroSub">Turning a generic cancellation flow into a personalised experience based on why customers leave.</p>
+        </div>
+        <video src="dogfy-hero-mockup.mp4" autoplay loop muted playsinline style="width:220px; flex:none; border-radius:12px;"></video>
+    </section>
+
+    <section class="caseMeta">
+        <div><span data-i18n="metaRoleLabel">My role</span><p data-i18n="metaRoleValue">Product Designer, UX/UI Design, Front-end Dev</p></div>
+        <div><span data-i18n="metaToolsLabel">Tools used</span><p>Figma</p></div>
+        <div><span data-i18n="metaSectorLabel">Sector</span><p data-i18n="metaSectorValue">Petfood</p></div>
+        <div><span data-i18n="metaYearLabel">Year</span><p>2024</p></div>
+    </section>
+
+    <section class="bioCols" style="border-top:1px solid var(--line); grid-template-columns:1fr;">
+        <div class="bioCol">
+            <h3 class="pixelsTitle" data-i18n="aboutBizHeading">About the business</h3>
+            <p style="max-width:80ch;" data-i18n="aboutBizBody">Dogfy Diet is a fresh dog food subscription service operating across Spain, France, Italy and Germany. Cancellation was a critical moment in the customer journey: customers were leaving for very different reasons, some of which could potentially be solved within the product itself.</p>
+        </div>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="beforeHeading">Before</h2>
+        <img src="dogfy-antes.png" alt="Cancellation flow before the redesign" style="width:100%; border-radius:18px; display:block; margin-top:16px;">
+    </section>
+
+    <section class="ceramics" style="border-top:none;">
+        <h2 data-i18n="afterHeading">After</h2>
+        <img src="dogfy-despues.png" alt="Cancellation flow after the redesign" style="width:100%; border-radius:18px; display:block; margin-top:16px;">
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="challengeHeading">The challenge</h2>
+        <p class="sub" data-i18n="challengeSub">Cancellation was treated as one problem. But customers had very different reasons to leave.</p>
+        <ol class="challengeList">
+            <li data-i18n="challenge1"><strong>01 — One flow for everyone.</strong> The cancellation journey treated every customer the same, regardless of why they were leaving.</li>
+            <li data-i18n="challenge2"><strong>02 — Problems the product couldn't solve.</strong> Customers contacted Customer Care to perform actions that could potentially be handled directly within the product.</li>
+            <li data-i18n="challenge3"><strong>03 — No distinction between churn and sensitive situations.</strong> The same retention logic could be applied to very different scenarios, including sensitive situations such as the loss of a pet.</li>
+        </ol>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="dqHeading">Design question</h2>
+        <p class="designQuestion" data-i18n="dqText">How might we reduce avoidable cancellations without compromising customer autonomy?</p>
+        <p style="margin-top:16px; max-width:75ch;" data-i18n="dqSub">The goal wasn't to make cancellation harder. It was to understand the reason behind it and offer a genuinely useful alternative when possible.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="insightHeading">The key insight</h2>
+        <div class="insightBox">
+            <p style="font-size:22px; font-weight:800; color:var(--ink);" data-i18n="insightMain">The reason is the product.</p>
+            <p data-i18n="insightP1">We couldn't design a relevant retention strategy without first understanding why customers wanted to leave.</p>
+            <p data-i18n="insightP2">Instead of treating cancellation as a single linear flow, I redesigned it as a decision tree based on the customer's specific reason.</p>
+        </div>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="roleHeading">My role</h2>
+        <p style="max-width:80ch; margin-top:16px;" data-i18n="roleP1">I owned the UX design from discovery to development, working closely with Customer Care, Nutrition, Business and Engineering.</p>
+        <p style="max-width:80ch;" data-i18n="roleP2">My main focus was translating business rules and customer scenarios into a flow that could actually be implemented and maintained.</p>
+        <p style="max-width:80ch;" data-i18n="roleP3">This meant mapping states, defining edge cases, specifying tracking requirements and aligning the experience with the backend logic.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="edgeHeading">Before drawing a single screen</h2>
+        <p style="max-width:80ch; margin-top:16px;" data-i18n="edgeP1">Before designing a single screen, I mapped the logic behind the experience.</p>
+        <p style="max-width:80ch;" data-i18n="edgeP2">I deliberately looked for the scenarios that could break the happy path:</p>
+        <ul class="challengeList plainBullets" style="list-style:disc; padding-left:20px;">
+            <li style="padding-left:0;" data-i18n="edgeCase1">What happens if a trial customer hasn't received their first box?</li>
+            <li style="padding-left:0;" data-i18n="edgeCase2">What if a payment happens while they're cancelling?</li>
+            <li style="padding-left:0;" data-i18n="edgeCase3">What if they have multiple dogs?</li>
+            <li style="padding-left:0;" data-i18n="edgeCase4">What happens after a retention offer is rejected?</li>
+        </ul>
+        <p style="max-width:80ch; margin-top:16px;" data-i18n="edgeP3">Each edge case became an explicit product decision.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="treeHeading">From a linear flow to a decision tree</h2>
+        <p style="max-width:80ch; margin-top:16px;" data-i18n="treeP1">Instead of sending every customer through the same cancellation journey, the new experience adapts to their specific reason for leaving.</p>
+        <p class="designQuestion" data-i18n="treeP2">Identify the reason &rarr; understand the friction &rarr; offer a relevant solution &rarr; let the customer decide.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="frictionHeading">Retention, mapped to the friction</h2>
+        <p class="sub" data-i18n="frictionSub">Every reason leads to the help that actually solves that specific problem.</p>
+        <div class="frictionTable" style="margin-top:12px;">
+            <div class="frictionRow" style="font-weight:700; color:var(--ink); border-top:none;"><span data-i18n="frictionColA">Customer reason</span><span data-i18n="frictionColB">Product response</span></div>
+            <div class="frictionRow"><span data-i18n="friction1a">Ration doesn't fit</span><span data-i18n="friction1b">Adjust ration</span></div>
+            <div class="frictionRow"><span data-i18n="friction2a">Nutritional concern</span><span data-i18n="friction2b">Talk to Nutrition</span></div>
+            <div class="frictionRow"><span data-i18n="friction3a">Service issue</span><span data-i18n="friction3b">Contact Customer Care</span></div>
+            <div class="frictionRow"><span data-i18n="friction4a">Price</span><span data-i18n="friction4b">Eligible discount</span></div>
+            <div class="frictionRow"><span data-i18n="friction5a">Timing / storage</span><span data-i18n="friction5b">Change delivery date</span></div>
+        </div>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="realworldHeading">Designing for real-world scenarios</h2>
+        <p style="max-width:80ch; margin-top:16px;" data-i18n="realworldP1">The experience had to work beyond the happy path.</p>
+        <p style="max-width:80ch;" data-i18n="realworldP2">I mapped different customer states and edge cases to make sure the cancellation logic behaved consistently across scenarios such as trials, multiple dogs, upcoming payments and sensitive situations.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="tradeoffHeading">Retention without friction</h2>
+        <div class="insightBox">
+            <p data-i18n="tradeoffP1">We deliberately didn't try to retain every customer.</p>
+            <p data-i18n="tradeoffP2">For sensitive situations, such as the loss of a pet, the right product decision wasn't to introduce another offer or incentive. It was to provide a respectful and straightforward way to leave.</p>
+            <p style="font-weight:700; color:var(--ink);" data-i18n="tradeoffP3">Retention should solve a real problem — not make cancellation harder.</p>
+        </div>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="outcomeHeading">Outcome</h2>
+        <div class="resultsGrid" style="grid-template-columns:repeat(3,1fr);">
+            <div class="resultCard pending">
+                <h3 data-i18n="outcome1Title">+X% cancellation recovery</h3>
+                <p data-i18n="outcome1Sub">Business impact</p>
+            </div>
+            <div class="resultCard pending">
+                <h3 data-i18n="outcome2Title">X% completed cancellation without support</h3>
+                <p data-i18n="outcome2Sub">UX impact</p>
+            </div>
+            <div class="resultCard pending">
+                <h3 data-i18n="outcome3Title">−X% Customer Care contacts</h3>
+                <p data-i18n="outcome3Sub">Operational efficiency</p>
+            </div>
+        </div>
+        <p class="sub" style="margin-top:16px;" data-i18n="outcomeNote">Metrics to be validated with the final product data.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <div class="projectsHead" style="margin-bottom:20px;">
+            <h2 style="font-size:16px; text-transform:uppercase;" data-i18n="moreProjects">More projects</h2>
+        </div>
+        <div class="projectsGrid">
+            <a class="projectCard" href="9grup.html">
+                <img src="Card1.png" alt="3Group SaaS project">
+                <h3>3Group SaaS</h3>
+                <p data-i18n="p9grupDesc">Electric distribution company. Creation of a B2B eCommerce for different partners.</p>
+            </a>
+            <a class="projectCard" href="chorescore.html">
+                <img src="Card2.png" alt="Chorescore project">
+                <h3>Chorescore</h3>
+                <p data-i18n="pChorescoreDesc">Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.</p>
+            </a>
+            <a class="projectCard" href="glashh.html">
+                <img src="Card3.png" alt="Glashh project">
+                <h3>Glashh</h3>
+                <p data-i18n="pGlashhDesc">Experience chess with a twist — bet money or tokens while you play.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2 data-i18n="contactHeading">Looking for a Product Designer? Say hi.</h2>
+        <a class="contactEmail" href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
+        <a class="contactPhone" href="tel:+34652580403">+34 652 580 403</a>
+    </section>
+
+    <footer class="site">
+        <span data-i18n="footerLocation">2024 / 2025 · Leysin, Switzerland &amp; Barcelona, Spain</span>
+        <a href="https://www.linkedin.com/in/claudiadom/" target="_blank" rel="noopener" data-i18n="footerLinkedin">Add me on LinkedIn</a>
+        <a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script>
+        (function () {
+            var nav = document.getElementById('siteNav');
+            function onScroll() {
+                if (window.scrollY > 60) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            var hamburgerBtn = document.getElementById('hamburgerBtn');
+            var navActionsEl = document.getElementById('navActions');
+            if (hamburgerBtn && navActionsEl) {
+                hamburgerBtn.addEventListener('click', function () {
+                    var isOpen = navActionsEl.classList.toggle('open');
+                    hamburgerBtn.classList.toggle('open', isOpen);
+                    hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+                navActionsEl.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        navActionsEl.classList.remove('open');
+                        hamburgerBtn.classList.remove('open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            var pageDict = {
+                en: {
+                    heroTitle: "Redesigning cancellation as a retention conversation",
+                    heroSub: "Turning a generic cancellation flow into a personalised experience based on why customers leave.",
+                    metaRoleLabel: "My role", metaRoleValue: "Product Designer, UX/UI Design, Front-end Dev",
+                    metaToolsLabel: "Tools used", metaSectorLabel: "Sector", metaSectorValue: "Petfood",
+                    metaYearLabel: "Year",
+                    aboutBizHeading: "About the business",
+                    aboutBizBody: "Dogfy Diet is a fresh dog food subscription service operating across Spain, France, Italy and Germany. Cancellation was a critical moment in the customer journey: customers were leaving for very different reasons, some of which could potentially be solved within the product itself.",
+                    beforeHeading: "Before", afterHeading: "After",
+                    challengeHeading: "The challenge",
+                    challengeSub: "Cancellation was treated as one problem. But customers had very different reasons to leave.",
+                    challenge1: "<strong>01 — One flow for everyone.</strong> The cancellation journey treated every customer the same, regardless of why they were leaving.",
+                    challenge2: "<strong>02 — Problems the product couldn't solve.</strong> Customers contacted Customer Care to perform actions that could potentially be handled directly within the product.",
+                    challenge3: "<strong>03 — No distinction between churn and sensitive situations.</strong> The same retention logic could be applied to very different scenarios, including sensitive situations such as the loss of a pet.",
+                    dqHeading: "Design question",
+                    dqText: "How might we reduce avoidable cancellations without compromising customer autonomy?",
+                    dqSub: "The goal wasn't to make cancellation harder. It was to understand the reason behind it and offer a genuinely useful alternative when possible.",
+                    insightHeading: "The key insight",
+                    insightMain: "The reason is the product.",
+                    insightP1: "We couldn't design a relevant retention strategy without first understanding why customers wanted to leave.",
+                    insightP2: "Instead of treating cancellation as a single linear flow, I redesigned it as a decision tree based on the customer's specific reason.",
+                    roleHeading: "My role",
+                    roleP1: "I owned the UX design from discovery to development, working closely with Customer Care, Nutrition, Business and Engineering.",
+                    roleP2: "My main focus was translating business rules and customer scenarios into a flow that could actually be implemented and maintained.",
+                    roleP3: "This meant mapping states, defining edge cases, specifying tracking requirements and aligning the experience with the backend logic.",
+                    edgeHeading: "Before drawing a single screen",
+                    edgeP1: "Before designing a single screen, I mapped the logic behind the experience.",
+                    edgeP2: "I deliberately looked for the scenarios that could break the happy path:",
+                    edgeCase1: "What happens if a trial customer hasn't received their first box?",
+                    edgeCase2: "What if a payment happens while they're cancelling?",
+                    edgeCase3: "What if they have multiple dogs?",
+                    edgeCase4: "What happens after a retention offer is rejected?",
+                    edgeP3: "Each edge case became an explicit product decision.",
+                    treeHeading: "From a linear flow to a decision tree",
+                    treeP1: "Instead of sending every customer through the same cancellation journey, the new experience adapts to their specific reason for leaving.",
+                    treeP2: "Identify the reason → understand the friction → offer a relevant solution → let the customer decide.",
+                    frictionHeading: "Retention, mapped to the friction",
+                    frictionSub: "Every reason leads to the help that actually solves that specific problem.",
+                    frictionColA: "Customer reason", frictionColB: "Product response",
+                    friction1a: "Ration doesn't fit", friction1b: "Adjust ration",
+                    friction2a: "Nutritional concern", friction2b: "Talk to Nutrition",
+                    friction3a: "Service issue", friction3b: "Contact Customer Care",
+                    friction4a: "Price", friction4b: "Eligible discount",
+                    friction5a: "Timing / storage", friction5b: "Change delivery date",
+                    realworldHeading: "Designing for real-world scenarios",
+                    realworldP1: "The experience had to work beyond the happy path.",
+                    realworldP2: "I mapped different customer states and edge cases to make sure the cancellation logic behaved consistently across scenarios such as trials, multiple dogs, upcoming payments and sensitive situations.",
+                    tradeoffHeading: "Retention without friction",
+                    tradeoffP1: "We deliberately didn't try to retain every customer.",
+                    tradeoffP2: "For sensitive situations, such as the loss of a pet, the right product decision wasn't to introduce another offer or incentive. It was to provide a respectful and straightforward way to leave.",
+                    tradeoffP3: "Retention should solve a real problem — not make cancellation harder.",
+                    outcomeHeading: "Outcome",
+                    outcome1Title: "+X% cancellation recovery", outcome1Sub: "Business impact",
+                    outcome2Title: "X% completed cancellation without support", outcome2Sub: "UX impact",
+                    outcome3Title: "−X% Customer Care contacts", outcome3Sub: "Operational efficiency",
+                    outcomeNote: "Metrics to be validated with the final product data.",
+                    p9grupDesc: "Electric distribution company. Creation of a B2B eCommerce for different partners.",
+                    pChorescoreDesc: "Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.",
+                    pGlashhDesc: "Experience chess with a twist — bet money or tokens while you play."
+                },
+                es: {
+                    heroTitle: "Rediseñar la cancelación como una conversación de retención",
+                    heroSub: "Convertir un flujo de cancelación genérico en una experiencia personalizada según el motivo real de cada cliente.",
+                    metaRoleLabel: "Mi rol", metaRoleValue: "Product Designer, Diseño UX/UI, Front-end Dev",
+                    metaToolsLabel: "Herramientas", metaSectorLabel: "Sector", metaSectorValue: "Petfood",
+                    metaYearLabel: "Año",
+                    aboutBizHeading: "Sobre el negocio",
+                    aboutBizBody: "Dogfy Diet es un servicio de suscripción de comida fresca para perros que opera en España, Francia, Italia y Alemania. La cancelación era un momento crítico del recorrido del cliente: la gente se iba por motivos muy distintos, algunos de los cuales podían resolverse dentro del propio producto.",
+                    beforeHeading: "Antes", afterHeading: "Después",
+                    challengeHeading: "El reto",
+                    challengeSub: "La cancelación se trataba como un único problema. Pero los clientes tenían motivos muy distintos para irse.",
+                    challenge1: "<strong>01 — Un flujo igual para todos.</strong> El recorrido de cancelación trataba a todos los clientes igual, sin importar el motivo.",
+                    challenge2: "<strong>02 — Problemas que el producto no resolvía.</strong> Los clientes contactaban con Atención al Cliente para hacer cosas que el propio producto podría resolver.",
+                    challenge3: "<strong>03 — Sin distinción entre bajas y situaciones sensibles.</strong> La misma lógica de retención se aplicaba a escenarios muy distintos, incluyendo casos sensibles como la pérdida de una mascota.",
+                    dqHeading: "Pregunta de diseño",
+                    dqText: "¿Cómo podríamos reducir las bajas evitables sin comprometer la autonomía del cliente?",
+                    dqSub: "El objetivo no era dificultar la cancelación, sino entender el motivo real y ofrecer una alternativa genuinamente útil cuando fuera posible.",
+                    insightHeading: "El insight clave",
+                    insightMain: "El motivo es el producto.",
+                    insightP1: "No podíamos diseñar una estrategia de retención relevante sin entender antes por qué el cliente quería irse.",
+                    insightP2: "En vez de tratar la cancelación como un único flujo lineal, la rediseñé como un árbol de decisiones basado en el motivo concreto de cada cliente.",
+                    roleHeading: "Mi rol",
+                    roleP1: "Fui responsable del diseño UX de principio a fin, trabajando codo con codo con Atención al Cliente, Nutrición, Negocio e Ingeniería.",
+                    roleP2: "Mi foco principal fue traducir reglas de negocio y escenarios reales de clientes en un flujo que se pudiera implementar y mantener de verdad.",
+                    roleP3: "Esto implicó mapear estados, definir edge cases, especificar los requisitos de tracking y alinear la experiencia con la lógica del backend.",
+                    edgeHeading: "Antes de dibujar una sola pantalla",
+                    edgeP1: "Antes de diseñar una sola pantalla, mapeé la lógica detrás de la experiencia.",
+                    edgeP2: "Busqué deliberadamente los escenarios que podían romper el camino ideal:",
+                    edgeCase1: "¿Qué pasa si un trialer aún no ha recibido su primera caja?",
+                    edgeCase2: "¿Y si un cobro ocurre mientras está cancelando?",
+                    edgeCase3: "¿Y si tiene varios perros?",
+                    edgeCase4: "¿Qué pasa después de rechazar una oferta de retención?",
+                    edgeP3: "Cada edge case se convirtió en una decisión de producto explícita.",
+                    treeHeading: "De un flujo lineal a un árbol de decisiones",
+                    treeP1: "En vez de enviar a todos los clientes por el mismo recorrido de cancelación, la nueva experiencia se adapta a su motivo concreto.",
+                    treeP2: "Identificar el motivo → entender la fricción → ofrecer una solución relevante → dejar que el cliente decida.",
+                    frictionHeading: "La retención, mapeada a la fricción",
+                    frictionSub: "Cada motivo desemboca en la ayuda que de verdad resuelve ese problema.",
+                    frictionColA: "Motivo del cliente", frictionColB: "Respuesta del producto",
+                    friction1a: "La ración no encaja", friction1b: "Ajustar ración",
+                    friction2a: "Duda nutricional", friction2b: "Hablar con Nutrición",
+                    friction3a: "Problema de servicio", friction3b: "Contactar con Atención al Cliente",
+                    friction4a: "Precio", friction4b: "Descuento elegible",
+                    friction5a: "Timing / almacenamiento", friction5b: "Cambiar fecha de entrega",
+                    realworldHeading: "Diseñar para escenarios reales",
+                    realworldP1: "La experiencia tenía que funcionar más allá del camino ideal.",
+                    realworldP2: "Mapeé distintos estados de cliente y edge cases para que la lógica de cancelación se comportara de forma consistente en escenarios como trials, varios perros, cobros próximos y situaciones sensibles.",
+                    tradeoffHeading: "Retención sin fricción",
+                    tradeoffP1: "Deliberadamente, no intentamos retener a todos los clientes.",
+                    tradeoffP2: "En situaciones sensibles, como la pérdida de una mascota, la decisión de producto correcta no era añadir otra oferta o incentivo, sino ofrecer una forma respetuosa y sencilla de irse.",
+                    tradeoffP3: "La retención debe resolver un problema real, no dificultar la cancelación.",
+                    outcomeHeading: "Resultado",
+                    outcome1Title: "+X% de recuperación de cancelaciones", outcome1Sub: "Impacto de negocio",
+                    outcome2Title: "X% completó la cancelación sin soporte", outcome2Sub: "Impacto UX",
+                    outcome3Title: "−X% de contactos a Atención al Cliente", outcome3Sub: "Eficiencia operativa",
+                    outcomeNote: "Métricas pendientes de validar con datos reales del producto.",
+                    p9grupDesc: "Empresa de distribución eléctrica. Creación de un eCommerce B2B para distintos partners.",
+                    pChorescoreDesc: "¡Evita la charla incómoda con tus compañeros de piso! Crea hábitos de limpieza y comparte tareas.",
+                    pGlashhDesc: "Vive el ajedrez con un giro distinto — apuesta dinero o tokens mientras juegas."
+                },
+                ca: {
+                    heroTitle: "Redissenyar la cancel·lació com una conversa de retenció",
+                    heroSub: "Convertir un flux de cancel·lació genèric en una experiència personalitzada segons el motiu real de cada client.",
+                    metaRoleLabel: "El meu rol", metaRoleValue: "Product Designer, Disseny UX/UI, Front-end Dev",
+                    metaToolsLabel: "Eines utilitzades", metaSectorLabel: "Sector", metaSectorValue: "Petfood",
+                    metaYearLabel: "Any",
+                    aboutBizHeading: "Sobre el negoci",
+                    aboutBizBody: "Dogfy Diet és un servei de subscripció de menjar fresc per a gossos que opera a Espanya, França, Itàlia i Alemanya. La cancel·lació era un moment crític del recorregut del client: la gent marxava per motius molt diferents, alguns dels quals es podien resoldre dins del propi producte.",
+                    beforeHeading: "Abans", afterHeading: "Després",
+                    challengeHeading: "El repte",
+                    challengeSub: "La cancel·lació es tractava com un únic problema. Però els clients tenien motius molt diferents per marxar.",
+                    challenge1: "<strong>01 — Un flux igual per a tothom.</strong> El recorregut de cancel·lació tractava tots els clients igual, sense importar el motiu.",
+                    challenge2: "<strong>02 — Problemes que el producte no resolia.</strong> Els clients contactaven amb Atenció al Client per fer coses que el propi producte podria resoldre.",
+                    challenge3: "<strong>03 — Sense distinció entre baixes i situacions sensibles.</strong> La mateixa lògica de retenció s'aplicava a escenaris molt diferents, incloent-hi casos sensibles com la pèrdua d'una mascota.",
+                    dqHeading: "Pregunta de disseny",
+                    dqText: "Com podríem reduir les baixes evitables sense comprometre l'autonomia del client?",
+                    dqSub: "L'objectiu no era dificultar la cancel·lació, sinó entendre el motiu real i oferir una alternativa genuïnament útil quan fos possible.",
+                    insightHeading: "L'insight clau",
+                    insightMain: "El motiu és el producte.",
+                    insightP1: "No podíem dissenyar una estratègia de retenció rellevant sense entendre abans per què el client volia marxar.",
+                    insightP2: "En comptes de tractar la cancel·lació com un únic flux lineal, la vaig redissenyar com un arbre de decisions basat en el motiu concret de cada client.",
+                    roleHeading: "El meu rol",
+                    roleP1: "Vaig ser responsable del disseny UX de principi a fi, treballant colze a colze amb Atenció al Client, Nutrició, Negoci i Enginyeria.",
+                    roleP2: "El meu focus principal va ser traduir regles de negoci i escenaris reals de clients en un flux que es pogués implementar i mantenir de veritat.",
+                    roleP3: "Això va implicar mapejar estats, definir edge cases, especificar els requisits de tracking i alinear l'experiència amb la lògica del backend.",
+                    edgeHeading: "Abans de dibuixar una sola pantalla",
+                    edgeP1: "Abans de dissenyar una sola pantalla, vaig mapejar la lògica darrere de l'experiència.",
+                    edgeP2: "Vaig buscar deliberadament els escenaris que podien trencar el camí ideal:",
+                    edgeCase1: "Què passa si un trialer encara no ha rebut la seva primera caixa?",
+                    edgeCase2: "I si un cobrament passa mentre està cancel·lant?",
+                    edgeCase3: "I si té diversos gossos?",
+                    edgeCase4: "Què passa després de rebutjar una oferta de retenció?",
+                    edgeP3: "Cada edge case es va convertir en una decisió de producte explícita.",
+                    treeHeading: "D'un flux lineal a un arbre de decisions",
+                    treeP1: "En comptes d'enviar tots els clients pel mateix recorregut de cancel·lació, la nova experiència s'adapta al seu motiu concret.",
+                    treeP2: "Identificar el motiu → entendre la fricció → oferir una solució rellevant → deixar que el client decideixi.",
+                    frictionHeading: "La retenció, mapejada a la fricció",
+                    frictionSub: "Cada motiu desemboca en l'ajuda que de veritat resol aquest problema.",
+                    frictionColA: "Motiu del client", frictionColB: "Resposta del producte",
+                    friction1a: "La ració no encaixa", friction1b: "Ajustar ració",
+                    friction2a: "Dubte nutricional", friction2b: "Parlar amb Nutrició",
+                    friction3a: "Problema de servei", friction3b: "Contactar amb Atenció al Client",
+                    friction4a: "Preu", friction4b: "Descompte elegible",
+                    friction5a: "Timing / emmagatzematge", friction5b: "Canviar data de lliurament",
+                    realworldHeading: "Dissenyar per a escenaris reals",
+                    realworldP1: "L'experiència havia de funcionar més enllà del camí ideal.",
+                    realworldP2: "Vaig mapejar diferents estats de client i edge cases perquè la lògica de cancel·lació es comportés de forma consistent en escenaris com trials, diversos gossos, cobraments propers i situacions sensibles.",
+                    tradeoffHeading: "Retenció sense fricció",
+                    tradeoffP1: "Deliberadament, no vam intentar retenir tots els clients.",
+                    tradeoffP2: "En situacions sensibles, com la pèrdua d'una mascota, la decisió de producte correcta no era afegir una altra oferta o incentiu, sinó oferir una manera respectuosa i senzilla de marxar.",
+                    tradeoffP3: "La retenció ha de resoldre un problema real, no dificultar la cancel·lació.",
+                    outcomeHeading: "Resultat",
+                    outcome1Title: "+X% de recuperació de cancel·lacions", outcome1Sub: "Impacte de negoci",
+                    outcome2Title: "X% va completar la cancel·lació sense suport", outcome2Sub: "Impacte UX",
+                    outcome3Title: "−X% de contactes a Atenció al Client", outcome3Sub: "Eficiència operativa",
+                    outcomeNote: "Mètriques pendents de validar amb dades reals del producte.",
+                    p9grupDesc: "Empresa de distribució elèctrica. Creació d'un eCommerce B2B per a diferents partners.",
+                    pChorescoreDesc: "Evita la conversa incòmoda amb els teus companys de pis! Crea hàbits de neteja i comparteix tasques.",
+                    pGlashhDesc: "Viu els escacs amb un gir diferent — aposta diners o tokens mentre jugues."
+                }
+            };
+            I18N_APPLY(pageDict);
+        })();
+    </script>
+</body>
+</html>
