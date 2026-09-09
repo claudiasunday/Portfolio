@@ -60,6 +60,13 @@ section, footer.site {
 .navLogoClau .avatar {
     height: 44px; width: 44px; object-fit: cover;
     border-radius: 10px; display: block;
+    transition: height .3s ease, width .3s ease, border-radius .3s ease;
+}
+body.home .navLogoClau .avatar {
+    height: 84px; width: 70px; border-radius: 14px;
+}
+.navbar.scrolled .navLogoClau .avatar {
+    height: 44px; width: 44px; border-radius: 10px;
 }
 .navActions { display: flex; align-items: center; gap: 28px; }
 .navbar ul { list-style: none; display: flex; flex-direction: row; gap: 8px; margin: 0; padding: 0; }
