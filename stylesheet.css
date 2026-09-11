@@ -525,13 +525,20 @@ footer.site a:hover { color: var(--ink); }
 .resultCard p { margin: 0; font-size: 14px; }
 .resultCard.pending { background: transparent; border: 1.5px dashed var(--line); }
 
+.ctxVisualDesktop { display: block; width: 100%; height: auto; }
+.ctxVisualMobile { display: none; width: 100%; height: auto; }
+@media (max-width: 720px) {
+    .ctxVisualDesktop { display: none; }
+    .ctxVisualMobile { display: block; }
+}
+
 .researchNotesGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
 .researchNotesGrid .resultCard { padding: 20px; }
 .researchNotesGrid .resultCard p { font-size: 14px; margin: 0; }
 .researchNotesGrid .resultCard.highlight { background: transparent; border: 1.5px solid var(--ink); }
 @media (max-width: 720px) {
     .caseMeta { grid-template-columns: 1fr 1fr; }
-    .resultsGrid { grid-template-columns: 1fr; }
+    .resultsGrid { display: flex; flex-direction: column; gap: 20px; margin-top: 20px; }
     .frictionRow { grid-template-columns: 1fr; }
     .researchNotesGrid { grid-template-columns: 1fr; }
 }
