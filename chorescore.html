@@ -27,12 +27,8 @@
                 </button>
                 <div class="navActions" id="navActions">
                 <ul>
-                    <li class="hasDropdown">
+                    <li>
                         <a href="index.html#projects" data-i18n="navWork">Work</a>
-                        <ul class="dropdown">
-                            <li><a href="chorescore.html" data-track="nav_click" data-project="chorescore" data-location="navbar">Chorescore</a></li>
-                            <li><a href="dogfy.html" data-track="nav_click" data-project="dogfy" data-location="navbar">Dogfy Diet</a></li>
-                        </ul>
                     </li>
                     <li><a href="about.html" data-i18n="navAbout">About me</a></li>
                     <li><a href="creativespace.html" data-i18n="navOOO">Pottery</a></li>
@@ -48,15 +44,15 @@
     </nav>
 
     <section style="padding-top:24px;">
-        <div style="position:relative; border-radius:24px; background:linear-gradient(180deg,#ffffff 0%,#d5cfcf 100%); width:100%; height:338px;">
-            <video src="chorescore-hero-phone.webm" autoplay loop muted playsinline style="position:absolute; left:50%; transform:translateX(-50%); bottom:-65px; width:480px; height:auto; z-index:2;"></video>
+        <div style="position:relative; border-radius:24px; background:linear-gradient(180deg,#ffffff 0%,#c5e8ef 100%); width:100%; height:338px;">
+            <img src="chorescore-hero-mockup.png" alt="Chorescore app open on a phone, held in hand" class="chorescoreHeroPhone" style="position:absolute; left:50%; transform:translateX(-50%) scale(1.15); bottom:-65px; width:480px; height:auto; z-index:2;">
         </div>
     </section>
 
     <section class="hero" style="padding-bottom:0;">
         <p class="heroTagline" style="margin-top:0;">Chorescore</p>
         <h1 style="font-size:clamp(30px,4.4vw,54px);" data-i18n="heroTitle">Turning shared chores into a game flatmates actually want to play</h1>
-        <p style="font-size:17px; max-width:65ch; margin-top:16px;" data-i18n="heroSub">Redesigning how flatmates split housework, replacing invisible, unequal effort with a fair, gamified system everyone can see.</p>
+        <p class="scrollReveal" style="font-size:17px; max-width:65ch; margin-top:16px;" data-i18n="heroSub">Redesigning how flatmates split housework, replacing invisible, unequal effort with a fair, gamified system everyone can see.</p>
     </section>
 
     <section class="caseMeta">
@@ -90,6 +86,21 @@
                 <h3>50%</h3>
                 <p data-i18n="stat2">of interviewees mentioned having discomfort cleaning the kitchen.</p>
             </div>
+        </div>
+        <div class="researchNotesGrid">
+            <div class="resultCard pending">
+                <p data-i18n="note1Text">We discussed the cleaning arrangement, but it was a passive conversation — it worked for a week, then went back to how it was before.</p>
+            </div>
+            <div class="resultCard pending">
+                <p data-i18n="note2Text">There are always dirty dishes that no one cleans.</p>
+            </div>
+            <div class="resultCard highlight">
+                <p data-i18n="note3Text"><strong>People have different ideas</strong> of when to do the dishes and how the kitchen should be left.</p>
+            </div>
+        </div>
+        <div class="insightBox">
+            <span class="insightLabel" data-i18n="conclusionsLabel">Conclusions</span>
+            <p data-i18n="conclusionsText">This app helps to build community commitment among flatmates by giving incentives, thus motivating people to do house chores — creating not only a clean and organized environment but also good vibes.</p>
         </div>
     </section>
 
@@ -241,6 +252,11 @@
                     interviewsNote: "Recogido de 10 entrevistas a personas de 20 a 35 años que comparten piso actualmente.",
                     stat1: "de las personas entrevistadas mencionó dificultades al tomar decisiones comunes.",
                     stat2: "de las personas entrevistadas mencionó incomodidad al limpiar la cocina.",
+                    note1Text: "Hablamos del reparto de la limpieza, pero fue una conversación pasiva — funcionó durante una semana, pero luego todo volvió a como estaba antes.",
+                    note2Text: "Siempre hay platos sucios que nadie limpia.",
+                    note3Text: "<strong>Cada persona tiene ideas distintas</strong> sobre cuándo fregar los platos y cómo debe quedar la cocina.",
+                    conclusionsLabel: "Conclusiones",
+                    conclusionsText: "Esta app ayuda a construir compromiso de comunidad entre compañeros de piso dando incentivos, motivando así a hacer las tareas del hogar — creando no solo un entorno limpio y organizado, sino también buen ambiente.",
                     prototypeHeading: "Prototipo",
                     scenario1Heading: "Escenario 1 — Introduciendo la app",
                     flow1john: "Flujo 1 — John",
@@ -287,6 +303,11 @@
                     interviewsNote: "Recollit de 10 entrevistes a persones de 20 a 35 anys que comparteixen pis actualment.",
                     stat1: "de les persones entrevistades va esmentar dificultats a l'hora de prendre decisions comunes.",
                     stat2: "de les persones entrevistades va esmentar incomoditat en netejar la cuina.",
+                    note1Text: "Vam parlar del repartiment de la neteja, però va ser una conversa passiva — va funcionar durant una setmana, però després tot va tornar a com estava abans.",
+                    note2Text: "Sempre hi ha plats bruts que ningú neteja.",
+                    note3Text: "<strong>Cada persona té idees diferents</strong> sobre quan rentar els plats i com ha de quedar la cuina.",
+                    conclusionsLabel: "Conclusions",
+                    conclusionsText: "Aquesta app ajuda a construir compromís de comunitat entre companys de pis donant incentius, motivant així a fer les tasques de la llar — creant no només un entorn net i organitzat, sinó també bon ambient.",
                     prototypeHeading: "Prototip",
                     scenario1Heading: "Escenari 1 — Introduint l'app",
                     flow1john: "Flux 1 — John",
@@ -319,6 +340,38 @@
                 }
             };
             I18N_APPLY(pageDict);
+
+            // Hero image subtle zoom-out on scroll + "teleprompter" text reveal
+            (function () {
+                var heroImg = document.querySelector('.chorescoreHeroPhone');
+
+                document.querySelectorAll('.scrollReveal').forEach(function (el) {
+                    var words = el.textContent.trim().split(/\s+/);
+                    el.innerHTML = words.map(function (w) { return '<span class="srWord">' + w + '</span>'; }).join(' ');
+                });
+                var revealWords = document.querySelectorAll('.scrollReveal .srWord');
+
+                var ticking = false;
+                function update() {
+                    if (heroImg) {
+                        var y = Math.min(window.scrollY, 400);
+                        var scale = 1.15 - (y / 400) * 0.15;
+                        heroImg.style.transform = 'translateX(-50%) scale(' + scale.toFixed(3) + ')';
+                    }
+                    revealWords.forEach(function (span) {
+                        var top = span.getBoundingClientRect().top - window.innerHeight * 0.5;
+                        var value = 1 - 0.01 * top;
+                        span.style.opacity = Math.max(0.1, Math.min(1, value)).toFixed(3);
+                    });
+                    ticking = false;
+                }
+                function onScroll() {
+                    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+                }
+                update();
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('resize', onScroll);
+            })();
         })();
     </script>
 </body>
