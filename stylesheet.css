@@ -194,7 +194,7 @@ section, footer.site {
 .projects { border-top: 1px solid var(--line); }
 .projectsHead { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 26px; }
 .projectsHead h2 { font-size: clamp(26px, 3.4vw, 34px); text-transform: uppercase; }
-.viewAll { font-size: 13px; font-weight: 700; text-decoration: none; color: var(--muted); }
+.viewAll { display: none; font-size: 13px; font-weight: 700; text-decoration: none; color: var(--muted); }
 @media (max-width: 720px) {
     .projectsHead { flex-direction: column; align-items: flex-start; }
     .viewAll { order: -1; align-self: flex-end; margin-bottom: 8px; font-size: 12px; }
