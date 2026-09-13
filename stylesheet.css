@@ -62,8 +62,12 @@ section, footer.site {
     box-shadow: 0 1px 0 var(--line);
 }
 .navLogoClau .avatar {
-    height: 44px; width: 44px; object-fit: cover;
+    height: 58px; width: 58px; object-fit: cover;
     border-radius: 10px; display: block;
+    transition: height .3s ease, width .3s ease;
+}
+.navbar.scrolled .navLogoClau .avatar {
+    height: 44px; width: 44px;
 }
 .navActions { display: flex; align-items: center; gap: 28px; }
 .navbar ul { list-style: none; display: flex; flex-direction: row; gap: 8px; margin: 0; padding: 0; }
@@ -346,19 +350,41 @@ footer.site a:hover { color: var(--ink); }
 }
 .btn-outline:hover { background: var(--ink); color: #fff; }
 
-/* BIO — two columns */
+/* BIO — photo + text */
 .bioCols {
     border-top: 1px solid var(--line);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 220px;
     gap: 48px;
     padding-top: 48px;
     padding-bottom: 48px;
+    align-items: start;
 }
 .bioCol p { font-size: 16px; max-width: none; margin: 0; }
 .bioCol p strong { color: var(--ink); }
+.bioPhoto {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+.bioPhoto .polaroid {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    display: block;
+    background: #fff;
+    padding: 12px 12px 32px;
+    box-shadow: 0 22px 45px rgba(0,0,0,.16), 0 3px 10px rgba(0,0,0,.10);
+    transform: rotate(5deg);
+    transition: transform .35s ease;
+}
+.bioPhoto:hover .polaroid { transform: rotate(1deg) scale(1.03); }
+@media (max-width: 860px) {
+    .bioPhoto { grid-column: 1 / -1; padding-bottom: 8px; }
+}
 @media (max-width: 720px) {
     .bioCols { grid-template-columns: 1fr; gap: 24px; }
+    .bioPhoto { grid-column: auto; }
 }
 
 /* FEATURED CASE STUDY */

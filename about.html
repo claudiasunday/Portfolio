@@ -20,7 +20,7 @@
     <nav class="navbar" id="siteNav">
         <div class="navInner">
             <div class="navLogoClau">
-                <a href="index.html"><img src="avatar.png" alt="Claudia Domingo Ruiz" class="avatar"></a>
+                <a href="index.html"><img src="avatar-nav.jpg" alt="Claudia Domingo Ruiz" class="avatar"></a>
             </div>
             <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
                     <span></span><span></span><span></span>
@@ -44,14 +44,15 @@
     </nav>
 
     <section class="ceramics" style="border-top:none;">
-        <h2 data-i18n="workHeading">My work</h2>
+        <h2 data-i18n="workHeading">My design journey</h2>
         <div class="bioCols" style="border-top:none; padding-top:24px;">
             <div class="bioCol">
-                <p data-i18n="bio1">I am a multi-disciplinary designer with a background in UX engineering, where I've contributed to creating robust design systems. Passionate about transforming ideas into unforgettable digital experiences, I specialize in blending creativity with functionality.</p>
+                <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400;" data-i18n="bio1">I am a multi-disciplinary designer with a background in UX engineering, where I've contributed to creating robust design systems. Passionate about transforming ideas into unforgettable digital experiences, I specialize in blending creativity with functionality.</p>
+                <p class="scrollReveal" style="font-size:18px; line-height:1.5; font-weight:400; margin-top:16px;" data-i18n="bio2">My journey began in marketing, but my love for boundless creativity drew me toward exploring the expansive world of design and development. Over the past two years, I've gained hands-on experience in delivering impactful digital solutions.</p>
+                <p class="scrollReveal" style="font-size:18px; line-height:1.5; font-weight:400; margin-top:16px;" data-i18n="bio3">My mission is to craft digital experiences that captivate, inspire, and achieve meaningful results. When designing websites, I focus on creating unique layouts and engaging interactions, ensuring each element works harmoniously to deliver an exceptional user experience that leaves a lasting impression.</p>
             </div>
-            <div class="bioCol">
-                <p data-i18n="bio2">My journey began in marketing, but my love for boundless creativity drew me toward exploring the expansive world of design and development. Over the past two years, I've gained hands-on experience in delivering impactful digital solutions.</p>
-                <p data-i18n="bio3">My mission is to craft digital experiences that captivate, inspire, and achieve meaningful results. When designing websites, I focus on creating unique layouts and engaging interactions, ensuring each element works harmoniously to deliver an exceptional user experience that leaves a lasting impression.</p>
+            <div class="bioPhoto">
+                <img src="avatar.png" alt="Claudia Domingo Ruiz" class="polaroid">
             </div>
         </div>
     </section>
@@ -218,7 +219,7 @@
             }
             var pageDict = {
                 es: {
-                    workHeading: "Mi trabajo",
+                    workHeading: "Mi trayectoria en diseño",
                     bio1: "Soy una diseñadora multidisciplinar con formación en ingeniería UX, donde he contribuido a crear design systems robustos. Apasionada por transformar ideas en experiencias digitales inolvidables, combino creatividad y funcionalidad.",
                     bio2: "Mi camino empezó en marketing, pero mi amor por la creatividad sin límites me llevó a explorar el mundo del diseño y el desarrollo. En los últimos dos años he ganado experiencia práctica entregando soluciones digitales con impacto real.",
                     bio3: "Mi misión es crear experiencias digitales que cautiven, inspiren y logren resultados reales. Al diseñar webs, me centro en crear layouts únicos e interacciones atractivas, asegurando que cada elemento funcione en armonía para ofrecer una experiencia de usuario excepcional y memorable.",
@@ -259,7 +260,7 @@
                     method3P2: "Trabajar en una empresa grande y más tradicional tiene sus pros y contras. Por un lado, da la oportunidad de educar y defender los principios UX/UI, generar impacto real introduciendo prácticas centradas en el usuario, aprovechar muchos recursos, y ganar exposición a sistemas complejos y equipos diversos. Por otro, también hay retos, como la resistencia al cambio y la innovación, procesos de decisión más lentos, estructuras jerárquicas que pueden limitar el aporte creativo, y una falta inicial de comprensión o apoyo hacia las prácticas UX/UI."
                 },
                 ca: {
-                    workHeading: "La meva feina",
+                    workHeading: "El meu recorregut en disseny",
                     bio1: "Sóc una dissenyadora multidisciplinar amb formació en enginyeria UX, on he contribuït a crear design systems robustos. Apassionada per transformar idees en experiències digitals inoblidables, combino creativitat i funcionalitat.",
                     bio2: "El meu camí va començar en marketing, però el meu amor per la creativitat sense límits em va portar a explorar el món del disseny i el desenvolupament. En els últims dos anys he guanyat experiència pràctica entregant solucions digitals amb impacte real.",
                     bio3: "La meva missió és crear experiències digitals que captivin, inspirin i aconsegueixin resultats reals. En dissenyar webs, em centro a crear layouts únics i interaccions atractives, assegurant que cada element funcioni en harmonia per oferir una experiència d'usuari excepcional i memorable.",
@@ -301,6 +302,31 @@
                 }
             };
             I18N_APPLY(pageDict);
+
+            // "Teleprompter" text reveal on scroll (same as Dogfy/Chorescore)
+            (function () {
+                document.querySelectorAll('.scrollReveal').forEach(function (el) {
+                    var words = el.textContent.trim().split(/\s+/);
+                    el.innerHTML = words.map(function (w) { return '<span class="srWord">' + w + '</span>'; }).join(' ');
+                });
+                var revealWords = document.querySelectorAll('.scrollReveal .srWord');
+
+                var ticking = false;
+                function update() {
+                    revealWords.forEach(function (span) {
+                        var top = span.getBoundingClientRect().top - window.innerHeight * 0.5;
+                        var value = 1 - 0.01 * top;
+                        span.style.opacity = Math.max(0.1, Math.min(1, value)).toFixed(3);
+                    });
+                    ticking = false;
+                }
+                function onScroll() {
+                    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+                }
+                update();
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('resize', onScroll);
+            })();
         })();
     </script>
 </body>
