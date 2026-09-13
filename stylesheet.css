@@ -437,19 +437,64 @@ footer.site a:hover { color: var(--ink); }
 .cvPlaceholder p { max-width: 60ch; margin: 0; }
 
 .cvBlock { margin-top: 40px; }
-.cvItem { margin-bottom: 26px; }
-.cvItem:last-child { margin-bottom: 0; }
-.cvItemHead {
+
+/* TIMELINE — working & academic history (progress-bar style) */
+.timeline { position: relative; margin-top: 8px; }
+.timelineItem { display: flex; gap: 20px; position: relative; padding-bottom: 34px; }
+.timelineItem:last-child { padding-bottom: 0; }
+.timelineMarker { position: relative; width: 14px; flex: 0 0 14px; display: flex; justify-content: center; }
+.timelineDot {
+    width: 13px; height: 13px; margin-top: 4px; border-radius: 50%;
+    background: var(--bg); border: 2.5px solid var(--line);
+    box-sizing: border-box; z-index: 1;
+}
+.timelineItem.current .timelineDot { background: var(--accent); border-color: var(--accent); }
+.timelineItem:not(:last-child) .timelineMarker::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: -34px;
+    left: 50%;
+    width: 2px;
+    background: var(--line);
+    transform: translateX(-50%);
+}
+.timelineContent { flex: 1; min-width: 0; padding-top: 1px; }
+.timelineTop {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 8px;
+    align-items: flex-start;
+    gap: 16px;
     flex-wrap: wrap;
+    margin-bottom: 6px;
 }
-.cvItemHead strong { color: var(--ink); font-size: 16px; }
-.cvItemHead span { font-size: 13px; color: var(--muted); white-space: nowrap; }
-.cvItem p { font-size: 15px; margin-bottom: 6px; max-width: 68ch; }
+.timelineYear {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+    margin-bottom: 4px;
+}
+.timelineTitle { font-size: 17px; font-weight: 800; margin: 0; color: var(--ink); }
+.timelineTag {
+    flex: 0 0 auto;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+    white-space: nowrap;
+}
+.timelineContent p { font-size: 15px; margin: 0 0 6px; max-width: 65ch; }
+@media (max-width: 560px) {
+    .timelineTop { flex-direction: column; }
+    .timelineTag { order: -1; }
+}
 .cvSkillsGrid {
     margin-top: 40px;
     display: grid;
