@@ -350,7 +350,21 @@ footer.site a:hover { color: var(--ink); }
 }
 .btn-outline:hover { background: var(--ink); color: #fff; }
 
-/* BIO — photo + text */
+/* BIO — home page, two text columns */
+.homeBioCols {
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    align-items: start;
+}
+@media (max-width: 720px) {
+    .homeBioCols { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* BIO — about page, photo + text */
 .bioCols {
     border-top: 1px solid var(--line);
     display: grid;
@@ -950,4 +964,22 @@ footer.site a:hover { color: var(--ink); }
     font-size: 22px; line-height: 1;
     cursor: pointer;
     color: var(--muted);
+}
+
+/* SCROLL REVEAL — site-wide smooth fade + rise on scroll (reveal.js) */
+.revealOnScroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1);
+    will-change: opacity, transform;
+}
+.revealOnScroll.inView { opacity: 1; transform: translateY(0); }
+.projectsGrid .projectCard.revealOnScroll:nth-child(2),
+.personalProjectsGrid .projectCard.revealOnScroll:nth-child(2),
+.flowGrid .flowItem.revealOnScroll:nth-child(2) { transition-delay: .08s; }
+.projectsGrid .projectCard.revealOnScroll:nth-child(3),
+.personalProjectsGrid .projectCard.revealOnScroll:nth-child(3),
+.flowGrid .flowItem.revealOnScroll:nth-child(3) { transition-delay: .16s; }
+@media (prefers-reduced-motion: reduce) {
+    .revealOnScroll { opacity: 1; transform: none; transition: none; }
 }
