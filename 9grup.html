@@ -155,9 +155,18 @@
                 function openViewer(src, alt) {
                     viewerImg.src = src;
                     viewerImg.alt = alt || '';
-                    viewerImg.classList.remove('zoomed');
+                    viewerImg.classList.add('zoomed');
                     overlay.classList.add('open');
                     document.body.classList.add('imgViewerLock');
+                    // Center the zoomed image once it's laid out
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            if (scrollWrap) {
+                                scrollWrap.scrollLeft = (scrollWrap.scrollWidth - scrollWrap.clientWidth) / 2;
+                                scrollWrap.scrollTop = 0;
+                            }
+                        });
+                    });
                 }
                 function closeViewer() {
                     overlay.classList.remove('open');
