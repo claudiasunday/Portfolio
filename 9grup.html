@@ -109,6 +109,14 @@
         <a href="https://www.linkedin.com/in/claudiadom/" target="_blank" rel="noopener" data-i18n="footerLinkedin">Add me on LinkedIn</a>
         <a href="mailto:sundayclaudia@gmail.com">sundayclaudia@gmail.com</a>
     </footer>
+
+    <div class="imgViewerOverlay" id="imgViewerOverlay">
+        <button type="button" class="imgViewerClose" id="imgViewerClose" aria-label="Close">&times;</button>
+        <div class="imgViewerScroll" id="imgViewerScroll">
+            <img class="imgViewerImg" id="imgViewerImg" src="" alt="">
+        </div>
+    </div>
+
     <script src="i18n.js"></script>
     <script src="reveal.js"></script>
     <script>
@@ -136,6 +144,48 @@
                     });
                 });
             }
+            // Full-screen image viewer (lightbox) for the case study screenshots
+            (function () {
+                var overlay = document.getElementById('imgViewerOverlay');
+                var scrollWrap = document.getElementById('imgViewerScroll');
+                var viewerImg = document.getElementById('imgViewerImg');
+                var closeBtn = document.getElementById('imgViewerClose');
+                if (!overlay || !viewerImg) return;
+
+                function openViewer(src, alt) {
+                    viewerImg.src = src;
+                    viewerImg.alt = alt || '';
+                    viewerImg.classList.remove('zoomed');
+                    overlay.classList.add('open');
+                    document.body.classList.add('imgViewerLock');
+                }
+                function closeViewer() {
+                    overlay.classList.remove('open');
+                    document.body.classList.remove('imgViewerLock');
+                    viewerImg.classList.remove('zoomed');
+                    viewerImg.src = '';
+                }
+
+                document.querySelectorAll('.fullBleedImg').forEach(function (img) {
+                    img.addEventListener('click', function () {
+                        openViewer(img.src, img.alt);
+                    });
+                });
+
+                viewerImg.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    viewerImg.classList.toggle('zoomed');
+                });
+
+                if (closeBtn) closeBtn.addEventListener('click', closeViewer);
+                overlay.addEventListener('click', function (e) {
+                    if (e.target === overlay || e.target === scrollWrap) closeViewer();
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && overlay.classList.contains('open')) closeViewer();
+                });
+            })();
+
             var pageDict = {
                 es: {
                     p9grupLong: "Empresa de distribución eléctrica. Creación de un eCommerce B2B para distintos partners, usando una base de datos y productos compartidos.",

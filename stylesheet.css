@@ -743,7 +743,62 @@ footer.site a:hover { color: var(--ink); }
     display: block;
     will-change: transform;
     transform-origin: center top;
+    cursor: zoom-in;
 }
+
+/* Full-screen image viewer (lightbox) with tap-to-zoom */
+.imgViewerOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,10,.92);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+}
+.imgViewerOverlay.open { display: flex; }
+.imgViewerScroll {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: pinch-zoom pan-x pan-y;
+    -webkit-overflow-scrolling: touch;
+}
+.imgViewerImg {
+    max-width: 92vw;
+    max-height: 92vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: zoom-in;
+    transition: transform .25s ease;
+    transform-origin: center top;
+}
+.imgViewerImg.zoomed {
+    max-width: none;
+    max-height: none;
+    width: 220%;
+    cursor: zoom-out;
+    margin: 40px 0;
+}
+.imgViewerClose {
+    position: fixed;
+    top: 16px; right: 20px;
+    background: rgba(255,255,255,.12);
+    border: none;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 26px;
+    line-height: 1;
+    color: #fff;
+    cursor: pointer;
+    z-index: 301;
+}
+body.imgViewerLock { overflow: hidden; }
 
 /* CREATIVE SPACE — Seramics project page palette */
 .ooHeroFull {
