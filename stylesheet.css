@@ -729,6 +729,22 @@ footer.site a:hover { color: var(--ink); }
 
 .ooHeroWrap { position: relative; margin-bottom: 60px; }
 
+/* 9GRUP — full-bleed screenshot with scroll zoom-out */
+.fullBleedImgWrap {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    margin-top: 20px;
+    background: #F2F0F7;
+}
+.fullBleedImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    will-change: transform;
+    transform-origin: center top;
+}
+
 /* CREATIVE SPACE — Seramics project page palette */
 .ooHeroFull {
     position: relative;
