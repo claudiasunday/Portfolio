@@ -742,8 +742,17 @@ footer.site a:hover { color: var(--ink); }
     height: auto;
     display: block;
     will-change: transform;
-    transform-origin: center top;
+    transform-origin: center center;
     cursor: zoom-in;
+}
+@media (max-width: 720px) {
+    .fullBleedImgWrap {
+        height: 55vh;
+        height: 55dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /* Full-screen image viewer (lightbox) with tap-to-zoom */
@@ -758,16 +767,17 @@ footer.site a:hover { color: var(--ink); }
 }
 .imgViewerOverlay.open { display: flex; }
 .imgViewerScroll {
+    position: relative;
     width: 100%;
     height: 100%;
     overflow: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     touch-action: pinch-zoom pan-x pan-y;
     -webkit-overflow-scrolling: touch;
 }
 .imgViewerImg {
+    position: absolute;
+    inset: 0;
+    margin: auto;
     max-width: 92vw;
     max-height: 92vh;
     width: auto;
@@ -775,15 +785,13 @@ footer.site a:hover { color: var(--ink); }
     object-fit: contain;
     border-radius: 8px;
     cursor: zoom-in;
-    transition: transform .25s ease;
-    transform-origin: center top;
 }
 .imgViewerImg.zoomed {
     max-width: none;
     max-height: none;
     width: 220%;
+    height: auto;
     cursor: zoom-out;
-    margin: 40px 0;
 }
 .imgViewerClose {
     position: fixed;

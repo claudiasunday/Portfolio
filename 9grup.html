@@ -152,26 +152,28 @@
                 var closeBtn = document.getElementById('imgViewerClose');
                 if (!overlay || !viewerImg) return;
 
+                function centerScroll() {
+                    if (!scrollWrap) return;
+                    scrollWrap.scrollLeft = (scrollWrap.scrollWidth - scrollWrap.clientWidth) / 2;
+                    scrollWrap.scrollTop = (scrollWrap.scrollHeight - scrollWrap.clientHeight) / 2;
+                }
                 function openViewer(src, alt) {
+                    viewerImg.classList.remove('zoomed');
+                    viewerImg.onload = function () {
+                        viewerImg.classList.add('zoomed');
+                        requestAnimationFrame(function () { requestAnimationFrame(centerScroll); });
+                    };
                     viewerImg.src = src;
                     viewerImg.alt = alt || '';
-                    viewerImg.classList.add('zoomed');
                     overlay.classList.add('open');
                     document.body.classList.add('imgViewerLock');
-                    // Center the zoomed image once it's laid out
-                    requestAnimationFrame(function () {
-                        requestAnimationFrame(function () {
-                            if (scrollWrap) {
-                                scrollWrap.scrollLeft = (scrollWrap.scrollWidth - scrollWrap.clientWidth) / 2;
-                                scrollWrap.scrollTop = 0;
-                            }
-                        });
-                    });
+                    if (viewerImg.complete && viewerImg.src) { viewerImg.onload(); }
                 }
                 function closeViewer() {
                     overlay.classList.remove('open');
                     document.body.classList.remove('imgViewerLock');
                     viewerImg.classList.remove('zoomed');
+                    viewerImg.onload = null;
                     viewerImg.src = '';
                 }
 
@@ -184,6 +186,12 @@
                 viewerImg.addEventListener('click', function (e) {
                     e.stopPropagation();
                     viewerImg.classList.toggle('zoomed');
+                    if (viewerImg.classList.contains('zoomed')) {
+                        requestAnimationFrame(function () { requestAnimationFrame(centerScroll); });
+                    } else {
+                        scrollWrap.scrollLeft = 0;
+                        scrollWrap.scrollTop = 0;
+                    }
                 });
 
                 if (closeBtn) closeBtn.addEventListener('click', closeViewer);
@@ -246,33 +254,44 @@
                 window.addEventListener('resize', onScroll);
             })();
 
-            // Full-bleed screenshot: smooth zoom-out on scroll (eased target + lerp toward it every frame)
+            // Full-bleed screenshots: smooth zoom-out on scroll (eased target + lerp toward it every frame)
             (function () {
-                var heroImg = document.getElementById('grupHeroImg');
-                if (!heroImg) return;
-                var startScale = 1.35;
+                var imgs = document.querySelectorAll('.fullBleedImg');
+                if (!imgs.length) return;
+                var mq = window.matchMedia('(max-width: 720px)');
                 var endScale = 1.0;
                 var maxScroll = 500;
-                var currentScale = startScale;
-                var targetScale = startScale;
+                var startScale = mq.matches ? 2.0 : 1.35;
+                var items = [];
+                imgs.forEach(function (img) {
+                    items.push({ img: img, current: startScale, target: startScale });
+                });
 
-                function computeTarget() {
+                function computeTargets() {
                     var y = Math.min(Math.max(window.scrollY, 0), maxScroll);
                     var progress = y / maxScroll;
                     var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-                    targetScale = startScale - (startScale - endScale) * eased;
+                    var scale = startScale - (startScale - endScale) * eased;
+                    items.forEach(function (it) { it.target = scale; });
                 }
 
                 function animate() {
-                    currentScale += (targetScale - currentScale) * 0.08;
-                    heroImg.style.transform = 'scale(' + currentScale.toFixed(4) + ')';
+                    items.forEach(function (it) {
+                        it.current += (it.target - it.current) * 0.08;
+                        it.img.style.transform = 'scale(' + it.current.toFixed(4) + ')';
+                    });
                     requestAnimationFrame(animate);
                 }
 
-                window.addEventListener('scroll', computeTarget, { passive: true });
-                window.addEventListener('resize', computeTarget);
-                computeTarget();
-                currentScale = targetScale;
+                function onResize() {
+                    startScale = mq.matches ? 2.0 : 1.35;
+                    computeTargets();
+                }
+
+                window.addEventListener('scroll', computeTargets, { passive: true });
+                window.addEventListener('resize', onResize);
+                computeTargets();
+                items.forEach(function (it) { it.current = it.target; });
                 requestAnimationFrame(animate);
             })();
         })();
