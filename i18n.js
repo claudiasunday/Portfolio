@@ -11,7 +11,11 @@ window.I18N_SHARED = {
         contactHeading: "Looking for a Product Designer? Say hi.",
         moreProjects: "More projects",
         confidentialTitle: "Confidential project",
-        confidentialBtn: "Request more information"
+        confidentialBtn: "Request more information",
+        langMobileLabel: "You can also view it in:",
+        langNameCa: "Catalan",
+        langNameEs: "Spanish",
+        langNameEn: "English"
     },
     es: {
         navWork: "Trabajo",
@@ -23,7 +27,11 @@ window.I18N_SHARED = {
         contactHeading: "¿Buscas una Product Designer? Escríbeme.",
         moreProjects: "Más proyectos",
         confidentialTitle: "Proyecto confidencial",
-        confidentialBtn: "Solicitar más información"
+        confidentialBtn: "Solicitar más información",
+        langMobileLabel: "También puedes verlo en:",
+        langNameCa: "Catalán",
+        langNameEs: "Castellano",
+        langNameEn: "inglés"
     },
     ca: {
         navWork: "Feina",
@@ -35,7 +43,11 @@ window.I18N_SHARED = {
         contactHeading: "Busques una Product Designer? Escriu-me.",
         moreProjects: "Més projectes",
         confidentialTitle: "Projecte confidencial",
-        confidentialBtn: "Sol·licitar més informació"
+        confidentialBtn: "Sol·licitar més informació",
+        langMobileLabel: "També ho pots veure en:",
+        langNameCa: "Català",
+        langNameEs: "Castellà",
+        langNameEn: "Anglès"
     }
 };
 
