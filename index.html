@@ -223,15 +223,13 @@
                 var cgTimer = null;
                 var observer = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
-                        clearTimeout(cgTimer);
                         if (entry.isIntersecting) {
+                            clearTimeout(cgTimer);
                             cgTimer = setTimeout(function () {
                                 cgRight.classList.add('shrink');
                                 cgText.classList.add('visible');
                             }, 450);
-                        } else {
-                            cgRight.classList.remove('shrink');
-                            cgText.classList.remove('visible');
+                            observer.unobserve(section); // reveal once, then leave it visible for good
                         }
                     });
                 }, { threshold: 0.45 });
