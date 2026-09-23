@@ -31,7 +31,7 @@ window.I18N_SHARED = {
         langMobileLabel: "También puedes verlo en:",
         langNameCa: "Catalán",
         langNameEs: "Castellano",
-        langNameEn: "inglés"
+        langNameEn: "Inglés"
     },
     ca: {
         navWork: "Feina",
