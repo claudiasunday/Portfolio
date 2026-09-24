@@ -133,6 +133,16 @@ section, footer.site {
 .hero h1 .muted { color: #d4d3d2; font-weight: 800; }
 .hero h1 .icon-img { height: 0.9em; width: auto; vertical-align: middle; display: inline-block; }
 .hero p { font-size: 17px; max-width: 68ch; }
+.heroFindMe {
+    font-size: clamp(20px, 5.4vw, 44px);
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--ink);
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+.heroFindMe .muted { color: #d4d3d2; font-weight: 800; }
+.heroFindMe .icon-img { height: 0.9em; width: auto; vertical-align: middle; display: inline-block; }
 .hero p strong { color: var(--ink); }
 
 .btn-pill, .btn-outline {
