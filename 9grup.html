@@ -297,7 +297,7 @@
                 var mq = window.matchMedia('(max-width: 720px)');
                 var endScale = 1.0;
                 var maxScroll = 500;
-                var startScale = mq.matches ? 2.0 : 1.35;
+                var startScale = mq.matches ? 1.6 : 1.35;
                 var items = [];
                 imgs.forEach(function (img) {
                     items.push({ img: img, current: startScale, target: startScale });
@@ -306,8 +306,18 @@
                 function computeTargets() {
                     var y = Math.min(Math.max(window.scrollY, 0), maxScroll);
                     var progress = y / maxScroll;
-                    var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-                    var scale = startScale - (startScale - endScale) * eased;
+                    var scale;
+                    if (mq.matches) {
+                        // Mobile: hold the zoomed-out start, then ease in only between 40%-80% of the scroll range, staying centered
+                        var pStart = 0.4, pEnd = 0.8;
+                        var localProgress = (progress - pStart) / (pEnd - pStart);
+                        localProgress = Math.min(Math.max(localProgress, 0), 1);
+                        var easedMobile = 1 - Math.pow(1 - localProgress, 3); // ease-out cubic
+                        scale = startScale - (startScale - endScale) * easedMobile;
+                    } else {
+                        var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                        scale = startScale - (startScale - endScale) * eased;
+                    }
                     items.forEach(function (it) { it.target = scale; });
                 }
 
@@ -320,7 +330,7 @@
                 }
 
                 function onResize() {
-                    startScale = mq.matches ? 2.0 : 1.35;
+                    startScale = mq.matches ? 1.6 : 1.35;
                     computeTargets();
                 }
 
