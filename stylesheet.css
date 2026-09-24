@@ -122,7 +122,7 @@ section, footer.site {
     padding-bottom: 40px;
 }
 .hero h1 {
-    font-size: clamp(32px, 8.5vw, 68px);
+    font-size: clamp(32px, 8.5vw, 106px);
     line-height: 1.08;
     letter-spacing: -0.03em;
     margin-bottom: 40px;
@@ -134,7 +134,7 @@ section, footer.site {
 .hero h1 .icon-img { height: 0.9em; width: auto; vertical-align: middle; display: inline-block; }
 .hero p { font-size: 17px; max-width: 68ch; }
 .heroFindMe {
-    font-size: clamp(34px, 9.5vw, 72px) !important;
+    font-size: clamp(34px, 9.5vw, 46px) !important;
     line-height: 1.15;
     font-weight: 800;
     color: var(--ink);
