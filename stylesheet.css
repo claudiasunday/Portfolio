@@ -147,7 +147,7 @@ section, footer.site {
 .heroFindMe .icon-img { height: 0.9em; width: auto; vertical-align: middle; display: inline-block; }
 .hero p strong { color: var(--ink); }
 @media (max-width: 720px) {
-    .heroFindMe { font-size: 34px !important; }
+    .heroFindMe { font-size: 24px !important; }
 }
 
 .btn-pill, .btn-outline {
