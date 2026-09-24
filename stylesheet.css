@@ -146,6 +146,9 @@ section, footer.site {
 .heroFindMe .muted { color: #b3b3b3 !important; font-weight: 800; }
 .heroFindMe .icon-img { height: 0.9em; width: auto; vertical-align: middle; display: inline-block; }
 .hero p strong { color: var(--ink); }
+@media (max-width: 720px) {
+    .heroFindMe { font-size: 32px !important; }
+}
 
 .btn-pill, .btn-outline {
     display: inline-flex;
