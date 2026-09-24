@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <title>Glashh — Buscando jugador disponible (verde lima)</title>
+
+  <defs>
+    <filter id="ghGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1440" height="900" fill="#141414"/>
+
+  <!-- back button -->
+  <circle cx="84" cy="76" r="20" fill="none" stroke="#FFFFFF" stroke-opacity="0.16"/>
+  <path d="M88 70 L80 76 L88 82" fill="none" stroke="#EDEDED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- status row -->
+  <circle cx="75" cy="161" r="11" fill="none" stroke="#D3F36B" stroke-width="2"/>
+  <circle cx="75" cy="161" r="3" fill="#D3F36B"/>
+  <text x="100" y="171" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="-0.3" fill="#FFFFFF">Buscando jugador disponible</text>
+
+  <!-- countdown row -->
+  <text x="100" y="207" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#C9C9C9">10:00</text>
+  <text x="144" y="207" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#8A8A8A">para la cancelaci&#243;n autom&#225;tica</text>
+  <text x="360" y="207" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="0.5" fill="#D3F36B">CANCELAR AHORA</text>
+
+  <!-- opponent square -->
+  <rect x="64" y="240" width="96" height="96" rx="18" fill="#2A2A2A"/>
+  <g transform="translate(97,273)" fill="none" stroke="#EDEDED" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 3.75h6.25v6.25"/>
+    <path d="M5 25L26.25 3.75"/>
+    <path d="M26.25 20v6.25h-6.25"/>
+    <path d="M18.75 18.75l7.5 7.5"/>
+    <path d="M5 5l6.25 6.25"/>
+  </g>
+  <text x="112" y="362" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#A8A8A8">oponente al azar</text>
+
+  <!-- apuesta -->
+  <text x="188" y="258" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#A8A8A8">apuesta</text>
+  <text x="188" y="300" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#FFFFFF">10</text>
+  <circle cx="240" cy="288" r="9" fill="none" stroke="#D3F36B" stroke-width="1.5"/>
+  <circle cx="240" cy="288" r="3.5" fill="#D3F36B"/>
+
+  <!-- decorative path illustration -->
+  <g transform="translate(650,60)">
+    <path d="M50 660 L230 660 L230 520 L430 520 L430 380 L630 380 L630 240 L800 240" fill="none" stroke="#D3F36B" stroke-opacity="0.3" stroke-width="1.5"/>
+    <path d="M430 380 L630 380 L780 520 L780 600" fill="none" stroke="#D3F36B" stroke-opacity="0.3" stroke-width="1.5"/>
+    <path d="M230 660 L230 520 L430 520" fill="none" stroke="#D3F36B" stroke-width="2.5"/>
+
+    <circle cx="50" cy="660" r="4.5" fill="#D3F36B"/>
+
+    <g filter="url(#ghGlow)">
+      <ellipse cx="230" cy="520" rx="34" ry="18" fill="#D3F36B" opacity="0.55"/>
+    </g>
+    <g transform="translate(214,502)" fill="#141414">
+      <rect x="3" y="24" width="26" height="4" rx="0.5"/>
+      <path d="M7 24 L8.5 11 L23.5 11 L25 24 Z"/>
+      <rect x="7.5" y="4.5" width="3.6" height="6"/>
+      <rect x="13.7" y="4.5" width="3.6" height="6"/>
+      <rect x="19.9" y="4.5" width="3.6" height="6"/>
+      <rect x="7.5" y="9.5" width="16" height="2.8"/>
+    </g>
+
+    <g filter="url(#ghGlow)">
+      <ellipse cx="430" cy="380" rx="40" ry="20" fill="#D3F36B" opacity="0.7"/>
+    </g>
+    <g transform="translate(412,360)" fill="#141414">
+      <rect x="3" y="27" width="30" height="4.5" rx="0.5"/>
+      <path d="M7.5 27 L9 12 L27 12 L28.5 27 Z"/>
+      <rect x="8.5" y="5" width="4" height="6.6"/>
+      <rect x="16" y="5" width="4" height="6.6"/>
+      <rect x="23.5" y="5" width="4" height="6.6"/>
+      <rect x="8.5" y="10.6" width="19" height="3.1"/>
+    </g>
+
+    <circle cx="630" cy="240" r="14" fill="none" stroke="#D3F36B" stroke-width="2"/>
+    <circle cx="630" cy="240" r="3" fill="#D3F36B"/>
+
+    <circle cx="780" cy="600" r="10" fill="none" stroke="#D3F36B" stroke-width="1.5" opacity="0.75"/>
+    <circle cx="780" cy="600" r="2.5" fill="#D3F36B"/>
+  </g>
+</svg>
