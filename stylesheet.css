@@ -282,6 +282,7 @@ footer.site a:hover { color: var(--ink); }
 
 @media (max-width: 720px) {
     .projectsGrid, .ceramicsGrid, .personalProjectsGrid { grid-template-columns: 1fr; }
+    .projectCard img { height: 300px; }
 }
 
 /* CREATIVE SPACE — marquee bar */
