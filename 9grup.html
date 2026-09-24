@@ -14,8 +14,21 @@
       gtag('js', new Date());
       gtag('config', 'G-ZMJE6FHS1Z');
     </script>
+    <style>
+        /* This page only: floating, transparent navbar over the full-bleed hero image */
+        body.grup9 .navbar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        body.grup9 .navbar.scrolled {
+            background: var(--bg);
+        }
+    </style>
 </head>
-<body>
+<body class="grup9">
     <nav class="navbar" id="siteNav">
         <div class="navInner">
             <div class="navLogoClau">
@@ -50,6 +63,10 @@
     </nav>
     <div class="navScrim" id="navScrim"></div>
 
+    <div class="fullBleedImgWrap" style="margin-top:0;">
+        <img src="9grup-ecommerce-mockup.png" alt="9Grup B2B2C eCommerce product page interface" class="fullBleedImg" id="grupHeroImg">
+    </div>
+
     <section class="hero" style="padding-bottom:0;">
         <h1 style="font-size:clamp(30px,4vw,48px);">9Grup SaaS</h1>
     </section>
@@ -57,14 +74,10 @@
     <section class="featuredCase" style="grid-template-columns:1fr; box-shadow:none; background:none; padding:0 40px; margin:0 auto; max-width:1040px;">
         <div class="featuredCaseText">
             <h3>Saas Electric Components eCommerce</h3>
-            <p style="font-size:17px; max-width:70ch;" data-i18n="p9grupLong">Electric distribution company. Creation of a B2B eCommerce for different partners, using a shared database and shared products.</p>
-            <div class="tags">#eCommerce #B2B #Wholesale &amp; Retail trade #Design System #Front-end</div>
+            <p style="font-size:17px; max-width:70ch;" data-i18n="p9grupLong">Electric distribution company. Creation of a B2B2C eCommerce for different partners, using a shared database and shared products.</p>
+            <div class="tags">#eCommerce #B2B2C #Wholesale &amp; Retail trade #Design System #Front-end</div>
         </div>
     </section>
-
-    <div class="fullBleedImgWrap">
-        <img src="9grup-ecommerce-mockup.png" alt="9Grup B2B eCommerce product page interface" class="fullBleedImg" id="grupHeroImg">
-    </div>
 
     <section>
         <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400; max-width:65ch;" data-i18n="p9grupCaption">Built as a single, unified interface designed around every type of user — Superadmin, commercial admins and their own end clients — keeping the experience consistent everywhere and saving the IT team from maintaining several different products. A solid example of how one well-structured design system can scale across very different roles.</p>
@@ -224,7 +237,7 @@
 
             var pageDict = {
                 es: {
-                    p9grupLong: "Empresa de distribución eléctrica. Creación de un eCommerce B2B para distintos partners, usando una base de datos y productos compartidos.",
+                    p9grupLong: "Empresa de distribución eléctrica. Creación de un eCommerce B2B2C para distintos partners, usando una base de datos y productos compartidos.",
                     p9grupCaption: "Diseñada como una única interfaz pensada para los distintos tipos de usuario — Superadmin, administradores comerciales y sus propios clientes — manteniendo una experiencia consistente en todos los casos y ahorrando al equipo de IT tener que mantener varios productos distintos. Un buen ejemplo de cómo un mismo sistema de diseño puede escalar entre roles muy diferentes.",
                     p9grupCaptionCta: "¿Quieres saber más? <a href=\"mailto:sundayclaudia@gmail.com?subject=9Grup%20-%20More%20information\">Escríbeme</a>.",
                     confidentialTitle: "Proyecto confidencial",
@@ -235,7 +248,7 @@
                     pGlashhDesc: "Confidencial — app de ajedrez con mecánica de apuestas."
                 },
                 ca: {
-                    p9grupLong: "Empresa de distribució elèctrica. Creació d'un eCommerce B2B per a diferents partners, amb una base de dades i productes compartits.",
+                    p9grupLong: "Empresa de distribució elèctrica. Creació d'un eCommerce B2B2C per a diferents partners, amb una base de dades i productes compartits.",
                     p9grupCaption: "Dissenyada com una única interfície pensada per als diferents tipus d'usuari — Superadmin, administradors comercials i els seus propis clients — mantenint una experiència consistent en tots els casos i estalviant a l'equip d'IT haver de mantenir diversos productes diferents. Un bon exemple de com un mateix sistema de disseny pot escalar entre rols molt diferents.",
                     p9grupCaptionCta: "Vols saber-ne més? <a href=\"mailto:sundayclaudia@gmail.com?subject=9Grup%20-%20More%20information\">Escriu-me</a>.",
                     confidentialTitle: "Projecte confidencial",
