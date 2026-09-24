@@ -651,6 +651,12 @@ footer.site a:hover { color: var(--ink); }
 
 /* CHORESCORE — hero photo zoom-out + teleprompter text reveal */
 .chorescoreHeroPhone { will-change: transform; }
+@media (max-width: 720px) {
+    .chorescoreHeroPhone { max-width: 70%; }
+}
+@media (max-width: 720px) {
+    .dogfyHeroPhone { max-width: 70%; }
+}
 .scrollReveal { color: var(--ink); }
 .scrollReveal .srWord { display: inline-block; opacity: .1; will-change: opacity; }
 
