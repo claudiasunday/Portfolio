@@ -816,6 +816,22 @@ footer.site a:hover { color: var(--ink); }
     }
 }
 
+/* Multi-phone flow images (chorescore/dogfy/glashh): on mobile, swipe horizontally at a legible size instead of shrinking the whole row to fit */
+@media (max-width: 720px) {
+    .phoneGridWrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+    }
+    .phoneGridWrap .phoneGridImg {
+        width: auto;
+        max-width: none !important;
+        height: 340px;
+        display: inline-block;
+        scroll-snap-align: start;
+    }
+}
+
 /* Full-screen image viewer (lightbox) with tap-to-zoom */
 .imgViewerOverlay {
     display: none;
