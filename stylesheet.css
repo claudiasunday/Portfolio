@@ -282,7 +282,7 @@ footer.site a:hover { color: var(--ink); }
 
 @media (max-width: 720px) {
     .projectsGrid, .ceramicsGrid, .personalProjectsGrid { grid-template-columns: 1fr; }
-    .projectCard img { height: 300px; }
+    .projectCard img { height: clamp(172px, 20px + 39vw, 300px); }
 }
 
 /* CREATIVE SPACE — marquee bar */
@@ -824,9 +824,9 @@ footer.site a:hover { color: var(--ink); }
         scroll-snap-type: x proximity;
     }
     .phoneGridWrap .phoneGridImg {
-        width: auto;
+        width: auto !important;
         max-width: none !important;
-        height: 340px;
+        height: 340px !important;
         display: inline-block;
         scroll-snap-align: start;
     }
