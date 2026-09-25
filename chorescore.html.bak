@@ -109,31 +109,31 @@
         <img src="chorescore-gallery-2.png" alt="Chorescore onboarding and Buy Chorecards screen" class="ctxVisualDesktop" style="border-radius:20px; margin-top:20px;">
         <img src="chorescore-gallery-2-mobile.png" alt="Chorescore screens: splash, Buy Chorecards, weekly chore with flatmate ratings, and random chore assignment results" class="ctxVisualMobile" style="border-radius:20px; margin-top:20px;">
 
-        <h3 class="pixelsTitle" style="margin-top:40px;display:none;" data-i18n="scenario1Heading">Scenario 1 — Introducing the app</h3>
+        <h3 class="pixelsTitle" style="margin-top:40px;" data-i18n="scenario1Heading">Scenario 1 — Introducing the app</h3>
         <div class="flowGrid">
             <div class="flowItem">
                 <video src="chorescore-flow-1-john.mov" controls playsinline></video>
-                <span class="flowLabel" style="display:none;" data-i18n="flow1john">Flow 1 — John</span>
-                <p style="display:none;" data-i18n="flow1johnText">John recently brought Marta, a new flatmate, to live with him and two other people. For the cleaning arrangement, John and his flatmates use the Chorescore app.</p>
+                <span class="flowLabel" data-i18n="flow1john">Flow 1 — John</span>
+                <p data-i18n="flow1johnText">John recently brought Marta, a new flatmate, to live with him and two other people. For the cleaning arrangement, John and his flatmates use the Chorescore app.</p>
             </div>
             <div class="flowItem">
                 <video src="chorescore-flow-1-marta.mov" controls playsinline></video>
-                <span class="flowLabel" style="display:none;" data-i18n="flow1marta">Flow 1 — Marta</span>
-                <p style="display:none;" data-i18n="flow1martaText">Marta opens her invitation link, creates her profile and reads the onboarding.</p>
+                <span class="flowLabel" data-i18n="flow1marta">Flow 1 — Marta</span>
+                <p data-i18n="flow1martaText">Marta opens her invitation link, creates her profile and reads the onboarding.</p>
             </div>
         </div>
 
-        <h3 class="pixelsTitle" style="margin-top:40px;display:none;" data-i18n="scenario2Heading">Scenario 2 — End of Marta's first week</h3>
+        <h3 class="pixelsTitle" style="margin-top:40px;" data-i18n="scenario2Heading">Scenario 2 — End of Marta's first week</h3>
         <div class="flowGrid">
             <div class="flowItem">
                 <video src="chorescore-flow-2-john.mov" controls playsinline></video>
-                <span class="flowLabel" style="display:none;" data-i18n="flow2john">Flow 2 — John</span>
-                <p style="display:none;" data-i18n="flow2johnText">The week has finished! John discovers who the winner is, submits his preference, and lets Chorescore do the rest.</p>
+                <span class="flowLabel" data-i18n="flow2john">Flow 2 — John</span>
+                <p data-i18n="flow2johnText">The week has finished! John discovers who the winner is, submits his preference, and lets Chorescore do the rest.</p>
             </div>
             <div class="flowItem">
                 <video src="chorescore-flow-2-marta.mov" controls playsinline></video>
-                <span class="flowLabel" style="display:none;" data-i18n="flow2marta">Flow 2 — Marta</span>
-                <p style="display:none;" data-i18n="flow2martaText">As Marta is new to the flat she had no prior arrangement, so a chore gets assigned to her — meaning she may not be the winner this time. But she can check the Chorecards to spice up the game and take ideas for future chore revenges, unlocked as she earns points from extra tasks, good feedback and climbing the leaderboard.</p>
+                <span class="flowLabel" data-i18n="flow2marta">Flow 2 — Marta</span>
+                <p data-i18n="flow2martaText">As Marta is new to the flat she had no prior arrangement, so a chore gets assigned to her — meaning she may not be the winner this time. But she can check the Chorecards to spice up the game and take ideas for future chore revenges, unlocked as she earns points from extra tasks, good feedback and climbing the leaderboard.</p>
             </div>
         </div>
     </section>
@@ -159,10 +159,6 @@
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
-        <img src="chorescore-designsystem.png" alt="Chorescore design system components" style="width:100%; border-radius:16px; display:block; background:#2b2b2b;">
-    </section>
-
-    <section class="ceramics" style="border-top:1px solid var(--line);">
         <h2 data-i18n="whatsNextHeading">What's next?</h2>
         <ul class="challengeList plainBullets" style="list-style:disc; padding-left:20px;">
             <li style="padding-left:0;" data-i18n="next1">Create a profile screen.</li>
@@ -172,6 +168,10 @@
             <li style="padding-left:0;" data-i18n="next5">Provide more information on how flatmate rating affects points.</li>
             <li style="padding-left:0;" data-i18n="next6">Develop the edit function for chore and extra task cards.</li>
         </ul>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <img src="chorescore-designsystem.png" alt="Chorescore design system components" style="width:100%; border-radius:16px; display:block; background:#2b2b2b;">
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
