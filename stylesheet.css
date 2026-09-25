@@ -769,6 +769,31 @@ footer.site a:hover { color: var(--ink); }
     }
 }
 
+/* 9GRUP — hero image at the very top, transparent nav over it */
+body.navOverlay .navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: transparent;
+    transition: background .3s ease, box-shadow .3s ease;
+}
+body.navOverlay .navbar.scrolled,
+body.navOverlay .navbar:has(.navActions.open) { background: var(--bg); }
+.fullBleedImgWrap.heroTop { padding-top: 140px; }
+@media (max-width: 720px) {
+    .fullBleedImgWrap.heroTop {
+        height: auto;
+        min-height: 75vh;
+        min-height: 75svh;
+        padding: 110px 0 32px;
+    }
+    .fullBleedImgWrap.heroTop .fullBleedImg {
+        width: 170%;
+        max-width: none;
+        flex-shrink: 0;
+    }
+}
+
 /* Full-screen image viewer (lightbox) with tap-to-zoom */
 .imgViewerOverlay {
     display: none;

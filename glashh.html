@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="favicon.png" type="image/png">
     <title>Glashh | Claudia Domingo Ruiz</title>
+    <meta name="description" content="Designing trust into a chess app where every move is a bet, by Claudia Domingo Ruiz.">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMJE6FHS1Z"></script>
     <script>
@@ -15,17 +16,158 @@
       gtag('js', new Date());
       gtag('config', 'G-ZMJE6FHS1Z');
     </script>
+    <style>
+        /* --- Glashh-only visual layer (scoped to body.ghPage) --- */
+
+        .glashhHeroPhone { will-change: transform; width: 210px; max-width: 70%; bottom: -15px; }
+        .glashhHeroBox { height: 338px; }
+        @media (min-width: 721px) {
+            .glashhHeroPhone { width: 280px; max-width: 54%; bottom: 1px; }
+            .glashhHeroBox { height: 450px; }
+        }
+
+        .ghPage .ghMeta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .ghPage .ghMeta span { display: block; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+        .ghPage .ghMeta p { margin: 0; font-size: 16px; color: var(--ink); max-width: none; }
+        @media (max-width: 720px) {
+            .ghPage .ghMeta { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+        }
+
+        .ghPage .ghTags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+        .ghPage .ghTags span {
+            font-size: 12px; font-weight: 600; padding: 7px 15px;
+            border-radius: 999px; background: #F5F4F1; color: var(--ink);
+        }
+
+        .ghPage .ghPlaceholder {
+            width: 100%;
+            background: #ECECEC;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #B5B5B5;
+        }
+        .ghPage .ghPlaceholder svg { width: 30px; height: 30px; }
+
+        .ghPage .ghLead {
+            font-weight: 400 !important;
+            font-size: clamp(26px, 3.3vw, 34px) !important;
+            line-height: 1.16 !important;
+            letter-spacing: -0.01em;
+            max-width: 20ch;
+        }
+
+        .ghPage .ghFrame {
+            margin: 40px auto 0;
+            max-width: 560px;
+            background: #F5F4F1;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -22px rgba(0,0,0,.6);
+        }
+        .ghPage .ghFrameBar { display: flex; gap: 6px; padding: 12px 14px; background: #E7E5E0; }
+        .ghPage .ghFrameBar span { width: 8px; height: 8px; border-radius: 50%; background: #C9C6BF; display: block; }
+        .ghPage .ghFramePane {
+            aspect-ratio: 16/10;
+            display: flex; align-items: center; justify-content: center;
+            color: #B5B5B5;
+        }
+        .ghPage .ghFramePane svg { width: 32px; height: 32px; }
+
+        .ghPage .ghSection { display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: start; }
+        .ghPage .ghContent { min-width: 0; }
+        .ghPage .ghIndex { padding-top: 4px; }
+        .ghPage .ghIndex .ghNum { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+        .ghPage .ghIndex .ghNum::before { content: counter(ghsec, decimal-leading-zero); }
+        .ghPage .ghIndex .ghLabel { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink); }
+        @media (max-width: 720px) {
+            .ghPage .ghSection { grid-template-columns: 1fr; gap: 10px; }
+        }
+        body.ghPage { counter-reset: ghsec; }
+        .ghPage .ghSection { counter-increment: ghsec; }
+
+        .ghPage .ghDarkWrap {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            max-width: none;
+            box-sizing: border-box;
+            background: #141414;
+            color: #FFFFFF;
+            padding: 88px 40px;
+        }
+        .ghPage .ghDarkWrap .ghSection { max-width: var(--maxw); margin: 0 auto; }
+        .ghPage .ghDarkWrap .ghIndex .ghLabel { color: #FFFFFF; }
+        .ghPage .ghDarkWrap .ghIndex .ghNum { color: #7A7A7A; }
+        .ghPage .ghDarkWrap p,
+        .ghPage .ghDarkWrap .scrollReveal,
+        .ghPage .ghDarkWrap .ghLead { color: #FFFFFF; }
+        .ghPage .ghDarkWrap .designQuestion { background: rgba(255,255,255,.08); color: #FFFFFF; }
+        .ghPage .ghDarkWrap .insightBox { border-color: rgba(255,255,255,.3); }
+        .ghPage .ghDarkWrap .insightBox p { color: #FFFFFF; }
+        .ghPage .ghDarkWrap .insightLabel { color: #A8A8A8; }
+        .ghPage .ghDarkWrap .challengeList li { color: #C9C9C9; }
+        .ghPage .ghDarkWrap .challengeList li strong { color: #FFFFFF; }
+        .ghPage .ghDarkWrap .challengeList li::before { background: #FFFFFF; color: #141414; }
+
+        .ghPage .ghPhaseList { position: relative; }
+        .ghPage .ghPhaseList::before {
+            content: ""; position: absolute; left: 15px; top: 34px; bottom: 34px;
+            width: 1.5px; background: var(--line);
+        }
+        .ghPage .ghPhaseList .phaseNum { position: relative; z-index: 1; }
+
+        .ghPage .ghBreak {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            max-width: none;
+            box-sizing: border-box;
+            background: #141414;
+            color: #FFFFFF;
+            padding: 88px 40px;
+            text-align: center;
+        }
+        .ghPage .ghBreak .ghBreakEyebrow {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .06em; color: #D3F36B; margin-bottom: 18px;
+        }
+        .ghPage .ghBreak .ghBreakWord {
+            font-size: clamp(52px, 11vw, 140px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1.5px #FFFFFF;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .ghPage .ghBreak .ghBreakSub {
+            margin: 20px auto 0; font-size: 16px; line-height: 1.5; color: #A8A8A8;
+            max-width: 520px;
+        }
+        .ghPage .ghNumList {
+            list-style: none; margin: 32px auto 0; padding: 0;
+            display: inline-flex; flex-direction: column; gap: 12px;
+            text-align: left;
+        }
+        .ghPage .ghNumList li { display: flex; align-items: baseline; gap: 14px; font-size: 20px; font-weight: 700; color: #FFFFFF; }
+        .ghPage .ghNumList li span.n { font-size: 13px; font-weight: 700; color: #7A7A7A; }
+    </style>
 </head>
-<body>
+<body class="ghPage">
     <nav class="navbar" id="siteNav">
         <div class="navInner">
             <div class="navLogoClau">
                 <a href="index.html"><img src="avatar-nav.jpg" alt="Claudia Domingo Ruiz" class="avatar"></a>
             </div>
             <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
-                    <span></span><span></span><span></span>
-                </button>
-                <div class="navActions" id="navActions">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="navActions" id="navActions">
                 <ul>
                     <li>
                         <a href="index.html#projects" data-i18n="navWork">Work</a>
@@ -41,24 +183,114 @@
             </div>
         </div>
     </nav>
+    <div class="navScrim" id="navScrim"></div>
 
-    <section class="hero" style="padding-bottom:0;">
-        <h1 style="font-size:clamp(30px,4vw,48px);">Glashh</h1>
-    </section>
-
-    <section class="featuredCase" style="grid-template-columns:1fr; box-shadow:none; background:none; padding:0 40px; margin:0 auto; max-width:1040px;">
-        <img src="Card3.png" alt="Glashh" style="height:360px;">
-        <div class="featuredCaseText">
-            <p style="font-size:17px; max-width:70ch;" data-i18n="glashhLong">Experience chess with a twist! Glashh lets you play and bet money or tokens simultaneously, adding thrill to every move.</p>
-            <div class="tags">#Research #Feature Analysis #Branding #Chess&amp;Bet #Iterations</div>
+    <section style="padding-top:24px;">
+        <div class="glashhHeroBox" style="position:relative; border-radius:24px; background:linear-gradient(180deg,#ffffff 0%,#dcdcdc 100%); width:100%;">
+            <img src="glashh-hero-mockup.png" alt="Glashh app across three phones: dashboard, an active match and the win screen" class="glashhHeroPhone" style="position:absolute; left:50%; transform:translateX(-50%) scale(1.1); height:auto; z-index:2;">
         </div>
     </section>
 
-    <section class="ceramics" style="border-top:1px solid var(--line);">
-        <div class="confidentialBox">
-            <h3 class="pixelsTitle" data-i18n="confidentialTitle">Confidential project</h3>
-            <p data-i18n="confidentialTextGlashh">Este proyecto está bajo acuerdo de confidencialidad, así que no puedo compartir el detalle del proceso o las pantallas aquí. Si quieres conocer más sobre mi trabajo en Glashh, escríbeme y lo hablamos.</p>
-            <a href="mailto:sundayclaudia@gmail.com?subject=Glashh%20-%20More%20information" class="btn-pill" data-i18n="confidentialBtn">Request more information</a>
+    <section class="hero" style="padding-bottom:0;">
+        <p class="heroTagline" style="margin-top:0;">Glashh</p>
+        <h1 style="font-size:clamp(30px,4.4vw,54px);" data-i18n="heroTitle">Would you bet real money on an app you'd never used before?</h1>
+        <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400; max-width:65ch; margin-top:20px;" data-i18n="heroSub">That's the scepticism Glashh had to earn its way past &mdash; building the trust, fairness and onboarding a betting chess app needs before anyone risks a single euro.</p>
+        <div class="ghTags">
+            <span>#Research</span>
+            <span>#Feature Analysis</span>
+            <span>#Branding</span>
+            <span>#Chess&amp;Bet</span>
+            <span>#Iterations</span>
+        </div>
+    </section>
+
+    <section class="ghMeta">
+        <div><span data-i18n="metaRoleLabel">My role</span><p data-i18n="metaRoleValue">Product Designer, UX/UI Design, Front-end Dev</p></div>
+        <div><span data-i18n="metaToolsLabel">Tools used</span><p data-i18n="metaToolsValue">Figma &middot; Pug, Sass</p></div>
+        <div><span data-i18n="metaSectorLabel">Sector</span><p data-i18n="metaSectorValue">Chess &amp; betting</p></div>
+        <div><span data-i18n="metaYearLabel">Year</span><p data-i18n="metaYearValue">2023 &middot; on hold</p></div>
+    </section>
+
+    <section class="ghSection" style="border-top:1px solid var(--line); padding-top:56px;">
+        <div class="ghIndex"><span class="ghNum"></span><span class="ghLabel" data-i18n="aboutBizHeading">About the business</span></div>
+        <div class="ghContent">
+            <p class="scrollReveal ghLead" style="font-size:28px; line-height:1.3; font-weight:400; max-width:65ch;" data-i18n="aboutBizBody">Glashh is a chess web app with a twist: players bet money or tokens on their own matches. The startup had a clear idea of the core business, but we audited it together to expand its initial scope.</p>
+        </div>
+    </section>
+
+    <section class="ghSection" style="border-top:1px solid var(--line);">
+        <div class="ghIndex"><span class="ghNum"></span><span class="ghLabel" data-i18n="contribHeading">My contribution</span></div>
+        <div class="ghContent">
+            <p class="scrollReveal ghLead" style="font-size:28px; line-height:1.3; font-weight:400; max-width:65ch;" data-i18n="contribP0">I joined as the Product Designer for this startup project, focusing on shaping the right features and delivering a design that was simple &mdash; but that actually worked.</p>
+            <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400; max-width:65ch; margin-top:16px;" data-i18n="contribP1">I led research and feature definition, mapped the game's user flows, and built the prototype end to end. Given the small team, I also worked front-end, bringing the design system into the codebase &mdash; around 80 hours of UX/UI design and 100 hours of development in total.</p>
+            <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400; max-width:65ch; margin-top:16px;" data-i18n="contribP2">We also built the full visual system in-house &mdash; naming, logo, typography and colour &mdash; landing on a lime green that reads as money, risk and quick thinking. This wasn't a project about pushing visual design forward, though; the interesting work happened upstream, in the trust and fairness mechanics.</p>
+        </div>
+    </section>
+
+    <section class="ghSection" style="border-top:1px solid var(--line);">
+        <div class="ghIndex"><span class="ghNum"></span><span class="ghLabel" data-i18n="personasHeading">Our users</span></div>
+        <div class="ghContent">
+            <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400; max-width:65ch;" data-i18n="personasIntro">My knowledge of the chess-and-betting space was scarce, so I started with interviews. Three types of players emerged &mdash; each with a different level of chess knowledge, a different reason to join, and a different fear that could stop them from playing.</p>
+        </div>
+    </section>
+
+    <div style="position:relative; height:760px; background:linear-gradient(to bottom, #ffffff 50%, #141414 50%); overflow:hidden;" aria-hidden="true">
+        <div style="max-width:var(--maxw); margin:0 auto; padding:0 40px; box-sizing:border-box; position:absolute; left:0; right:0; top:50%; transform:translateY(-50%);">
+            <img src="glashh-dark-transition.png" alt="" style="width:100%; height:auto; display:block;">
+        </div>
+    </div>
+
+    <section class="ghDarkWrap">
+        <div class="ghSection">
+            <div class="ghIndex"><span class="ghNum"></span><span class="ghLabel" data-i18n="moneyHeading">Money and tokens: building trust</span></div>
+            <div class="ghContent">
+                <p class="designQuestion scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400;" data-i18n="moneyDq">How might we build trust? How might we build engagement?</p>
+                <p class="scrollReveal ghLead" style="font-size:28px; line-height:1.3; font-weight:400; margin-top:16px; max-width:75ch;" data-i18n="moneyBody">Realistically, would anyone put money into a random app they'd never used before — especially one brand new to the market? That scepticism was the real starting point.</p>
+                <div class="insightBox">
+                    <p style="font-size:22px; font-weight:800; color:#FFFFFF;" data-i18n="moneyInsightMain">A freemium model was the only way in.</p>
+                    <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400;" data-i18n="moneyInsightP1">I designed a "hard coin" backed by real money and a "soft coin" earned just by playing free matches &mdash; trust builds before any real money changes hands.</p>
+                </div>
+                <img src="glashh-ipad-pro.png" alt="The chessboard and move history on iPad" style="width:100%; aspect-ratio:1400/1011; object-fit:contain; margin-top:28px; display:block;">
+            </div>
+        </div>
+    </section>
+
+    <section class="ghDarkWrap">
+        <div class="ghSection">
+            <div class="ghIndex"><span class="ghNum"></span><span class="ghLabel" data-i18n="swindleHeading">Preventing players from being swindled</span></div>
+            <div class="ghContent">
+                <p class="designQuestion scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400;" data-i18n="swindleDq">How might we help players avoid being swindled?</p>
+                <ul class="challengeList" style="margin-top:24px;">
+                    <li><strong data-i18n="level1Title">Beginner</strong> — <span data-i18n="level1Body">lower stakes while trust and skill are still being established.</span></li>
+                    <li><strong data-i18n="level2Title">Intermediate</strong> — <span data-i18n="level2Body">moderate stakes as players build a track record.</span></li>
+                    <li><strong data-i18n="level3Title">Professional</strong> — <span data-i18n="level3Body">the highest stakes, once skill level is well established.</span></li>
+                </ul>
+                <div class="insightBox">
+                    <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400;" data-i18n="swindleFollow1">Their first match is played against a bot that reads their level, so from the second match on they're playing people of similar skill &mdash; which also keeps stronger players engaged from the start instead of grinding through beginners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="phoneGridWrap" style="width:100vw; margin-left:calc(50% - 50vw); background:#333333; padding:80px 40px; box-sizing:border-box; text-align:center;">
+        <img src="glashh-phones-grid.png" alt="Glashh across the full flow: splash, invite, live match and win screen" class="phoneGridImg" style="max-width:var(--maxw); width:100%; height:auto; display:inline-block;">
+    </div>
+
+    <section class="ghDarkWrap">
+        <div class="ghSection">
+            <div class="ghIndex"><span class="ghNum"></span><span class="ghLabel" data-i18n="resultsHeading">Results</span></div>
+            <div class="ghContent">
+                <p class="scrollReveal ghLead" style="font-size:28px; line-height:1.3; font-weight:400; max-width:75ch;" data-i18n="resultsBody">The trust-first system &mdash; tiered stakes, a bot-calibrated first match, and a freemium wallet &mdash; shipped as a working prototype covering the full player loop, from browsing and betting to playing and settling a match. I built the front-end myself, end to end, bringing the whole design system into the codebase.</p>
+                <ul class="challengeList plainBullets" style="margin-top:24px;">
+                    <li data-i18n="resultsPoint1">Design trust before growth features</li>
+                    <li data-i18n="resultsPoint2">Skill-based matching beats moderation</li>
+                    <li data-i18n="resultsPoint3">Small teams need designers who ship code</li>
+                </ul>
+                <p class="scrollReveal" style="font-size:28px; line-height:1.3; font-weight:400; margin-top:16px; max-width:75ch;" data-i18n="resultsStatus">Glashh has been on hold since 2023, but the trust-first foundation is built and ready to pick back up.</p>
+                <div style="width:100%; margin-top:32px; aspect-ratio:3/2; border-radius:18px; box-shadow:0 30px 60px -22px rgba(0,0,0,.6); overflow:hidden;">
+                    <img src="glashh-hands-game.jpg" alt="A match in progress, held in hand" class="glashhHandsZoom" style="width:100%; height:100%; object-fit:cover; display:block; will-change:transform;">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -80,7 +312,7 @@
             <a class="projectCard" href="9grup.html">
                 <img src="Card1.png" alt="9Grup SaaS project">
                 <h3>9Grup SaaS</h3>
-                <p data-i18n="p9grupDesc">Confidential B2B eCommerce project for an electric distribution company.</p>
+                <p data-i18n="p9grupDesc">Confidential B2B2C eCommerce project for an electric distribution company.</p>
             </a>
         </div>
     </section>
@@ -109,41 +341,186 @@
 
             var hamburgerBtn = document.getElementById('hamburgerBtn');
             var navActionsEl = document.getElementById('navActions');
+            var navScrimEl = document.getElementById('navScrim');
             if (hamburgerBtn && navActionsEl) {
                 hamburgerBtn.addEventListener('click', function () {
                     var isOpen = navActionsEl.classList.toggle('open');
                     hamburgerBtn.classList.toggle('open', isOpen);
                     hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (navScrimEl) navScrimEl.classList.toggle('open', isOpen);
                 });
                 navActionsEl.querySelectorAll('a').forEach(function (link) {
                     link.addEventListener('click', function () {
                         navActionsEl.classList.remove('open');
                         hamburgerBtn.classList.remove('open');
                         hamburgerBtn.setAttribute('aria-expanded', 'false');
+                        if (navScrimEl) navScrimEl.classList.remove('open');
                     });
                 });
+                if (navScrimEl) {
+                    navScrimEl.addEventListener('click', function () {
+                        navActionsEl.classList.remove('open');
+                        hamburgerBtn.classList.remove('open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                        navScrimEl.classList.remove('open');
+                    });
+                }
             }
+
             var pageDict = {
+                en: {
+                    heroTitle: "Would you bet real money on an app you'd never used before?",
+                    heroSub: "That's the scepticism Glashh had to earn its way past — building the trust, fairness and onboarding a betting chess app needs before anyone risks a single euro.",
+                    metaRoleLabel: "My role", metaRoleValue: "Product Designer, UX/UI Design, Front-end Dev",
+                    metaToolsLabel: "Tools used", metaToolsValue: "Figma · Pug, Sass",
+                    metaSectorLabel: "Sector", metaSectorValue: "Chess & betting",
+                    metaYearLabel: "Year", metaYearValue: "2023 · on hold",
+                    aboutBizHeading: "About the business",
+                    aboutBizBody: "Glashh is a chess web app with a twist: players bet money or tokens on their own matches. The startup had a clear idea of the core business, but we audited it together to expand its initial scope.",
+                    contribHeading: "My contribution",
+                    contribP0: "I joined as the Product Designer for this startup project, focusing on shaping the right features and delivering a design that was simple — but that actually worked.",
+                    contribP1: "I led research and feature definition, mapped the game's user flows, and built the prototype end to end. Given the small team, I also worked front-end, bringing the design system into the codebase — around 80 hours of UX/UI design and 100 hours of development in total.",
+                    contribP2: "We also built the full visual system in-house — naming, logo, typography and colour — landing on a lime green that reads as money, risk and quick thinking. This wasn't a project about pushing visual design forward, though; the interesting work happened upstream, in the trust and fairness mechanics.",
+                    personasHeading: "Our users",
+                    personasIntro: "My knowledge of the chess-and-betting space was scarce, so I started with interviews. Three types of players emerged — each with a different level of chess knowledge, a different reason to join, and a different fear that could stop them from playing.",
+                    moneyHeading: "Money and tokens: building trust",
+                    moneyDq: "How might we build trust? How might we build engagement?",
+                    moneyBody: "Realistically, would anyone put money into a random app they'd never used before — especially one brand new to the market? That scepticism was the real starting point.",
+                    moneyInsightMain: "A freemium model was the only way in.",
+                    moneyInsightP1: "I designed a “hard coin” backed by real money and a “soft coin” earned just by playing free matches — trust builds before any real money changes hands.",
+                    swindleHeading: "Preventing players from being swindled",
+                    swindleDq: "How might we help players avoid being swindled?",
+                    level1Title: "Beginner", level1Body: "lower stakes while trust and skill are still being established.",
+                    level2Title: "Intermediate", level2Body: "moderate stakes as players build a track record.",
+                    level3Title: "Professional", level3Body: "the highest stakes, once skill level is well established.",
+                    swindleFollow1: "Their first match is played against a bot that reads their level, so from the second match on they're playing people of similar skill — which also keeps stronger players engaged from the start instead of grinding through beginners.",
+                    resultsHeading: "Results",
+                    resultsBody: "The trust-first system — tiered stakes, a bot-calibrated first match, and a freemium wallet — shipped as a working prototype covering the full player loop, from browsing and betting to playing and settling a match. I built the front-end myself, end to end, bringing the whole design system into the codebase.",
+                    resultsPoint1: "Design trust before growth features",
+                    resultsPoint2: "Skill-based matching beats moderation",
+                    resultsPoint3: "Small teams need designers who ship code",
+                    resultsStatus: "Glashh has been on hold since 2023, but the trust-first foundation is built and ready to pick back up.",
+                    dogfyMiniDesc: "Redesigning cancellation as a retention conversation.",
+                    pChorescoreDesc: "Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.",
+                    p9grupDesc: "Confidential B2B2C eCommerce project for an electric distribution company."
+                },
                 es: {
-                    glashhLong: "¡Vive el ajedrez con un giro distinto! Glashh te permite jugar y apostar dinero o tokens al mismo tiempo, añadiendo emoción a cada movimiento.",
-                    confidentialTitle: "Proyecto confidencial",
-                    confidentialTextGlashh: "Este proyecto está bajo acuerdo de confidencialidad, así que no puedo compartir el detalle del proceso o las pantallas aquí. Si quieres conocer más sobre mi trabajo en Glashh, escríbeme y lo hablamos.",
-                    confidentialBtn: "Solicitar más información",
+                    heroTitle: "¿Apostarías dinero real en una app que nunca has usado?",
+                    heroSub: "Esa es la desconfianza que Glashh tenía que superar — construyendo la confianza, la equidad y el onboarding que necesita una app de ajedrez con apuestas antes de que alguien arriesgue un solo euro.",
+                    metaRoleLabel: "Mi rol", metaRoleValue: "Product Designer, Diseño UX/UI, Front-end Dev",
+                    metaToolsLabel: "Herramientas", metaToolsValue: "Figma · Pug, Sass",
+                    metaSectorLabel: "Sector", metaSectorValue: "Ajedrez y apuestas",
+                    metaYearLabel: "Año", metaYearValue: "2023 · en pausa",
+                    aboutBizHeading: "Sobre el negocio",
+                    aboutBizBody: "Glashh es una web app de ajedrez con un giro distinto: los jugadores apuestan dinero o tokens en sus propias partidas. La startup tenía una idea clara del negocio principal, pero lo auditamos juntos para ampliar su alcance inicial.",
+                    contribHeading: "Mi contribución",
+                    contribP0: "Me incorporé como Product Designer de este proyecto de startup, centrándome en definir las funcionalidades adecuadas y en ofrecer un diseño simple, pero que funcionase de verdad.",
+                    contribP1: "Lideré la investigación y la definición de funcionalidades, mapeé los flujos de usuario del juego y construí el prototipo de principio a fin. Dado el tamaño reducido del equipo, también trabajé como front-end, incorporando el sistema de diseño al código — en total, unas 80 horas de diseño UX/UI y 100 horas de desarrollo.",
+                    contribP2: "Construimos todo el sistema visual internamente — naming, logo, tipografía y color, llegando a un verde lima que transmite dinero, riesgo y rapidez mental. Pero este no fue un proyecto sobre llevar el diseño visual más lejos; lo interesante pasó antes, en la mecánica de confianza y equidad.",
+                    personasHeading: "Nuestros usuarios",
+                    personasIntro: "Mi conocimiento del sector del ajedrez y las apuestas era escaso, así que empecé con entrevistas. Surgieron tres tipos de jugadores, cada uno con un nivel de conocimiento distinto, un motivo diferente para unirse y un miedo distinto que podía frenarles.",
+                    moneyHeading: "Dinero y tokens: construir confianza",
+                    moneyDq: "¿Cómo podríamos generar confianza? ¿Cómo podríamos generar engagement?",
+                    moneyBody: "Siendo realistas, ¿alguien introduciría dinero en una app aleatoria que nunca ha usado — sobre todo si es nueva en el mercado? Ese escepticismo era el verdadero punto de partida.",
+                    moneyInsightMain: "Un modelo freemium era la única vía de entrada.",
+                    moneyInsightP1: "Diseñé una «moneda dura» respaldada por dinero real y una «moneda blanda» que se gana jugando partidas gratuitas — la confianza se construye antes de que se mueva dinero real.",
+                    swindleHeading: "Evitar que los jugadores sean estafados",
+                    swindleDq: "¿Cómo podríamos ayudar a los jugadores a evitar ser estafados?",
+                    level1Title: "Principiante", level1Body: "apuestas más bajas mientras se establecen la confianza y la habilidad.",
+                    level2Title: "Intermedio", level2Body: "apuestas moderadas a medida que el jugador construye un historial.",
+                    level3Title: "Profesional", level3Body: "las apuestas más altas, una vez el nivel de habilidad está bien establecido.",
+                    swindleFollow1: "Su primera partida se juega contra un bot que detecta su nivel, así que desde la segunda partida ya juegan contra gente de habilidad similar — lo que además mantiene motivados a los jugadores más fuertes desde el principio, en vez de hacerles calentar ganando a principiantes.",
+                    resultsHeading: "Resultados",
+                    resultsBody: "El sistema centrado en la confianza — apuestas escalonadas, una primera partida calibrada por un bot y una cartera freemium — llegó a funcionar como prototipo, cubriendo todo el recorrido del jugador: explorar, apostar, jugar y cerrar la partida. Construí el front-end yo misma, de principio a fin, llevando todo el sistema de diseño al código.",
+                    resultsPoint1: "Diseñar la confianza antes que las funciones de crecimiento",
+                    resultsPoint2: "El emparejamiento por nivel gana a la moderación",
+                    resultsPoint3: "Los equipos pequeños necesitan diseñadoras que también desarrollen",
+                    resultsStatus: "Glashh está en pausa desde 2023, pero la base de confianza ya está construida y lista para retomarse.",
                     dogfyMiniDesc: "Rediseñar la cancelación como una conversación de retención.",
                     pChorescoreDesc: "¡Evita la charla incómoda con tus compañeros de piso! Crea hábitos de limpieza y comparte tareas.",
-                    p9grupDesc: "Proyecto confidencial de eCommerce B2B para una empresa de distribución eléctrica."
+                    p9grupDesc: "Proyecto confidencial de eCommerce B2B2C para una empresa de distribución eléctrica."
                 },
                 ca: {
-                    glashhLong: "Viu els escacs amb un gir diferent! Glashh et permet jugar i apostar diners o tokens alhora, afegint emoció a cada moviment.",
-                    confidentialTitle: "Projecte confidencial",
-                    confidentialTextGlashh: "Aquest projecte està sota acord de confidencialitat, així que no puc compartir el detall del procés o les pantalles aquí. Si vols conèixer més sobre la meva feina a Glashh, escriu-me i en parlem.",
-                    confidentialBtn: "Sol·licitar més informació",
+                    heroTitle: "Apostaries diners reals en una app que mai has fet servir?",
+                    heroSub: "Aquesta és la desconfiança que Glashh havia de superar — construint la confiança, l'equitat i l'onboarding que necessita una app d'escacs amb apostes abans que ningú arrisqui ni un sol euro.",
+                    metaRoleLabel: "El meu rol", metaRoleValue: "Product Designer, Disseny UX/UI, Front-end Dev",
+                    metaToolsLabel: "Eines utilitzades", metaToolsValue: "Figma · Pug, Sass",
+                    metaSectorLabel: "Sector", metaSectorValue: "Escacs i apostes",
+                    metaYearLabel: "Any", metaYearValue: "2023 · en pausa",
+                    aboutBizHeading: "Sobre el negoci",
+                    aboutBizBody: "Glashh és una web app d'escacs amb un gir diferent: els jugadors aposten diners o tokens a les seves pròpies partides. La startup tenia una idea clara del negoci principal, però la vam auditar junts per ampliar-ne l'abast inicial.",
+                    contribHeading: "La meva contribució",
+                    contribP0: "Em vaig incorporar com a Product Designer d'aquest projecte de startup, centrant-me a definir les funcionalitats adequades i a oferir un disseny senzill, però que funcionés de debò.",
+                    contribP1: "Vaig liderar la recerca i la definició de funcionalitats, vaig mapejar els fluxos d'usuari del joc i vaig construir el prototip de principi a fi. Donada la mida reduïda de l'equip, també vaig treballar com a front-end, incorporant el sistema de disseny al codi — en total, unes 80 hores de disseny UX/UI i 100 hores de desenvolupament.",
+                    contribP2: "Vam construir tot el sistema visual internament — naming, logo, tipografia i color, arribant a un verd llima que transmet diners, risc i rapidesa mental. Però aquest no va ser un projecte sobre portar el disseny visual més lluny; el més interessant va passar abans, en la mecànica de confiança i equitat.",
+                    personasHeading: "Els nostres usuaris",
+                    personasIntro: "El meu coneixement del sector dels escacs i les apostes era escàs, així que vaig començar amb entrevistes. Van sorgir tres tipus de jugadors, cadascun amb un nivell de coneixement diferent, un motiu diferent per unir-se i una por diferent que els podia frenar.",
+                    moneyHeading: "Diners i tokens: construir confiança",
+                    moneyDq: "Com podríem generar confiança? Com podríem generar engagement?",
+                    moneyBody: "Sent realistes, algú introduiria diners en una app aleatòria que mai ha fet servir — sobretot si és nova al mercat? Aquest escepticisme era el veritable punt de partida.",
+                    moneyInsightMain: "Un model freemium era l'única via d'entrada.",
+                    moneyInsightP1: "Vaig dissenyar una «moneda dura» recolzada per diners reals i una «moneda tova» que es guanya jugant partides gratuïtes — la confiança es construeix abans que es mogui cap diner real.",
+                    swindleHeading: "Evitar que els jugadors siguin estafats",
+                    swindleDq: "Com podríem ajudar els jugadors a evitar ser estafats?",
+                    level1Title: "Principiant", level1Body: "apostes més baixes mentre s'estableixen la confiança i l'habilitat.",
+                    level2Title: "Intermedi", level2Body: "apostes moderades a mesura que el jugador construeix un historial.",
+                    level3Title: "Professional", level3Body: "les apostes més altes, un cop el nivell d'habilitat està ben establert.",
+                    swindleFollow1: "La seva primera partida es juga contra un bot que detecta el seu nivell, així que des de la segona partida ja juguen contra gent d'habilitat similar — cosa que a més manté motivats els jugadors més forts des del principi, en lloc de fer-los escalfar guanyant principiants.",
+                    resultsHeading: "Resultats",
+                    resultsBody: "El sistema centrat en la confiança — apostes escalonades, una primera partida calibrada per un bot i una cartera freemium — va arribar a funcionar com a prototip, cobrint tot el recorregut del jugador: explorar, apostar, jugar i tancar la partida. Vaig construir el front-end jo mateixa, de principi a fi, portant tot el sistema de disseny al codi.",
+                    resultsPoint1: "Dissenyar la confiança abans que les funcionalitats de creixement",
+                    resultsPoint2: "L'aparellament per nivell guanya a la moderació",
+                    resultsPoint3: "Els equips petits necessiten dissenyadores que també desenvolupin",
+                    resultsStatus: "Glashh està en pausa des del 2023, però la base de confiança ja està construïda i llesta per represa.",
                     dogfyMiniDesc: "Redissenyar la cancel·lació com una conversa de retenció.",
                     pChorescoreDesc: "Evita la conversa incòmoda amb els teus companys de pis! Crea hàbits de neteja i comparteix tasques.",
-                    p9grupDesc: "Projecte confidencial d'eCommerce B2B per a una empresa de distribució elèctrica."
+                    p9grupDesc: "Projecte confidencial d'eCommerce B2B2C per a una empresa de distribució elèctrica."
                 }
             };
             I18N_APPLY(pageDict);
+
+            // Hero image subtle zoom-out on scroll (same as Chorescore) + "teleprompter" text reveal (same as Dogfy/Chorescore)
+            (function () {
+                var heroImg = document.querySelector('.glashhHeroPhone');
+                var handsImg = document.querySelector('.glashhHandsZoom');
+
+                document.querySelectorAll('.scrollReveal').forEach(function (el) {
+                    var words = el.textContent.trim().split(/\s+/);
+                    el.innerHTML = words.map(function (w) { return '<span class="srWord">' + w + '</span>'; }).join(' ');
+                });
+                var revealWords = document.querySelectorAll('.scrollReveal .srWord');
+
+                var ticking = false;
+                function update() {
+                    if (heroImg) {
+                        var y = Math.min(window.scrollY, 400);
+                        var isDesktop = window.innerWidth >= 721;
+                        var baseScale = isDesktop ? 1.5 : 1.15;
+                        var floorScale = 1.0;
+                        var scale = baseScale - (y / 400) * (baseScale - floorScale);
+                        heroImg.style.transform = 'translateX(-50%) scale(' + scale.toFixed(3) + ')';
+                    }
+                    if (handsImg) {
+                        var hRect = handsImg.getBoundingClientRect();
+                        var hProgress = Math.max(0, Math.min(1, 1 - (hRect.top / window.innerHeight)));
+                        var hScale = 1.08 - hProgress * 0.08;
+                        handsImg.style.transform = 'scale(' + hScale.toFixed(3) + ')';
+                    }
+                    revealWords.forEach(function (span) {
+                        var top = span.getBoundingClientRect().top - window.innerHeight * 0.5;
+                        var value = 1 - 0.01 * top;
+                        var floor = span.closest('.ghDarkWrap') ? 0.3 : 0.1;
+                        span.style.opacity = Math.max(floor, Math.min(1, value)).toFixed(3);
+                    });
+                    ticking = false;
+                }
+                function onScroll() {
+                    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+                }
+                update();
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('resize', onScroll);
+            })();
         })();
     </script>
 </body>
