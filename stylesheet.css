@@ -633,6 +633,9 @@ footer.site a:hover { color: var(--ink); }
 .chorescoreHeroPhone { will-change: transform; }
 .scrollReveal { color: var(--ink); }
 .scrollReveal .srWord { display: inline-block; opacity: .1; will-change: opacity; }
+@media (max-width: 720px) {
+    .chorescoreHeroPhone { max-width: 143%; }
+}
 
 /* CHORESCORE — before/after blocks */
 .beforeAfterBlock { margin-top: 28px; }
@@ -655,7 +658,7 @@ footer.site a:hover { color: var(--ink); }
 .flowItem video {
     width: 100%;
     height: auto;
-    display: block;
+    display: none;
     border-radius: 16px;
     background: #111;
 }
