@@ -88,7 +88,7 @@
         @media (max-width: 720px) {
             .ghPage .ghSection { grid-template-columns: 1fr; gap: 10px; }
             .ghPage .ghTransition { height: auto !important; padding: 8px 0 0; }
-            .ghPage .ghTransitionInner img { width: 105% !important; max-width: none; margin-left: -2.5%; margin-bottom: -11.8%; }
+            .ghPage .ghTransitionInner img { width: 120% !important; max-width: none; margin-left: -10%; margin-bottom: -13.5%; }
             .ghPage .ghTransitionInner { position: static !important; transform: none !important; padding: 0 !important; }
         }
         body.ghPage { counter-reset: ghsec; }
