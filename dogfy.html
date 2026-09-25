@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="favicon.png" type="image/png">
-    <title>Dogfy Diet | Claudia Domingo Ruiz</title>
-    <meta name="description" content="Redesigning cancellation as a retention conversation, by Claudia Domingo Ruiz.">
+    <title>Dogfy Diet — Case study | Claudia Domingo Ruiz</title>
+    <meta name="description" content="Redesigning cancellation as a retention conversation — Dogfy Diet case study by Claudia Domingo Ruiz.">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMJE6FHS1Z"></script>
     <script>
@@ -37,23 +38,14 @@
                     <button type="button" data-setlang="es">ES</button>
                     <button type="button" data-setlang="ca">CA</button>
                 </div>
-                <div class="langToggle langToggleMobile" role="group" aria-label="Language">
-                    <span class="langMobileLabel" data-i18n="langMobileLabel">You can also view it in:</span>
-                    <div class="langMobileLinks">
-                        <button type="button" data-setlang="ca" data-i18n="langNameCa">Català</button>
-                        <button type="button" data-setlang="es" data-i18n="langNameEs">Castellano</button>
-                        <button type="button" data-setlang="en" data-i18n="langNameEn">English</button>
-                    </div>
-                </div>
                 <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta" data-i18n="navContact">Contact me</a>
             </div>
         </div>
     </nav>
-    <div class="navScrim" id="navScrim"></div>
 
     <section style="padding-top:24px;">
         <div style="position:relative; border-radius:24px; background:linear-gradient(180deg,#ffffff 0%,#cfd2fb 100%); width:100%; height:338px;">
-            <video class="dogfyHeroPhone" src="dogfy-hero-phone.webm" autoplay loop muted playsinline style="position:absolute; left:50%; transform:translateX(-50%); bottom:-60px; width:400px; height:auto; z-index:2;"></video>
+            <video src="dogfy-hero-phone.webm" autoplay loop muted playsinline style="position:absolute; left:50%; transform:translateX(-50%); bottom:-60px; width:400px; height:auto; z-index:2;"></video>
         </div>
     </section>
 
@@ -64,7 +56,7 @@
     </section>
 
     <section class="caseMeta">
-        <div><span data-i18n="metaRoleLabel">My role</span><p data-i18n="metaRoleValue">Product Designer, UX/UI Design</p></div>
+        <div><span data-i18n="metaRoleLabel">My role</span><p data-i18n="metaRoleValue">Product Designer, UX/UI Design, Front-end Dev</p></div>
         <div><span data-i18n="metaToolsLabel">Tools used</span><p>Figma</p></div>
         <div><span data-i18n="metaSectorLabel">Sector</span><p data-i18n="metaSectorValue">Petfood</p></div>
         <div><span data-i18n="metaYearLabel">Year</span><p>2024</p></div>
@@ -81,7 +73,7 @@
         <div class="resultsGrid" style="grid-template-columns:repeat(3,1fr);">
             <div class="resultCard">
                 <h3 data-i18n="ctxHeading">Context</h3>
-                <p data-i18n="ctxBody">The pause flow was confusing, and that confusion had a cost: many users felt frustrated and ended up abandoning the pause flow altogether, staying subscribed to Dogfy even when that wasn't really what they wanted.</p>
+                <p data-i18n="ctxBody">The pause flow was a quiet leak: this is where users were slipping away.</p>
             </div>
             <div class="resultCard">
                 <h3 data-i18n="chgHeading">Challenge</h3>
@@ -89,7 +81,7 @@
             </div>
             <div class="resultCard">
                 <h3 data-i18n="goalHeading">Goal</h3>
-                <p data-i18n="goalBody">Help users complete the pause flow when that's genuinely what they wanted, while still reducing the pause KPI — not through friction, but through clarity.</p>
+                <p data-i18n="goalBody">Improve the pause KPI — cut avoidable drop-off without limiting customer autonomy.</p>
             </div>
         </div>
     </section>
@@ -114,15 +106,16 @@
         </div>
     </section>
 
-    <div class="phoneGridWrap" style="width:100vw; margin-left:calc(50% - 50vw); background:#E3E3E3; padding:80px 40px; box-sizing:border-box; text-align:center; border-top:1px solid var(--line);">
-        <h2 style="max-width:var(--maxw); margin:0 auto; text-align:left; font-size:clamp(26px, 3.4vw, 34px); text-transform:uppercase;" data-i18n="beforeHeading">Before</h2>
-        <img src="dogfy-before-flow.png" alt="Cancellation flow before the redesign" class="phoneGridImg" style="max-width:var(--maxw); width:100%; height:auto; display:inline-block; margin-top:24px;">
-    </div>
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="beforeHeading">Before</h2>
+        <img src="dogfy-antes.png" alt="Cancellation flow before the redesign" style="width:100%; border-radius:18px; display:block; margin-top:16px;">
+    </section>
 
-    <div class="phoneGridWrap" style="width:100vw; margin-left:calc(50% - 50vw); background:linear-gradient(180deg, #C8EAEA 0%, #EFFFFF 100%); padding:80px 40px; box-sizing:border-box; text-align:center;">
-        <h2 style="max-width:var(--maxw); margin:0 auto; text-align:left; font-size:clamp(26px, 3.4vw, 34px); text-transform:uppercase;" data-i18n="afterHeading">After</h2>
-        <img src="dogfy-after-flow.png" alt="Cancellation flow after the redesign" class="phoneGridImg" style="max-width:var(--maxw); width:100%; height:auto; display:inline-block; margin-top:24px;">
-    </div>
+    <section class="ceramics" style="border-top:none;">
+        <h2 data-i18n="afterHeading">After</h2>
+        <img src="dogfy-despues.png" alt="Cancellation flow after the redesign" class="ctxVisualDesktop" style="border-radius:18px; margin-top:16px;">
+        <img src="dogfy-despues-mobile.png" alt="Cancellation flow after the redesign — full mobile screens: reason picker, food &amp; nutrition sub-reasons, ration adjustment offer, and pause confirmation" class="ctxVisualMobile" style="border-radius:18px; margin-top:16px;">
+    </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
         <h2 data-i18n="roleHeading">My role</h2>
@@ -173,7 +166,7 @@
             <a class="projectCard" href="9grup.html">
                 <img src="Card1.png" alt="9Grup SaaS project">
                 <h3>9Grup SaaS</h3>
-                <p data-i18n="p9grupDesc">Electric distribution company. Creation of a B2B2C eCommerce for different partners.</p>
+                <p data-i18n="p9grupDesc">Electric distribution company. Creation of a B2B eCommerce for different partners.</p>
             </a>
             <a class="projectCard" href="chorescore.html">
                 <img src="Card2.png" alt="Chorescore project">
@@ -213,47 +206,36 @@
 
             var hamburgerBtn = document.getElementById('hamburgerBtn');
             var navActionsEl = document.getElementById('navActions');
-            var navScrimEl = document.getElementById('navScrim');
             if (hamburgerBtn && navActionsEl) {
                 hamburgerBtn.addEventListener('click', function () {
                     var isOpen = navActionsEl.classList.toggle('open');
                     hamburgerBtn.classList.toggle('open', isOpen);
                     hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (navScrimEl) navScrimEl.classList.toggle('open', isOpen);
                 });
                 navActionsEl.querySelectorAll('a').forEach(function (link) {
                     link.addEventListener('click', function () {
                         navActionsEl.classList.remove('open');
                         hamburgerBtn.classList.remove('open');
                         hamburgerBtn.setAttribute('aria-expanded', 'false');
-                        if (navScrimEl) navScrimEl.classList.remove('open');
                     });
                 });
-                if (navScrimEl) {
-                    navScrimEl.addEventListener('click', function () {
-                        navActionsEl.classList.remove('open');
-                        hamburgerBtn.classList.remove('open');
-                        hamburgerBtn.setAttribute('aria-expanded', 'false');
-                        navScrimEl.classList.remove('open');
-                    });
-                }
             }
 
             var pageDict = {
                 en: {
                     heroTitle: "Redesigning cancellation as a retention conversation",
                     heroSub: "Turning a generic cancellation flow into a personalised experience based on why customers leave.",
-                    metaRoleLabel: "My role", metaRoleValue: "Product Designer, UX/UI Design",
+                    metaRoleLabel: "My role", metaRoleValue: "Product Designer, UX/UI Design, Front-end Dev",
                     metaToolsLabel: "Tools used", metaSectorLabel: "Sector", metaSectorValue: "Petfood",
                     metaYearLabel: "Year",
                     aboutBizHeading: "About the business",
                     aboutBizBody: "Dogfy Diet is a fresh dog food subscription service operating across Spain, France, Italy and Germany. Cancellation was a critical moment in the customer journey: customers were leaving for very different reasons, some of which could potentially be solved within the product itself.",
                     ctxHeading: "Context",
-                    ctxBody: "The pause flow was confusing, and that confusion had a cost: many users felt frustrated and ended up abandoning the pause flow altogether, staying subscribed to Dogfy even when that wasn't really what they wanted.",
+                    ctxBody: "The pause flow was a quiet leak: this is where users were slipping away.",
                     chgHeading: "Challenge",
                     chgBody: "Redesign the experience without touching the backend logic.",
                     goalHeading: "Goal",
-                    goalBody: "Help users complete the pause flow when that's genuinely what they wanted, while still reducing the pause KPI — not through friction, but through clarity.",
+                    goalBody: "Improve the pause KPI — cut avoidable drop-off without limiting customer autonomy.",
                     ctxVisualDesktopImg: "dogfy-context-visual-desktop-en.png",
                     ctxVisualMobileImg: "dogfy-context-visual-mobile-en.png",
                     beforeHeading: "Before", afterHeading: "After",
@@ -280,24 +262,24 @@
                     outcome2Title: "Redesigned to resolve fully in-product — no support ticket required", outcome2Sub: "UX impact",
                     outcome3Title: "Fewer Customer Care contacts on pause & cancel", outcome3Sub: "Operational efficiency",
                     outcomeNote: "Directional estimate based on published benchmarks for personalized cancellation flows (10–39% churn reduction — ProsperStack, 2026). Dogfy Diet's own figures are confidential and pending internal validation.",
-                    p9grupDesc: "Electric distribution company. Creation of a B2B2C eCommerce for different partners.",
+                    p9grupDesc: "Electric distribution company. Creation of a B2B eCommerce for different partners.",
                     pChorescoreDesc: "Avoid the awkward talk with your flatmates! Set cleaning habits and share chores.",
                     pGlashhDesc: "Experience chess with a twist — bet money or tokens while you play."
                 },
                 es: {
                     heroTitle: "Rediseñar la cancelación como una conversación de retención",
                     heroSub: "Convertir un flujo de cancelación genérico en una experiencia personalizada según el motivo real de cada cliente.",
-                    metaRoleLabel: "Mi rol", metaRoleValue: "Product Designer, Diseño UX/UI",
+                    metaRoleLabel: "Mi rol", metaRoleValue: "Product Designer, Diseño UX/UI, Front-end Dev",
                     metaToolsLabel: "Herramientas", metaSectorLabel: "Sector", metaSectorValue: "Petfood",
                     metaYearLabel: "Año",
                     aboutBizHeading: "Sobre el negocio",
                     aboutBizBody: "Dogfy Diet es un servicio de suscripción de comida fresca para perros que opera en España, Francia, Italia y Alemania. La cancelación era un momento crítico del recorrido del cliente: la gente se iba por motivos muy distintos, algunos de los cuales podían resolverse dentro del propio producto.",
                     ctxHeading: "Contexto",
-                    ctxBody: "El flujo de pausa resultaba confuso para los usuarios, lo que generaba frustración y llevaba a muchos a abandonarlo, permaneciendo suscritos a Dogfy sin que esa fuera realmente su intención.",
+                    ctxBody: "El flujo de pausa era un punto ciego: por ahí se nos escapaban clientes.",
                     chgHeading: "Reto",
                     chgBody: "Rediseñar la experiencia sin tocar la lógica de backend.",
                     goalHeading: "Objetivo",
-                    goalBody: "Ayudar a los usuarios a completar el flujo de pausa cuando eso era lo que realmente querían, y a la vez reducir el KPI de pausas — no mediante fricción, sino mediante claridad.",
+                    goalBody: "Mejorar el KPI de pausas: reducir bajas evitables sin restar autonomía al cliente.",
                     ctxVisualDesktopImg: "dogfy-context-visual-desktop-es.png",
                     ctxVisualMobileImg: "dogfy-context-visual-mobile-es.png",
                     beforeHeading: "Antes", afterHeading: "Después",
@@ -324,24 +306,24 @@
                     outcome2Title: "Rediseñado para resolverse por completo en producto — sin necesidad de ticket de soporte", outcome2Sub: "Impacto UX",
                     outcome3Title: "Menos contactos a Atención al Cliente en pausa y cancelación", outcome3Sub: "Eficiencia operativa",
                     outcomeNote: "Estimación direccional basada en benchmarks publicados sobre flujos de cancelación personalizados (reducción de churn del 10–39 %, ProsperStack, 2026). Las cifras propias de Dogfy Diet son confidenciales y están pendientes de validación interna.",
-                    p9grupDesc: "Empresa de distribución eléctrica. Creación de un eCommerce B2B2C para distintos partners.",
+                    p9grupDesc: "Empresa de distribución eléctrica. Creación de un eCommerce B2B para distintos partners.",
                     pChorescoreDesc: "¡Evita la charla incómoda con tus compañeros de piso! Crea hábitos de limpieza y comparte tareas.",
                     pGlashhDesc: "Vive el ajedrez con un giro distinto — apuesta dinero o tokens mientras juegas."
                 },
                 ca: {
                     heroTitle: "Redissenyar la cancel·lació com una conversa de retenció",
                     heroSub: "Convertir un flux de cancel·lació genèric en una experiència personalitzada segons el motiu real de cada client.",
-                    metaRoleLabel: "El meu rol", metaRoleValue: "Product Designer, Disseny UX/UI",
+                    metaRoleLabel: "El meu rol", metaRoleValue: "Product Designer, Disseny UX/UI, Front-end Dev",
                     metaToolsLabel: "Eines utilitzades", metaSectorLabel: "Sector", metaSectorValue: "Petfood",
                     metaYearLabel: "Any",
                     aboutBizHeading: "Sobre el negoci",
                     aboutBizBody: "Dogfy Diet és un servei de subscripció de menjar fresc per a gossos que opera a Espanya, França, Itàlia i Alemanya. La cancel·lació era un moment crític del recorregut del client: la gent marxava per motius molt diferents, alguns dels quals es podien resoldre dins del propi producte.",
                     ctxHeading: "Context",
-                    ctxBody: "El flux de pausa era confús, i aquesta confusió tenia un cost: molts usuaris sentien frustració i acabaven abandonant el flux, quedant-se subscrits a Dogfy sense voler-ho realment.",
+                    ctxBody: "El flux de pausa era un punt cec: per allà se'ns escapaven clients.",
                     chgHeading: "Repte",
                     chgBody: "Redissenyar l'experiència sense tocar la lògica de backend.",
                     goalHeading: "Objectiu",
-                    goalBody: "Ajudar els usuaris a completar el flux de pausa quan això era el que realment volien, i alhora reduir el KPI de pauses — no mitjançant fricció, sinó mitjançant claredat.",
+                    goalBody: "Millorar el KPI de pauses: reduir baixes evitables sense reduir l'autonomia del client.",
                     ctxVisualDesktopImg: "dogfy-context-visual-desktop-es.png",
                     ctxVisualMobileImg: "dogfy-context-visual-mobile-es.png",
                     beforeHeading: "Abans", afterHeading: "Després",
@@ -368,7 +350,7 @@
                     outcome2Title: "Redissenyat per resoldre's totalment en producte — sense necessitat de tiquet de suport", outcome2Sub: "Impacte UX",
                     outcome3Title: "Menys contactes a Atenció al Client en pausa i cancel·lació", outcome3Sub: "Eficiència operativa",
                     outcomeNote: "Estimació direccional basada en benchmarks publicats sobre fluxos de cancel·lació personalitzats (reducció de churn del 10–39 %, ProsperStack, 2026). Les xifres pròpies de Dogfy Diet són confidencials i estan pendents de validació interna.",
-                    p9grupDesc: "Empresa de distribució elèctrica. Creació d'un eCommerce B2B2C per a diferents partners.",
+                    p9grupDesc: "Empresa de distribució elèctrica. Creació d'un eCommerce B2B per a diferents partners.",
                     pChorescoreDesc: "Evita la conversa incòmoda amb els teus companys de pis! Crea hàbits de neteja i comparteix tasques.",
                     pGlashhDesc: "Viu els escacs amb un gir diferent — aposta diners o tokens mentre jugues."
                 }

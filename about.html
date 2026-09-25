@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="favicon.png" type="image/png">
@@ -37,19 +38,10 @@
                     <button type="button" data-setlang="es">ES</button>
                     <button type="button" data-setlang="ca">CA</button>
                 </div>
-                <div class="langToggle langToggleMobile" role="group" aria-label="Language">
-                    <span class="langMobileLabel" data-i18n="langMobileLabel">You can also view it in:</span>
-                    <div class="langMobileLinks">
-                        <button type="button" data-setlang="ca" data-i18n="langNameCa">Català</button>
-                        <button type="button" data-setlang="es" data-i18n="langNameEs">Castellano</button>
-                        <button type="button" data-setlang="en" data-i18n="langNameEn">English</button>
-                    </div>
-                </div>
                 <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta" data-i18n="navContact">Contact me</a>
             </div>
         </div>
     </nav>
-    <div class="navScrim" id="navScrim"></div>
 
     <section class="ceramics" style="border-top:none;">
         <h2 data-i18n="workHeading">My design journey</h2>
@@ -330,30 +322,19 @@
 
             var hamburgerBtn = document.getElementById('hamburgerBtn');
             var navActionsEl = document.getElementById('navActions');
-            var navScrimEl = document.getElementById('navScrim');
             if (hamburgerBtn && navActionsEl) {
                 hamburgerBtn.addEventListener('click', function () {
                     var isOpen = navActionsEl.classList.toggle('open');
                     hamburgerBtn.classList.toggle('open', isOpen);
                     hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (navScrimEl) navScrimEl.classList.toggle('open', isOpen);
                 });
                 navActionsEl.querySelectorAll('a').forEach(function (link) {
                     link.addEventListener('click', function () {
                         navActionsEl.classList.remove('open');
                         hamburgerBtn.classList.remove('open');
                         hamburgerBtn.setAttribute('aria-expanded', 'false');
-                        if (navScrimEl) navScrimEl.classList.remove('open');
                     });
                 });
-                if (navScrimEl) {
-                    navScrimEl.addEventListener('click', function () {
-                        navActionsEl.classList.remove('open');
-                        hamburgerBtn.classList.remove('open');
-                        hamburgerBtn.setAttribute('aria-expanded', 'false');
-                        navScrimEl.classList.remove('open');
-                    });
-                }
             }
             var pageDict = {
                 es: {

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="favicon.png" type="image/png">
@@ -37,19 +38,10 @@
                     <button type="button" data-setlang="es">ES</button>
                     <button type="button" data-setlang="ca">CA</button>
                 </div>
-                <div class="langToggle langToggleMobile" role="group" aria-label="Language">
-                    <span class="langMobileLabel" data-i18n="langMobileLabel">You can also view it in:</span>
-                    <div class="langMobileLinks">
-                        <button type="button" data-setlang="ca" data-i18n="langNameCa">Català</button>
-                        <button type="button" data-setlang="es" data-i18n="langNameEs">Castellano</button>
-                        <button type="button" data-setlang="en" data-i18n="langNameEn">English</button>
-                    </div>
-                </div>
                 <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta" data-i18n="navContact">Contact me</a>
             </div>
         </div>
     </nav>
-    <div class="navScrim" id="navScrim"></div>
 
     <section style="padding-top:24px;">
         <div style="position:relative; border-radius:24px; background:linear-gradient(180deg,#ffffff 0%,#c5e8ef 100%); width:100%; height:338px;">
@@ -112,12 +104,11 @@
         </div>
     </section>
 
-    <div class="phoneGridWrap" style="width:100vw; margin-left:calc(50% - 50vw); background:#EDEDED; padding:80px 40px; box-sizing:border-box; text-align:center;">
-        <img src="chorescore-phones-grid.png" alt="Chorescore across the app: home, Buy Chorecards, weekly chore and leaderboard screens" class="phoneGridImg" style="max-width:var(--maxw); width:100%; height:auto; display:inline-block;">
-    </div>
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="prototypeHeading">Prototype</h2>
+        <img src="chorescore-gallery-2.png" alt="Chorescore onboarding and Buy Chorecards screen" style="width:100%; border-radius:20px; display:block; margin-top:20px;">
 
-    <section class="ceramics" style="border-top:1px solid var(--line); display:none;">
-        <h3 class="pixelsTitle" data-i18n="scenario1Heading">Scenario 1 — Introducing the app</h3>
+        <h3 class="pixelsTitle" style="margin-top:40px;" data-i18n="scenario1Heading">Scenario 1 — Introducing the app</h3>
         <div class="flowGrid">
             <div class="flowItem">
                 <video src="chorescore-flow-1-john.mov" controls playsinline></video>
@@ -167,10 +158,6 @@
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
-        <img src="chorescore-designsystem.png" alt="Chorescore design system components" style="width:100%; border-radius:16px; display:block; background:#2b2b2b;">
-    </section>
-
-    <section class="ceramics" style="border-top:1px solid var(--line);">
         <h2 data-i18n="whatsNextHeading">What's next?</h2>
         <ul class="challengeList plainBullets" style="list-style:disc; padding-left:20px;">
             <li style="padding-left:0;" data-i18n="next1">Create a profile screen.</li>
@@ -180,6 +167,10 @@
             <li style="padding-left:0;" data-i18n="next5">Provide more information on how flatmate rating affects points.</li>
             <li style="padding-left:0;" data-i18n="next6">Develop the edit function for chore and extra task cards.</li>
         </ul>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <img src="chorescore-designsystem.png" alt="Chorescore design system components" style="width:100%; border-radius:16px; display:block; background:#2b2b2b;">
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
@@ -195,7 +186,7 @@
             <a class="projectCard" href="9grup.html">
                 <img src="Card1.png" alt="9Grup SaaS project">
                 <h3>9Grup SaaS</h3>
-                <p data-i18n="p9grupDesc">Confidential B2B2C eCommerce project for an electric distribution company.</p>
+                <p data-i18n="p9grupDesc">Confidential B2B eCommerce project for an electric distribution company.</p>
             </a>
             <a class="projectCard" href="glashh.html">
                 <img src="Card3.png" alt="Glashh project">
@@ -230,30 +221,19 @@
 
             var hamburgerBtn = document.getElementById('hamburgerBtn');
             var navActionsEl = document.getElementById('navActions');
-            var navScrimEl = document.getElementById('navScrim');
             if (hamburgerBtn && navActionsEl) {
                 hamburgerBtn.addEventListener('click', function () {
                     var isOpen = navActionsEl.classList.toggle('open');
                     hamburgerBtn.classList.toggle('open', isOpen);
                     hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (navScrimEl) navScrimEl.classList.toggle('open', isOpen);
                 });
                 navActionsEl.querySelectorAll('a').forEach(function (link) {
                     link.addEventListener('click', function () {
                         navActionsEl.classList.remove('open');
                         hamburgerBtn.classList.remove('open');
                         hamburgerBtn.setAttribute('aria-expanded', 'false');
-                        if (navScrimEl) navScrimEl.classList.remove('open');
                     });
                 });
-                if (navScrimEl) {
-                    navScrimEl.addEventListener('click', function () {
-                        navActionsEl.classList.remove('open');
-                        hamburgerBtn.classList.remove('open');
-                        hamburgerBtn.setAttribute('aria-expanded', 'false');
-                        navScrimEl.classList.remove('open');
-                    });
-                }
             }
             var pageDict = {
                 es: {
@@ -277,6 +257,7 @@
                     note3Text: "<strong>Cada persona tiene ideas distintas</strong> sobre cuándo fregar los platos y cómo debe quedar la cocina.",
                     conclusionsLabel: "Conclusiones",
                     conclusionsText: "Esta app ayuda a construir compromiso de comunidad entre compañeros de piso dando incentivos, motivando así a hacer las tareas del hogar — creando no solo un entorno limpio y organizado, sino también buen ambiente.",
+                    prototypeHeading: "Prototipo",
                     scenario1Heading: "Escenario 1 — Introduciendo la app",
                     flow1john: "Flujo 1 — John",
                     flow1johnText: "John acaba de traer a Marta, una nueva compañera de piso, a vivir con él y otras dos personas. Para organizar la limpieza, John y sus compañeros usan la app Chorescore.",
@@ -302,7 +283,7 @@
                     next5: "Dar más información sobre cómo afecta la valoración de compañeros a los puntos.",
                     next6: "Desarrollar la función de edición para las tarjetas de tareas y tareas extra.",
                     dogfyMiniDesc: "Rediseñar la cancelación como una conversación de retención.",
-                    p9grupDesc: "Proyecto confidencial de eCommerce B2B2C para una empresa de distribución eléctrica.",
+                    p9grupDesc: "Proyecto confidencial de eCommerce B2B para una empresa de distribución eléctrica.",
                     pGlashhDesc: "Confidencial — app de ajedrez con mecánica de apuestas."
                 },
                 ca: {
@@ -326,6 +307,7 @@
                     note3Text: "<strong>Cada persona té idees diferents</strong> sobre quan rentar els plats i com ha de quedar la cuina.",
                     conclusionsLabel: "Conclusions",
                     conclusionsText: "Aquesta app ajuda a construir compromís de comunitat entre companys de pis donant incentius, motivant així a fer les tasques de la llar — creant no només un entorn net i organitzat, sinó també bon ambient.",
+                    prototypeHeading: "Prototip",
                     scenario1Heading: "Escenari 1 — Introduint l'app",
                     flow1john: "Flux 1 — John",
                     flow1johnText: "En John acaba de portar la Marta, una nova companya de pis, a viure amb ell i dues persones més. Per organitzar la neteja, en John i els seus companys fan servir l'app Chorescore.",
@@ -351,7 +333,7 @@
                     next5: "Donar més informació sobre com afecta la valoració de companys als punts.",
                     next6: "Desenvolupar la funció d'edició per a les targetes de tasques i tasques extra.",
                     dogfyMiniDesc: "Redissenyar la cancel·lació com una conversa de retenció.",
-                    p9grupDesc: "Projecte confidencial d'eCommerce B2B2C per a una empresa de distribució elèctrica.",
+                    p9grupDesc: "Projecte confidencial d'eCommerce B2B per a una empresa de distribució elèctrica.",
                     pGlashhDesc: "Confidencial — app d'escacs amb mecànica d'apostes."
                 }
             };
