@@ -146,6 +146,14 @@ section, footer.site {
 .ceramics { border-top: 1px solid var(--line); }
 .ceramics h2 { font-size: clamp(26px, 3.4vw, 34px); text-transform: uppercase; }
 .ceramics .sub { margin-top: 6px; font-size: 15px; }
+
+.flowCard { border-radius: 24px; padding: 40px; }
+.flowCard h2 { margin-top: 0; }
+.flowCardBefore { background: #e3e3e3; }
+.flowCardAfter { background: linear-gradient(135deg, #C8EAEA 0%, #EFFFFF 100%); }
+@media (max-width: 720px) {
+    .flowCard { padding: 24px; border-radius: 18px; }
+}
 .ceramicsGrid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
