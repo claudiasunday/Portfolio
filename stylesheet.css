@@ -102,7 +102,7 @@ section, footer.site {
     padding-bottom: 40px;
 }
 .hero h1 {
-    font-size: clamp(38px, 5.6vw, 78px);
+    font-size: clamp(32px, 8.5vw, 81px);
     line-height: 1.08;
     letter-spacing: -0.03em;
     margin-bottom: 40px;
@@ -113,7 +113,22 @@ section, footer.site {
 .hero h1 .muted { color: #A9A6A2; font-weight: 800; }
 .hero h1 .icon-img { height: 0.9em; width: auto; vertical-align: middle; display: inline-block; }
 .hero p { font-size: 17px; max-width: 68ch; }
+.heroFindMe {
+    font-size: clamp(34px, 9.5vw, 46px) !important;
+    line-height: 1.15;
+    font-weight: 800;
+    color: var(--ink);
+    margin-top: 0;
+    margin-bottom: 16px;
+    max-width: none !important;
+    overflow-wrap: break-word;
+}
+.heroFindMe .muted { color: #A9A6A2 !important; font-weight: 800; }
+.heroFindMe .icon-img { height: 0.9em; width: auto; vertical-align: middle; display: inline-block; }
 .hero p strong { color: var(--ink); }
+@media (max-width: 720px) {
+    .heroFindMe { font-size: 24px !important; }
+}
 
 .btn-pill, .btn-outline {
     display: inline-flex;
