@@ -34,9 +34,9 @@
                     <li><a href="about.html" data-i18n="navAbout">About me</a></li>
                 </ul>
                 <div class="langToggle" role="group" aria-label="Language">
-                    <button type="button" data-setlang="en">EN</button>
-                    <button type="button" data-setlang="es">ES</button>
-                    <button type="button" data-setlang="ca">CA</button>
+                    <button type="button" data-setlang="en"><span class="langFull" data-i18n="langNameEn">English</span><span class="langShort">EN</span></button>
+                    <button type="button" data-setlang="es"><span class="langFull" data-i18n="langNameEs">Spanish</span><span class="langShort">ES</span></button>
+                    <button type="button" data-setlang="ca"><span class="langFull" data-i18n="langNameCa">Catalan</span><span class="langShort">CAT</span></button>
                 </div>
                 <a href="mailto:sundayclaudia@gmail.com" class="btn-pill nav-cta" data-i18n="navContact">Contact me</a>
             </div>
@@ -106,6 +106,45 @@
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="roleHeading">My role</h2>
+        <p class="scrollReveal" style="font-size:clamp(18px, 2vw + 10.5px, 28px); line-height:1.3; font-weight:400; max-width:65ch; margin-top:16px;" data-i18n="roleP1">I owned the UX design from discovery to development, working closely with Customer Care, Nutrition, Business and Engineering.</p>
+        <p class="scrollReveal" style="font-size:clamp(18px, 2vw + 10.5px, 28px); line-height:1.3; font-weight:400; max-width:65ch;" data-i18n="roleP2">My main focus was translating business rules and customer scenarios into a flow that could actually be implemented and maintained.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <div class="baToggle" role="tablist" aria-label="Before / After">
+            <button type="button" role="tab" class="btn-outline" aria-selected="false" aria-controls="baPanelBefore" data-ba="baPanelBefore" data-i18n="beforeHeading">Before</button>
+            <button type="button" role="tab" class="btn-pill" aria-selected="true" aria-controls="baPanelAfter" data-ba="baPanelAfter" data-i18n="afterHeading">After</button>
+        </div>
+        <div class="flowCard flowCardBefore" id="baPanelBefore" role="tabpanel" hidden>
+            <h2 data-i18n="beforeHeading">Before</h2>
+            <img src="dogfy-before-flow.png" alt="Cancellation flow before the redesign" class="ctxVisualDesktop" style="border-radius:18px; margin-top:16px;">
+            <img src="dogfy-before-flow-mobile.png" alt="Cancellation flow before the redesign — full mobile screens: keep-benefits vs. pause consent, single nutritional-aspects accordion, nutritionist-vs-pause choice, and final pause confirmation" class="ctxVisualMobile" style="border-radius:18px; margin-top:16px;">
+        </div>
+        <div class="flowCard flowCardAfter" id="baPanelAfter" role="tabpanel">
+            <h2 data-i18n="afterHeading">After</h2>
+            <img src="dogfy-after-flow.png" alt="Cancellation flow after the redesign" class="ctxVisualDesktop" style="border-radius:18px; margin-top:16px;">
+            <img src="dogfy-after-flow-mobile.png" alt="Cancellation flow after the redesign — full mobile screens: reason category picker, food &amp; nutrition sub-reasons list, ration adjustment vs. nutritionist offer, and feedback confirmation" class="ctxVisualMobile" style="border-radius:18px; margin-top:16px;">
+        </div>
+        <script>
+            (function () {
+                var tabs = document.querySelectorAll('.baToggle [data-ba]');
+                tabs.forEach(function (tab) {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(function (t) {
+                            var on = t === tab;
+                            t.classList.toggle('btn-pill', on);
+                            t.classList.toggle('btn-outline', !on);
+                            t.setAttribute('aria-selected', on ? 'true' : 'false');
+                            document.getElementById(t.dataset.ba).hidden = !on;
+                        });
+                    });
+                });
+            })();
+        </script>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
         <h2 data-i18n="dqHeading">Design question</h2>
         <p class="designQuestion scrollReveal" style="font-size:clamp(18px, 2vw + 10.5px, 28px); line-height:1.3; font-weight:400; " data-i18n="dqText">How might we reduce avoidable cancellations without compromising customer autonomy?</p>
         <p class="scrollReveal" style="font-size:clamp(18px, 2vw + 10.5px, 28px); line-height:1.3; font-weight:400; margin-top:16px; max-width:75ch;" data-i18n="dqSub">The goal wasn't to make cancellation harder. It was to understand the reason behind it and offer a genuinely useful alternative when possible.</p>
@@ -121,31 +160,44 @@
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
-        <div class="flowCard flowCardBefore">
-            <h2 data-i18n="beforeHeading">Before</h2>
-            <img src="dogfy-before-flow.png" alt="Cancellation flow before the redesign" class="ctxVisualDesktop" style="border-radius:18px; margin-top:16px;">
-            <img src="dogfy-before-flow-mobile.png" alt="Cancellation flow before the redesign — full mobile screens: keep-benefits vs. pause consent, single nutritional-aspects accordion, nutritionist-vs-pause choice, and final pause confirmation" class="ctxVisualMobile" style="border-radius:18px; margin-top:16px;">
-        </div>
-    </section>
-
-    <section class="ceramics" style="border-top:none;">
-        <div class="flowCard flowCardAfter">
-            <h2 data-i18n="afterHeading">After</h2>
-            <img src="dogfy-after-flow.png" alt="Cancellation flow after the redesign" class="ctxVisualDesktop" style="border-radius:18px; margin-top:16px;">
-            <img src="dogfy-after-flow-mobile.png" alt="Cancellation flow after the redesign — full mobile screens: reason category picker, food &amp; nutrition sub-reasons list, ration adjustment vs. nutritionist offer, and feedback confirmation" class="ctxVisualMobile" style="border-radius:18px; margin-top:16px;">
-        </div>
-    </section>
-
-    <section class="ceramics" style="border-top:1px solid var(--line);">
-        <h2 data-i18n="roleHeading">My role</h2>
-        <p class="scrollReveal" style="font-size:clamp(18px, 2vw + 10.5px, 28px); line-height:1.3; font-weight:400; max-width:65ch; margin-top:16px;" data-i18n="roleP1">I owned the UX design from discovery to development, working closely with Customer Care, Nutrition, Business and Engineering.</p>
-        <p class="scrollReveal" style="font-size:clamp(18px, 2vw + 10.5px, 28px); line-height:1.3; font-weight:400; max-width:65ch;" data-i18n="roleP2">My main focus was translating business rules and customer scenarios into a flow that could actually be implemented and maintained.</p>
-    </section>
-
-    <section class="ceramics" style="border-top:1px solid var(--line);">
         <h2 data-i18n="treeHeading">From a linear flow to a decision tree</h2>
         <p class="scrollReveal" style="font-size:clamp(18px, 2vw + 10.5px, 28px); line-height:1.3; font-weight:400; max-width:65ch; margin-top:16px;" data-i18n="treeP1">Instead of sending every customer through the same cancellation journey, the new experience adapts to their specific reason for leaving.</p>
         <p class="designQuestion scrollReveal" style="font-size:clamp(18px, 2vw + 10.5px, 28px); line-height:1.3; font-weight:400; " data-i18n="treeP2">Identify the reason &rarr; understand the friction &rarr; offer a relevant solution &rarr; let the customer decide.</p>
+    </section>
+
+    <section class="ceramics" style="border-top:1px solid var(--line);">
+        <h2 data-i18n="videoHeading">See it live</h2>
+        <p class="sub" style="margin-top:8px;" data-i18n="videoSub">The shipped pause flow, in Dogfy Diet's own help video (in Spanish).</p>
+        <div class="videoEmbed">
+            <a class="videoFacade" id="dogfyVideo" href="https://www.youtube.com/watch?v=Q_qn4_hwbGk" role="button" aria-label="Play video: Dogfy Diet — Cómo pausar tu cuenta">
+                <img src="https://i.ytimg.com/vi/Q_qn4_hwbGk/hqdefault.jpg" alt="" loading="lazy">
+                <span class="videoPlay" aria-hidden="true"></span>
+            </a>
+        </div>
+        <script>
+            (function () {
+                var a = document.getElementById('dogfyVideo');
+                var id = 'Q_qn4_hwbGk';
+                function load(withSound) {
+                    if (!a.isConnected) return;
+                    var f = document.createElement('iframe');
+                    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1&loop=1&playlist=' + id + (withSound ? '' : '&mute=1');
+                    f.title = 'Dogfy Diet — Cómo pausar tu cuenta';
+                    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+                    f.referrerPolicy = 'strict-origin-when-cross-origin';
+                    f.allowFullscreen = true;
+                    a.replaceWith(f);
+                }
+                a.addEventListener('click', function (e) { e.preventDefault(); load(true); });
+                /* Reproducció automàtica (sense so) quan el vídeo entra a la pantalla */
+                if ('IntersectionObserver' in window) {
+                    var io = new IntersectionObserver(function (entries) {
+                        if (entries[0].isIntersecting) { io.disconnect(); load(false); }
+                    }, { threshold: 0.5 });
+                    io.observe(a);
+                }
+            })();
+        </script>
     </section>
 
     <section class="ceramics" style="border-top:1px solid var(--line);">
@@ -257,6 +309,7 @@
                     ctxVisualDesktopImg: "dogfy-context-visual-desktop-en.png",
                     ctxVisualMobileImg: "dogfy-context-visual-mobile-en.png",
                     beforeHeading: "Before", afterHeading: "After",
+                    videoHeading: "See it live", videoSub: "The shipped pause flow, in Dogfy Diet's own help video (in Spanish).",
                     dqHeading: "Design question",
                     dqText: "How might we reduce avoidable cancellations without compromising customer autonomy?",
                     dqSub: "The goal wasn't to make cancellation harder. It was to understand the reason behind it and offer a genuinely useful alternative when possible.",
@@ -300,6 +353,7 @@
                     ctxVisualDesktopImg: "dogfy-context-visual-desktop-es.png",
                     ctxVisualMobileImg: "dogfy-context-visual-mobile-es.png",
                     beforeHeading: "Antes", afterHeading: "Después",
+                    videoHeading: "Míralo en acción", videoSub: "El flujo de pausa en producción, en el vídeo de ayuda de Dogfy Diet.",
                     dqHeading: "Pregunta de diseño",
                     dqText: "¿Cómo podríamos reducir las bajas evitables sin comprometer la autonomía del cliente?",
                     dqSub: "El objetivo no era dificultar la cancelación, sino entender el motivo real y ofrecer una alternativa genuinamente útil cuando fuera posible.",
@@ -343,6 +397,7 @@
                     ctxVisualDesktopImg: "dogfy-context-visual-desktop-es.png",
                     ctxVisualMobileImg: "dogfy-context-visual-mobile-es.png",
                     beforeHeading: "Abans", afterHeading: "Després",
+                    videoHeading: "Mira-ho en acció", videoSub: "El flux de pausa en producció, al vídeo d'ajuda de Dogfy Diet.",
                     dqHeading: "Pregunta de disseny",
                     dqText: "Com podríem reduir les baixes evitables sense comprometre l'autonomia del client?",
                     dqSub: "L'objectiu no era dificultar la cancel·lació, sinó entendre el motiu real i oferir una alternativa genuïnament útil quan fos possible.",
